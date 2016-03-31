@@ -1,10 +1,9 @@
 package proiektua.advancedBattleship;
 
-public class main {
+public abstract class Main {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-
+		AdvancedBattleship.getAdvancedBattleship().jokatu();
 	}
 
 }
