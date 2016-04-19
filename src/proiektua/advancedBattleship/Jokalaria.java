@@ -11,4 +11,8 @@ public class Jokalaria {
 	public Jokalaria(String pIzena){
 		izena = pIzena;
 	}
+	
+	public void ErasoaErosi(){
+		
+	}
 }

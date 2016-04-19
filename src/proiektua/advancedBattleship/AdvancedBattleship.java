@@ -3,6 +3,7 @@ package proiektua.advancedBattleship;
 public class AdvancedBattleship {
 
 	private static AdvancedBattleship nAdvancedBattleship = null;
+	private int txanda = 0;
 	private Jokalaria[] jokalariak;
 	
 	private AdvancedBattleship(){
@@ -28,5 +29,16 @@ public class AdvancedBattleship {
 	
 	public void jokatu(){
 		jokalariakSortu();
+		hasierakoErasoakErosi();
+		boolean partidaAmaitu = false;
+		while(!partidaAmaitu){
+			
+		}
+	}
+	
+	private void hasierakoErasoakErosi(){
+		for(int x=0; x<jokalariak.length; x++){
+			jokalariak[x].ErasoaErosi();
+		}
 	}
 }
