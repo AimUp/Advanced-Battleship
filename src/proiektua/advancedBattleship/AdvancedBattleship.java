@@ -5,6 +5,7 @@ public class AdvancedBattleship {
 	private static AdvancedBattleship nAdvancedBattleship = null;
 	private int txanda = 0;
 	private Jokalaria[] jokalariak;
+	private boolean bukatu = false;
 	
 	private AdvancedBattleship(){
 		Teklatua.getTeklatua().hasierakoMezua();
@@ -30,15 +31,28 @@ public class AdvancedBattleship {
 	public void jokatu(){
 		jokalariakSortu();
 		hasierakoErasoakErosi();
-		boolean partidaAmaitu = false;
-		while(!partidaAmaitu){
-			
+		while(!bukatu){
+			while(jokalariak[txanda].txandaDu()){
+				jokalariak[txanda].jokatu();
+			}
 		}
 	}
 	
 	private void hasierakoErasoakErosi(){
+		int erasoKopurua;
 		for(int x=0; x<jokalariak.length; x++){
-			jokalariak[x].ErasoaErosi();
+			erasoKopurua = 10;
+			while(erasoKopurua>=0){
+				jokalariak[x].ErasoaErosi();
+				erasoKopurua--;
+			}
+		}
+	}
+	
+	public void partidaBukatu(){
+		System.out.println("Zihur zaude partida bukatu nahi duzula?");
+		if(Teklatua.getTeklatua().baiEdoEz()){
+			bukatu = true;
 		}
 	}
 }
