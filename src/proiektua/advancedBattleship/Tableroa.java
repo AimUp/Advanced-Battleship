@@ -55,9 +55,9 @@ public class Tableroa {
 		matriz[3][1] = "◑ ";
 		matriz[3][2] = "◑ ";
 		matriz[3][3] = "◑ ";
-		matriz[3][4] = "Ⓕ ";
-		matriz[3][5] = "Ⓕ ";
-		matriz[3][6] = "Ⓕ ";
+		matriz[3][4] = "◑ ";
+		matriz[3][5] = "◑ ";
+		matriz[3][6] = "◑ ";
 		matriz[3][7] = "◑ ";
 		matriz[3][8] = "◑ ";
 		matriz[3][9] = "◑ ";
