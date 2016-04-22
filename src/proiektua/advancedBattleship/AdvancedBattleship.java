@@ -30,7 +30,7 @@ public class AdvancedBattleship {
 	
 	public void jokatu(){
 		jokalariakSortu();
-		hasierakoErasoakErosi();
+		hasierakoErasoaKokatu();
 		while(!bukatu){
 			while(jokalariak[txanda].txandaDu()){
 				jokalariak[txanda].jokatu();
@@ -38,7 +38,7 @@ public class AdvancedBattleship {
 		}
 	}
 	
-	private void hasierakoErasoakErosi(){
+	private void hasierakoErasoaKokatu(){
 		int erasoKopurua;
 		for(int x=0; x<jokalariak.length; x++){
 			erasoKopurua = 10;

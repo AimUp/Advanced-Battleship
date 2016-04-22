@@ -16,15 +16,18 @@ public class Jokalaria {
 	}
 	
 	public void jokatu(){
-		int aukera = Teklatua.getTeklatua().jokalariakJokatzekoAukerak();
-		switch (aukera) {
-		case 0: AdvancedBattleship.getAdvancedBattleship().partidaBukatu();
-				break;
-		case 1: ErasoEgin();
-				break;
-		case 2: ErasoaErosi();
-				break;
+		while(txandak>0){
+			int aukera = Teklatua.getTeklatua().jokalariakJokatzekoAukerak();
+			switch (aukera) {
+			case 0: AdvancedBattleship.getAdvancedBattleship().partidaBukatu();
+					break;
+			case 1: ErasoEgin();
+					break;
+			case 2: ErasoaErosi();
+					break;
+			}
 		}
+		txandak = 1;
 	}
 	
 	private void ErasoEgin(){

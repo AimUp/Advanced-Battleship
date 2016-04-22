@@ -2,6 +2,7 @@ package proiektua.advancedBattleship;
 
 public abstract class ErasoMota {
 
+	private String izena;
 	private int prezioa;
 	
 	public ErasoMota(int pPrezioa){
@@ -10,6 +11,10 @@ public abstract class ErasoMota {
 	
 	protected int getPrezioa(){
 		return prezioa;
+	}
+	
+	protected String getIzena(){
+		return izena;
 	}
 	
 	protected abstract void espezifikazioakInprimatu();
