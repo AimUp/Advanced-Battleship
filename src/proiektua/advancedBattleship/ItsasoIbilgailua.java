@@ -3,10 +3,10 @@ package proiektua.advancedBattleship;
 public abstract class ItsasoIbilgailua extends ErasoMota{
 	private boolean egoera;
 	private int luzera;
-	private boolean egoera;
-	public ItsasoIbilgailua(int pPrezioa){
+	public ItsasoIbilgailua(int pPrezioa,boolean pEgoera, int pLuzera){
 		super(pPrezioa);
-		egoera=
+		egoera=pEgoera;
+		luzera=pLuzera;
 	}
 protected void espezifikazioakInprimatu(){
 	System.out.println(this.getIzena());
@@ -16,4 +16,5 @@ protected void espezifikazioakInprimatu(){
 }
 	
 protected abstract void informazioaInprimatu();
+protected abstract String getIzena();
 }
