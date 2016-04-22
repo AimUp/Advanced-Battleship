@@ -11,4 +11,13 @@ public class Jokalaria {
 	public Jokalaria(String pIzena){
 		izena = pIzena;
 	}
+
+	public String getIzena() {
+		return izena;
+	}
+
+	public void setIzena(String izena) {
+		this.izena = izena;
+	}
+	
 }

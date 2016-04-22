@@ -8,7 +8,7 @@ public abstract class Main {
 			
 			System.out.print(x + "|▢▢▢▢▢▢▢▢▢▢▢▢▢▢▢▢▢▢|\n");
 		}*/
-		//AdvancedBattleship.getAdvancedBattleship().jokatu();
+		AdvancedBattleship.getAdvancedBattleship().jokatu();
 		Tableroa tablero = new Tableroa();
 		tablero.getTableroa();
 	}
