@@ -19,6 +19,7 @@ public class Tableroa {
 		matriz[0][9] = "Ⓘ ";
 		matriz[0][10] = "Ⓙ ";
 
+<<<<<<< HEAD
 		matriz[1][0] = "① ";
 		matriz[2][0] = "② ";
 		matriz[3][0] = "③ ";
@@ -146,5 +147,23 @@ public class Tableroa {
 			}
 			System.out.println();
 		}
+=======
+	private ErasoMota[][] erasoPosizioak;
+	
+	public Tableroa(){
+		erasoPosizioak = new ErasoMota[10][10];
+	}
+	
+	public void erasoaGehitu(ErasoMota e){
+	//POSIZIOA AUKERATU
+	}
+	
+	public void tableroaInprimatu(){
+		
+	}
+	
+	public void erasoaJaso(int[][] pKoord){
+		
+>>>>>>> 60e874a2d1c36b1363021badd48e9a84351937d7
 	}
 }
