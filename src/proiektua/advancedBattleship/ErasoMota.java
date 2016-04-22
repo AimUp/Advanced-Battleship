@@ -16,4 +16,5 @@ public abstract class ErasoMota {
 	
 	protected abstract void informazioaInprimatu();
 	
+	protected abstract void erasoaEgin(int zut, int err);
 }

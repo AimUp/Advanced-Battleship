@@ -14,7 +14,8 @@ public class Tableroa {
 			}
 			System.out.println();
 		}
-=======
+	}
+	
 	private ErasoMota[][] erasoPosizioak;
 	
 	public Tableroa(){
@@ -52,6 +53,5 @@ public class Tableroa {
 	
 	public void erasoaJaso(int[][] pKoord){
 		
->>>>>>> 60e874a2d1c36b1363021badd48e9a84351937d7
 	}
 }

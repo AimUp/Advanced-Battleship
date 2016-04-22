@@ -16,4 +16,10 @@ public class HegazkinGarraiolariak extends ItsasoIbilgailua {
 		return "HegazkinGarraiolaria";
 	}
 
+	@Override
+	protected void erasoaEgin(int zut, int err) {
+		// TODO Auto-generated method stub
+		
+	}
+
 }
