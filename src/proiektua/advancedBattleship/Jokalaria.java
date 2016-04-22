@@ -70,4 +70,13 @@ public class Jokalaria {
 	public void galdu(){
 		
 	}
+
+	public String getIzena() {
+		return izena;
+	}
+
+	public void setIzena(String izena) {
+		this.izena = izena;
+	}
+	
 }

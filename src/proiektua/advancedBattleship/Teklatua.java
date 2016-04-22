@@ -21,8 +21,8 @@ public class Teklatua {
 	}
 	
 	public void hasierakoMezua(){
-		System.out.println("\n\t ADVANCED BATTLESHIP \t");
-		System.out.println("\n\n\n");
+		System.out.println("\n\t ⒶⒹⓋⒶⓃⒸⒺⒹ ⒷⒶⓉⓉⓁⒺⓈⒽⒾⓅ  \t");
+		System.out.println("\n");
 	}
 	
 	public String[] jokalariIzenak(int jokKop){
@@ -34,7 +34,6 @@ public class Teklatua {
 			izenak[x-1] = sc.nextLine();
 			System.out.println();
 		}
-		System.out.println("\n\n\n");
 		return izenak;
 	}
 	
