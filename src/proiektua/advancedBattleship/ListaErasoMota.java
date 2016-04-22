@@ -21,4 +21,8 @@ public class ListaErasoMota {
 	public int tamaina(){
 		return lista.size();
 	}
+	
+	public void inprimatuErasoInfo(){
+		
+	}
 }

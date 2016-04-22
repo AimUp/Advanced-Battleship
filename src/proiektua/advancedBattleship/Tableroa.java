@@ -9,7 +9,7 @@ public class Tableroa {
 	}
 	
 	public void erasoaGehitu(ErasoMota e){
-	//POSIZIOA AUKERATU
+		//POSIZIOA AUKERATU
 	}
 	
 	public void tableroaInprimatu(){

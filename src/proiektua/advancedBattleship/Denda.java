@@ -38,10 +38,7 @@ public class Denda {
 	}
 	
 	private void erasoKatalogoaErakutzi(){
-		for(int x=0; x<katalogoa.tamaina(); x++){
-			katalogoa.posiziokoErasoaLortu(x).informazioaInprimatu();
-			System.out.println("\n\n");
-		}
+		katalogoa.inprimatuErasoInfo();
+		System.out.println("\n\n");
 	}
-	
 }

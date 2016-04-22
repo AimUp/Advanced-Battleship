@@ -89,4 +89,14 @@ public class Teklatua {
 			return baiEdoEz();
 		}
 	}
+	
+	public int[] koordenatuakAukeratu(){
+		System.out.println("Koordenatuak aukeratu");
+		System.out.println("Sartu zutabe zenbakia (1-10)");
+		int zut = zenbakiaEskatu(1, 10);
+		System.out.println("Sartu errenkada zenbakia (1-10)");
+		int err = zenbakiaEskatu(1, 10);
+		int[] koor = {zut,err};
+		return koor;
+	}
 }

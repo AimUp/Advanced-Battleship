@@ -29,12 +29,17 @@ public class Jokalaria {
 	}
 	
 	private void ErasoEgin(){
-		
+		System.out.println("Erasoa egiteko eraso mota bat aukeratu behar duzu.");
+		listaErasoak.inprimatuErasoInfo();
+		int aukera = Teklatua.getTeklatua().zenbakiaEskatu(1, listaErasoak.tamaina());
+		int[] koor = Teklatua.getTeklatua().koordenatuakAukeratu();
+		listaErasoak.posiziokoErasoaLortu(aukera);
 	}
 	
 	public void ErasoaErosi(){
 		ErasoMota erositakoa = Denda.getDenda().erosi(this);
 		if(erositakoa!=null){
+			dirua =- erositakoa.getPrezioa();
 			jokalariTableroa.erasoaGehitu(erositakoa);
 			listaErasoak.erasoaGehitu(erositakoa);
 		}

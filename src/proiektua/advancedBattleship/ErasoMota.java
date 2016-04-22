@@ -2,11 +2,10 @@ package proiektua.advancedBattleship;
 
 public class ErasoMota {
 
-	protected int prezioa;
-	protected boolean egoera;
-	protected int luzeera;
-	protected int[][] posizioa;
-	protected int maila; //-1 lurrazpikoa, 0 lurra, 2 airea
+	private int prezioa;
+	private boolean egoera;
+	private int luzeera;
+	private int maila; //-1 lurrazpikoa, 0 lurra, 2 airea
 	
 	public ErasoMota(){
 		
@@ -15,6 +14,8 @@ public class ErasoMota {
 	public int getPrezioa(){
 		return prezioa;
 	}
+	
+	protected void espezifikazioakInprimatu(){}
 	
 	protected void informazioaInprimatu(){}
 	
