@@ -1,22 +1,19 @@
 package proiektua.advancedBattleship;
 
-public class ErasoMota {
+public abstract class ErasoMota {
 
 	private int prezioa;
-	private boolean egoera;
-	private int luzeera;
-	private int maila; //-1 lurrazpikoa, 0 lurra, 2 airea
 	
-	public ErasoMota(){
-		
+	public ErasoMota(int pPrezioa){
+		prezioa=pPrezioa;
 	}
 	
-	public int getPrezioa(){
+	protected int getPrezioa(){
 		return prezioa;
 	}
 	
-	protected void espezifikazioakInprimatu(){}
+	protected abstract void espezifikazioakInprimatu();
 	
-	protected void informazioaInprimatu(){}
+	protected abstract void informazioaInprimatu();
 	
 }

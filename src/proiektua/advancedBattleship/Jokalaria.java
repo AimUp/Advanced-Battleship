@@ -10,13 +10,12 @@ public class Jokalaria {
 	
 	public Jokalaria(String pIzena){
 		izena = pIzena;
-		dirua = 1000; //Hasierako diru kantitatea
+		dirua = 0; //Hasierako diru kantitatea
 		listaErasoak = new ListaErasoMota();
 		jokalariTableroa = new Tableroa();
 	}
 	
 	public void jokatu(){
-		
 		int aukera = Teklatua.getTeklatua().jokalariakJokatzekoAukerak();
 		switch (aukera) {
 		case 0: AdvancedBattleship.getAdvancedBattleship().partidaBukatu();
@@ -33,7 +32,7 @@ public class Jokalaria {
 		listaErasoak.inprimatuErasoInfo();
 		int aukera = Teklatua.getTeklatua().zenbakiaEskatu(1, listaErasoak.tamaina());
 		int[] koor = Teklatua.getTeklatua().koordenatuakAukeratu();
-		listaErasoak.posiziokoErasoaLortu(aukera);
+		listaErasoak.posiziokoErasoaLortu(aukera).erasoaEgin(koor[0], koor[1]);
 	}
 	
 	public void ErasoaErosi(){

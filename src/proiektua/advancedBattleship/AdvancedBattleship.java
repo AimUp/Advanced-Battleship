@@ -26,8 +26,6 @@ public class AdvancedBattleship {
 			Jokalaria j = new Jokalaria(izenak[x]);
 			jokalariak[x] = j;
 		}
-		System.out.println("Partida hasiko da: \n\n\t\t"+jokalariak[0].getIzena()+" VS "+jokalariak[1].getIzena()+"!!!");
-		
 	}
 	
 	public void jokatu(){
