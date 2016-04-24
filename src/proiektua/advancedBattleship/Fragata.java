@@ -8,7 +8,7 @@ public class Fragata extends ItsasoIbilgailua{
 	@Override
 	protected void informazioaInprimatu() {
 		// TODO Auto-generated method stub
-		
+		System.out.println("Luzera 2 duen itsaso erasoa izango da \n Fragataren eraso kasila bakarrekoa izango da");
 	}
 
 	@Override
