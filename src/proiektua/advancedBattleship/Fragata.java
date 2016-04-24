@@ -16,4 +16,10 @@ public class Fragata extends ItsasoIbilgailua{
 		// TODO Auto-generated method stub
 		return "Fragata";
 	}
+
+	@Override
+	protected void erasoaEgin(int zut, int err) {
+		// TODO Auto-generated method stub
+		
+	}
 }

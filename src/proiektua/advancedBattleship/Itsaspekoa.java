@@ -16,4 +16,10 @@ public class Itsaspekoa extends ItsasoIbilgailua{
 		// TODO Auto-generated method stub
 		return "Itsaspekoa";
 	}
+
+	@Override
+	protected void erasoaEgin(int zut, int err) {
+		// TODO Auto-generated method stub
+		
+	}
 }
