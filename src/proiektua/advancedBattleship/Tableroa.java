@@ -2,7 +2,11 @@ package proiektua.advancedBattleship;
 
 public class Tableroa {
 	
+<<<<<<< HEAD
 	private ErasoMota[][] ibilgailuMatrizea;
+=======
+	private ErasoMota[][] erasoPosizioak;
+>>>>>>> 42ea84d0d7aea7d0ab89eb1a927242114b4cba02
 	
 	public Tableroa(){
 		ibilgailuMatrizea = new ErasoMota[10][10];
@@ -30,6 +34,7 @@ public class Tableroa {
 		}
 	}*/
 	
+<<<<<<< HEAD
 	public void erasoaGehitu(ErasoMota ontzia, int x, int y, int l, char a){
 		ibilgailuMatrizea[x][y] = ontzia;
 		l--;
@@ -67,6 +72,10 @@ public class Tableroa {
 				}
 				break;
 		}
+=======
+	public void erasoaGehitu(ErasoMota e){
+		//POSIZIOA AUKERATU
+>>>>>>> 42ea84d0d7aea7d0ab89eb1a927242114b4cba02
 	}
 	
 	public void tableroaInprimatu(){
