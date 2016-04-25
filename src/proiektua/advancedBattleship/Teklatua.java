@@ -34,11 +34,12 @@ public class Teklatua {
 			izenak[x-1] = sc.nextLine();
 			System.out.println();
 		}
+		System.out.println("Partida hasiko da: \n\t\t"+izenak[0]+" VS "+izenak[1]+"!!!");
 		return izenak;
 	}
 	
 	public int zenbakiaEskatu(int pLehenengoa, int pAzkena){
-		System.out.println("Zartu zure aukera: ");
+		System.out.println("Sartu zure aukera: ");
 		String aukera = sc.nextLine();
 		int aukeraInt = -1;
 		try {

@@ -26,13 +26,11 @@ public class AdvancedBattleship {
 			Jokalaria j = new Jokalaria(izenak[x]);
 			jokalariak[x] = j;
 		}
-		System.out.println("Partida hasiko da: \n\n\t\t"+jokalariak[0].getIzena()+" VS "+jokalariak[1].getIzena()+"!!!");
-		
 	}
 	
 	public void jokatu(){
 		jokalariakSortu();
-		hasierakoErasoakErosi();
+		hasierakoErasoaKokatu();
 		while(!bukatu){
 			while(jokalariak[txanda].txandaDu()){
 				jokalariak[txanda].jokatu();
@@ -40,7 +38,7 @@ public class AdvancedBattleship {
 		}
 	}
 	
-	private void hasierakoErasoakErosi(){
+	private void hasierakoErasoaKokatu(){
 		int erasoKopurua;
 		for(int x=0; x<jokalariak.length; x++){
 			erasoKopurua = 10;
