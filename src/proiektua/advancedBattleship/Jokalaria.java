@@ -61,7 +61,7 @@ public class Jokalaria {
 		dirua =+ pDiruKop;
 	}
 	
-	public void erasoaJaso(int[][] pKoord){
+	public void erasoaJaso(int x, int y){
 		
 	}
 	
