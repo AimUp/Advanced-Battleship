@@ -1,5 +1,7 @@
 package proiektua.advancedBattleship;
 
+import java.util.Random;
+
 public class Bonbarderoa extends AireIbilgailua{
 	public Bonbarderoa(int pPrezioa){
 		super(pPrezioa);
@@ -20,6 +22,12 @@ public class Bonbarderoa extends AireIbilgailua{
 	@Override
 	protected void erasoaEgin(int zut, int err) {
 		// TODO Auto-generated method stub
-		
+		int e=15;
+		Random rnd=new Random();
+		for(int i=0;i<5;i++){
+		int z=rnd.nextInt(zut+1 - zut-1 +1)+zut-1;
+		e=e-rnd.nextInt(2)+1;
+		AdvancedBattleship.getAdvancedBattleship().erasoaEgin(z,e);
+		}
 	}
 }

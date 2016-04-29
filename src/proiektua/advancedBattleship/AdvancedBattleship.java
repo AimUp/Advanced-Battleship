@@ -56,9 +56,12 @@ public class AdvancedBattleship {
 		}
 	}
 	public void erasoaEgin(int x, int y){
+		int erasoJok;
 		if(txanda==JokalariZerrenda.getJokalariZerrenda().luzera()){ 
-			JokalariZerrenda.getJokalariZerrenda().erasoaEgin();
+			erasoJok=0;}
+		else{
+			erasoJok=txanda+1;
 		}
-		this.jokalariak[]
+		JokalariZerrenda.getJokalariZerrenda().erasoaEgin(x, y, erasoJok);
 	}
 }

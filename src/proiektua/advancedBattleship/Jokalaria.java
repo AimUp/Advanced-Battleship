@@ -62,7 +62,7 @@ public class Jokalaria {
 	}
 	
 	public void erasoaJaso(int x, int y){
-		
+		jokalariTableroa.
 	}
 	
 	public void hondoratu(){
