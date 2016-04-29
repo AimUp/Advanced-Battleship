@@ -21,4 +21,5 @@ public abstract class ItsasoIbilgailua extends ErasoMota{
 	protected abstract String getIzena();
 	protected abstract void erasoaEgin();
 	protected abstract void erasoaEgin(int zut, int err);
+	protected abstract void erasoaEgin(int zut, int err);
 }

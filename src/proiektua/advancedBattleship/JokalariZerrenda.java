@@ -24,6 +24,12 @@ public class JokalariZerrenda {
 	public int luzera(){
 		return lista.length;
 	}
+	public void erasoaEgin(int x, int y, int jokPos){
+		lista[jokPos].erasoaJaso(x,y);
+	}
+	public int luzera(){
+		return lista.length;
+	}
 	
 	public void erasoaGehitu(int txanda, ErasoMota em, int x, int y, int l){
 		

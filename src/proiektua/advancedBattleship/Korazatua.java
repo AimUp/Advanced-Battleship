@@ -14,6 +14,8 @@ public class Korazatua extends ItsasoIbilgailua {
 
 		System.out.println("Luzera 3 duen itsaso erasoa izango da \n Fragataren eraso 3 kasilakoa izango da");
 
+		System.out.println("Luzera 3 duen itsaso erasoa izango da \n Fragataren eraso 3 kasilakoa izango da");
+
 	}
 
 	@Override
