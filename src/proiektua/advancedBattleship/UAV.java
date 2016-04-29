@@ -1,14 +1,9 @@
 package proiektua.advancedBattleship;
 
 public class UAV extends AireIbilgailua{
-<<<<<<< HEAD
 	
 	public UAV(){
-		super(1000);
-=======
-	public UAV(int pPrezioa){
-		super(pPrezioa);
->>>>>>> branch 'master' of https://aimup@github.com/AimUp/Advanced-Battleship.git
+		super(100);
 	}
 
 	@Override

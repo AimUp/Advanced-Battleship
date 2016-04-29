@@ -17,16 +17,9 @@ public class Fragata extends ItsasoIbilgailua{
 		// TODO Auto-generated method stub
 		return "Fragata";
 	}
-	
+
 	@Override
-	protected void erasoaEgin() {
-		// TODO Auto-generated method stub
-		int txanda=AdvancedBattleship.getAdvancedBattleship().erasoaEgin();
+	protected void erasoaEgin(int zut, int err) {
 		AdvancedBattleship.getAdvancedBattleship().erasoaEgin(zut,err);
-		AdvancedBattleship.getAdvancedBattleship().erasoaEgin(zut,err);
-		int txanda=AdvancedBattleship.getAdvancedBattleship().erasoaEgin();
-		AdvancedBattleship.getAdvancedBattleship().erasoaEgin(zut,err);
-		AdvancedBattleship.getAdvancedBattleship().erasoaEgin(zut,err);
-		
 	}
 }

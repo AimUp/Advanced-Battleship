@@ -10,19 +10,7 @@ public class Korazatua extends ItsasoIbilgailua {
 
 	@Override
 	protected void informazioaInprimatu() {
-<<<<<<< HEAD
-=======
-		// TODO Auto-generated method stub
-<<<<<<< HEAD
->>>>>>> branch 'master' of https://aimup@github.com/AimUp/Advanced-Battleship.git
-=======
-		System.out.println("Luzera 3 duen itsaso erasoa izango da \n Fragataren eraso kasila bakarrekoa izango da");
-
 		System.out.println("Luzera 3 duen itsaso erasoa izango da \n Fragataren eraso 3 kasilakoa izango da");
-
->>>>>>> addc46ac5105b534b0ff60f0d6a00c7a297d0541
-		System.out.println("Luzera 3 duen itsaso erasoa izango da \n Fragataren eraso 3 kasilakoa izango da");
-
 	}
 
 	@Override

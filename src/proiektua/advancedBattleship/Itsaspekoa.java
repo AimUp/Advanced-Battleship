@@ -1,10 +1,12 @@
 package proiektua.advancedBattleship;
 
 public class Itsaspekoa extends ItsasoIbilgailua{
+	
 	private boolean ikusgarria;
-	public Itsaspekoa(int pPrezioa,boolean pEgoera, int pLuzera,  boolean pIkusgarria){
-		super(pPrezioa, pLuzera);
-		ikusgarria=pIkusgarria;
+	
+	public Itsaspekoa(){
+		super(100, 1);
+		ikusgarria=true;
 	}
 
 	@Override

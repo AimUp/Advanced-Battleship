@@ -1,9 +1,5 @@
  package proiektua.advancedBattleship;
 
-import java.util.Scanner;
-
-import java.util.Scanner;
-
 public class AdvancedBattleship {
 
 	private static AdvancedBattleship nAdvancedBattleship = null;
@@ -47,20 +43,12 @@ public class AdvancedBattleship {
 		int akorazatua = 3;
 		int hegazkinGarraiolaria = 1;
 		
-<<<<<<< HEAD
 		for(int x=0; x<JokalariZerrenda.getJokalariZerrenda().luzera(); x++){
-=======
-		for(int x=0; x<jokalariak.length; x++){
->>>>>>> addc46ac5105b534b0ff60f0d6a00c7a297d0541
 			erasoKopurua = 8;
 			System.out.println(x+" jokalariaren txanda");
 			/*while(erasoKopurua>=0){
-				Syso
-<<<<<<< HEAD
 				JokalariZerrenda.getJokalariZerrenda().erasoaErosi(x);
-=======
 				jokalariak[x].ErasoaErosi();
->>>>>>> addc46ac5105b534b0ff60f0d6a00c7a297d0541
 				erasoKopurua--;
 			}*/
 			
@@ -82,45 +70,7 @@ public class AdvancedBattleship {
 			bukatu = true;
 		}
 	}
-	public void erasoaEgin(int x, int y){
-		if(txanda==JokalariZerrenda.getJokalariZerrenda().luzera()){ 
-			JokalariZerrenda.getJokalariZerrenda().erasoaEgin();
-		}
-		this.jokalariak[]
-	}
-	public void erasoaEgin(int x, int y){
-		int erasoJok;
-		if(txanda==JokalariZerrenda.getJokalariZerrenda().luzera()){ 
-			erasoJok=0;}
-		else{
-			erasoJok=txanda+1;
-		}
-		JokalariZerrenda.getJokalariZerrenda().erasoaEgin(x, y, erasoJok);
-	}
-	public void erasoaEgin(int x, int y){
-		int erasoJok;
-		if(txanda==JokalariZerrenda.getJokalariZerrenda().luzera()){ 
-			erasoJok=0;}
-		else{
-			erasoJok=txanda+1;
-		}
-		JokalariZerrenda.getJokalariZerrenda().erasoaEgin(x, y, erasoJok);
-	}
-	public void erasoaEgin(int x, int y){
-		if(txanda==JokalariZerrenda.getJokalariZerrenda().luzera()){ 
-			JokalariZerrenda.getJokalariZerrenda().erasoaEgin();
-		}
-		this.jokalariak[]
-	}
-	public void erasoaEgin(int x, int y){
-		int erasoJok;
-		if(txanda==JokalariZerrenda.getJokalariZerrenda().luzera()){ 
-			erasoJok=0;}
-		else{
-			erasoJok=txanda+1;
-		}
-		JokalariZerrenda.getJokalariZerrenda().erasoaEgin(x, y, erasoJok);
-	}
+
 	public void erasoaEgin(int x, int y){
 		int erasoJok;
 		if(txanda==JokalariZerrenda.getJokalariZerrenda().luzera()){ 
