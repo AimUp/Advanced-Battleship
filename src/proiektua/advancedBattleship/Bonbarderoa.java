@@ -16,4 +16,10 @@ public class Bonbarderoa extends AireIbilgailua{
 		// TODO Auto-generated method stub
 		return "Bonbarderoa";
 	}
+
+	@Override
+	protected void erasoaEgin(int zut, int err) {
+		// TODO Auto-generated method stub
+		
+	}
 }

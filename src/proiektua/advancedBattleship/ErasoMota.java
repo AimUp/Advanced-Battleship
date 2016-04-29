@@ -23,3 +23,4 @@ public abstract class ErasoMota {
 	
 	protected abstract void erasoaEgin(int zut, int err);
 }
+ 

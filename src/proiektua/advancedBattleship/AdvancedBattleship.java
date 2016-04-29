@@ -55,4 +55,10 @@ public class AdvancedBattleship {
 			bukatu = true;
 		}
 	}
+	public void erasoaEgin(int x, int y){
+		if(txanda==JokalariZerrenda.getJokalariZerrenda().luzera()){ 
+			JokalariZerrenda.getJokalariZerrenda().erasoaEgin();
+		}
+		this.jokalariak[]
+	}
 }

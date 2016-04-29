@@ -42,7 +42,7 @@ public class Jokalaria {
 		ErasoMota erositakoa = Denda.getDenda().erosi(this);
 		if(erositakoa!=null){
 			dirua =- erositakoa.getPrezioa();
-			jokalariTableroa.erasoaGehitu(erositakoa);
+			//jokalariTableroa.erasoaGehitu(erositakoa); //TODO
 			listaErasoak.erasoaGehitu(erositakoa);
 		}
 	}
@@ -61,7 +61,7 @@ public class Jokalaria {
 		dirua =+ pDiruKop;
 	}
 	
-	public void erasoaJaso(int[][] pKoord){
+	public void erasoaJaso(int x, int y){
 		
 	}
 	

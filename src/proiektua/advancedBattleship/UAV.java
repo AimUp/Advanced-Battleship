@@ -17,4 +17,10 @@ public class UAV extends AireIbilgailua{
 		// TODO Auto-generated method stub
 		return "UAV";
 	}
+
+	@Override
+	protected void erasoaEgin(int zut, int err) {
+		// TODO Auto-generated method stub
+		
+	}
 }

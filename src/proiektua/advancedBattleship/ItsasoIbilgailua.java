@@ -19,4 +19,5 @@ public abstract class ItsasoIbilgailua extends ErasoMota{
 	
 	protected abstract void informazioaInprimatu();
 	protected abstract String getIzena();
+	protected abstract void erasoaEgin();
 }
