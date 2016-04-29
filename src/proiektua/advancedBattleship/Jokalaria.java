@@ -85,6 +85,7 @@ public class Jokalaria {
 		
 		char nora = Teklatua.getTeklatua().brujula();
 		jokalariTableroa.erasoaGehitu(em, x, y, l, nora);
+		jokalariTableroa.tableroaInprimatu();
 		
 	}
 	
