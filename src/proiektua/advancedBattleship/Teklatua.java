@@ -2,6 +2,7 @@ package proiektua.advancedBattleship;
 
 import java.util.Scanner;
 
+import proiektua.salbuespenak.HizkiOkerra;
 import proiektua.salbuespenak.ZenbakiOkerra;
 
 public class Teklatua {
@@ -98,5 +99,25 @@ public class Teklatua {
 		int err = zenbakiaEskatu(1, 10);
 		int[] koor = {zut,err};
 		return koor;
+	}
+	
+	public char brujula(){
+		char nora;
+		
+		System.out.println("Ontziaren burua (x,y) koordenatuan egonda, gorputza ze noranzkoan sartu nahi duzun adierazi. I(iparraldea), H(hegoaldea), E(ekialdea), M(mendebaldea):");
+		String s = sc.nextLine();
+		nora = s.charAt(0);
+		
+		try{
+			if(nora=='i' || nora=='h' || nora=='e' || nora=='m'){
+				
+			}
+			{throw new HizkiOkerra();}
+		} catch(HizkiOkerra e){
+			System.out.println("Sartu beharrekoa char bat izan behar da!");
+			brujula();
+		}
+		
+		return nora;
 	}
 }

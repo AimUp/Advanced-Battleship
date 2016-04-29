@@ -19,6 +19,12 @@ public class JokalariZerrenda {
 	public void erasoaEgin(int x, int y, int jokPos){
 		lista[jokPos].erasoaJaso(x,y);
 	}
+<<<<<<< HEAD
+=======
+	public int luzera(){
+		return lista.length;
+	}
+>>>>>>> branch 'master' of https://aimup@github.com/AimUp/Advanced-Battleship.git
 	
 	public void jokalariaGehitu(Jokalaria pJok, int pPos){
 		lista[pPos] = pJok;
@@ -39,5 +45,9 @@ public class JokalariZerrenda {
 	
 	public void jokatu(int txanda){
 		
+	}
+	public void erasoaGehitu(int txanda, ErasoMota em, int x, int y, int l){
+		
+		nJokalariZerrenda.lista[txanda].erasoaGehitu(em, x, y, l);
 	}
 }

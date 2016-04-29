@@ -5,6 +5,7 @@ public class Tableroa {
 	private ErasoMota[][] ibilgailuMatrizea;
 	private ErasoMota[][] erasoPosizioak;
 	
+
 	public Tableroa(){
 		ibilgailuMatrizea = new ErasoMota[10][10];
 	}
@@ -35,7 +36,6 @@ public class Tableroa {
 	
 	public void erasoaGehitu(ErasoMota ontzia, int x, int y, int l, char a){
 		ibilgailuMatrizea[x][y] = ontzia;
-		l--;
 		switch(a){
 			case'i':
 				int q = l;
@@ -79,8 +79,14 @@ public class Tableroa {
 	public void tableroaInprimatu(){
 		for(int x = 0; x < ibilgailuMatrizea.length; x++){
 			for(int y = 0; y < ibilgailuMatrizea[x].length; y++){
-				if(ibilgailuMatrizea[x][y] != null){
-				System.out.print(ibilgailuMatrizea[x][y]);
+				if(ibilgailuMatrizea[x][y] == null){
+					System.out.print(" ");
+				}
+				else if(ibilgailuMatrizea[x][y] instanceof Ura){
+					System.out.print("O");
+				}
+				else {
+					System.out.print("X");
 				}
 				//else{
 					

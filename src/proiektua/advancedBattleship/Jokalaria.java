@@ -81,4 +81,8 @@ public class Jokalaria {
 		this.izena = izena;
 	}
 	
+	public void erasoaGehitu(ErasoMota em, int x, int y, int l){
+		
+	}
+	
 }
