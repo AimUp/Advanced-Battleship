@@ -16,4 +16,8 @@ public class JokalariZerrenda {
 		return nJokalariZerrenda;
 	}
 	
+	public void erasoaGehitu(int txanda, ErasoMota em, int x, int y, int l){
+		
+		nJokalariZerrenda.lista[txanda].erasoaGehitu(em, x, y, l);
+	}
 }

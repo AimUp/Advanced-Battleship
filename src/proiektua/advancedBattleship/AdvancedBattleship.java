@@ -1,5 +1,7 @@
 package proiektua.advancedBattleship;
 
+import java.util.Scanner;
+
 public class AdvancedBattleship {
 
 	private static AdvancedBattleship nAdvancedBattleship = null;
@@ -40,11 +42,28 @@ public class AdvancedBattleship {
 	
 	private void hasierakoErasoaKokatu(){
 		int erasoKopurua;
+		int erasoMota = 0;
+		int fragata = 4;
+		int akorazatua = 3;
+		int hegazkinGarraiolaria = 1;
+		
 		for(int x=0; x<jokalariak.length; x++){
-			erasoKopurua = 10;
-			while(erasoKopurua>=0){
+			erasoKopurua = 8;
+			System.out.println(x+" jokalariaren txanda");
+			/*while(erasoKopurua>=0){
+				Syso
 				jokalariak[x].ErasoaErosi();
 				erasoKopurua--;
+			}*/
+			
+			switch(erasoMota){
+			case '0' :
+				while ( fragata >= 0){
+					System.out.println("Kokatu fragata (x,y) koordentuan:");
+					int[] koor = Teklatua.getTeklatua().koordenatuakAukeratu();
+					JokalariZerrenda.getJokalariZerrenda().erasoaGehitu(txanda, new Fragata(), koor[0], koor[1], fragata);
+				}
+				
 			}
 		}
 	}

@@ -2,12 +2,9 @@ package proiektua.advancedBattleship;
 
 public class Tableroa {
 	
-<<<<<<< HEAD
 	private ErasoMota[][] ibilgailuMatrizea;
-=======
 	private ErasoMota[][] erasoPosizioak;
->>>>>>> 42ea84d0d7aea7d0ab89eb1a927242114b4cba02
-	
+
 	public Tableroa(){
 		ibilgailuMatrizea = new ErasoMota[10][10];
 	}
@@ -34,10 +31,9 @@ public class Tableroa {
 		}
 	}*/
 	
-<<<<<<< HEAD
+
 	public void erasoaGehitu(ErasoMota ontzia, int x, int y, int l, char a){
 		ibilgailuMatrizea[x][y] = ontzia;
-		l--;
 		switch(a){
 			case'i':
 				int q = l;
@@ -71,22 +67,26 @@ public class Tableroa {
 					t--;
 				}
 				break;
+			}
 		}
-=======
+
 	public void erasoaGehitu(ErasoMota e){
 		//POSIZIOA AUKERATU
->>>>>>> 42ea84d0d7aea7d0ab89eb1a927242114b4cba02
+
 	}
 	
 	public void tableroaInprimatu(){
 		for(int x = 0; x < ibilgailuMatrizea.length; x++){
 			for(int y = 0; y < ibilgailuMatrizea[x].length; y++){
-				if(ibilgailuMatrizea[x][y] != null){
-				System.out.print(ibilgailuMatrizea[x][y]);
+				if(ibilgailuMatrizea[x][y] == null){
+					System.out.print(" ");
 				}
-				//else{
-					
-				//}
+				else if(ibilgailuMatrizea[x][y] instanceof Ura){
+					System.out.print("O");
+				}
+				else {
+					System.out.print("X");
+				}
 			}
 			System.out.println();
 		}
