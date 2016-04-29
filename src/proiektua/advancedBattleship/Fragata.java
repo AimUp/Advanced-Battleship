@@ -8,7 +8,7 @@ public class Fragata extends ItsasoIbilgailua{
 	@Override
 	protected void informazioaInprimatu() {
 		// TODO Auto-generated method stub
-		
+		System.out.println("Luzera 2 duen itsaso erasoa izango da \n Fragataren eraso kasila bakarrekoa izango da");
 	}
 
 	@Override
@@ -20,6 +20,8 @@ public class Fragata extends ItsasoIbilgailua{
 	@Override
 	protected void erasoaEgin(int zut, int err) {
 		// TODO Auto-generated method stub
+		int txanda=AdvancedBattleship.getAdvancedBattleship().erasoaEgin();
+		AdvancedBattleship.getAdvancedBattleship().erasoaEgin(zut,err);
 		
 	}
 }

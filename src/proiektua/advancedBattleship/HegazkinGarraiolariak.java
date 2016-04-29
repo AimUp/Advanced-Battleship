@@ -19,7 +19,7 @@ public class HegazkinGarraiolariak extends ItsasoIbilgailua {
 	@Override
 	protected void erasoaEgin(int zut, int err) {
 		// TODO Auto-generated method stub
-		
+		AdvancedBattleship.getAdvancedBattleship().erasoaEgin(zut,err);
 	}
 
 }

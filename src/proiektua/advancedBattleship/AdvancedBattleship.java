@@ -80,4 +80,13 @@ public class AdvancedBattleship {
 		}
 		this.jokalariak[]
 	}
+	public void erasoaEgin(int x, int y){
+		int erasoJok;
+		if(txanda==JokalariZerrenda.getJokalariZerrenda().luzera()){ 
+			erasoJok=0;}
+		else{
+			erasoJok=txanda+1;
+		}
+		JokalariZerrenda.getJokalariZerrenda().erasoaEgin(x, y, erasoJok);
+	}
 }
