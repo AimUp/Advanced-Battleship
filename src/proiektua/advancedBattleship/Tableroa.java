@@ -4,7 +4,10 @@ public class Tableroa {
 	
 	private ErasoMota[][] ibilgailuMatrizea;
 	private ErasoMota[][] erasoPosizioak;
+<<<<<<< HEAD
 	
+=======
+>>>>>>> addc46ac5105b534b0ff60f0d6a00c7a297d0541
 
 	public Tableroa(){
 		ibilgailuMatrizea = new ErasoMota[10][10];
@@ -32,8 +35,12 @@ public class Tableroa {
 		}
 	}*/
 	
+<<<<<<< HEAD
 	
 	
+=======
+
+>>>>>>> addc46ac5105b534b0ff60f0d6a00c7a297d0541
 	public void erasoaGehitu(ErasoMota ontzia, int x, int y, int l, char a){
 		ibilgailuMatrizea[x][y] = ontzia;
 		switch(a){
@@ -69,11 +76,19 @@ public class Tableroa {
 					t--;
 				}
 				break;
+			}
 		}
+<<<<<<< HEAD
 	}
 	
 	public void erasoaGehitu(ErasoMota e){
 		//POSIZIOA AUKERATU
+=======
+
+	public void erasoaGehitu(ErasoMota e){
+		//POSIZIOA AUKERATU
+
+>>>>>>> addc46ac5105b534b0ff60f0d6a00c7a297d0541
 	}
 	
 	public void tableroaInprimatu(){
@@ -88,9 +103,6 @@ public class Tableroa {
 				else {
 					System.out.print("X");
 				}
-				//else{
-					
-				//}
 			}
 			System.out.println();
 		}

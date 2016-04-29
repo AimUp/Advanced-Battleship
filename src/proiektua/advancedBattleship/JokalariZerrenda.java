@@ -20,6 +20,7 @@ public class JokalariZerrenda {
 		lista[jokPos].erasoaJaso(x,y);
 	}
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 	public int luzera(){
 		return lista.length;
@@ -30,6 +31,17 @@ public class JokalariZerrenda {
 		lista[pPos] = pJok;
 	}
 	
+=======
+	public void erasoaEgin(int x, int y, int jokPos){
+		lista[jokPos].erasoaJaso(x,y);
+	}
+	public int luzera(){
+		return lista.length;
+	}
+	public void erasoaEgin(int x, int y, int jokPos){
+		lista[jokPos].erasoaJaso(x,y);
+	}
+>>>>>>> addc46ac5105b534b0ff60f0d6a00c7a297d0541
 	public int luzera(){
 		return lista.length;
 	}
@@ -43,9 +55,12 @@ public class JokalariZerrenda {
 		
 	}
 	
+<<<<<<< HEAD
 	public void jokatu(int txanda){
 		
 	}
+=======
+>>>>>>> addc46ac5105b534b0ff60f0d6a00c7a297d0541
 	public void erasoaGehitu(int txanda, ErasoMota em, int x, int y, int l){
 		
 		nJokalariZerrenda.lista[txanda].erasoaGehitu(em, x, y, l);
