@@ -38,28 +38,35 @@ public class AdvancedBattleship {
 	
 	private void hasierakoErasoaKokatu(){
 		int erasoKopurua;
-		int erasoMota = 0;
 		int fragata = 4;
-		int akorazatua = 3;
-		int hegazkinGarraiolaria = 1;
+		int korazatua = 3;
+		int hegazkinGarraiolariak = 1;
 		
 		for(int x=0; x<JokalariZerrenda.getJokalariZerrenda().luzera(); x++){
+			
 			erasoKopurua = 8;
 			System.out.println(x+" jokalariaren txanda");
-			/*while(erasoKopurua>=0){
-				JokalariZerrenda.getJokalariZerrenda().erasoaErosi(x);
-				jokalariak[x].ErasoaErosi();
-				erasoKopurua--;
-			}*/
-			
-			switch(erasoMota){
-			case '0' :
-				while ( fragata >= 0){
-					System.out.println("Kokatu fragata (x,y) koordentuan:");
+			for (int erasoMota = 0; erasoMota < 8; erasoMota++){
+				switch(erasoMota){
+				case '0' :
+					while ( fragata >= 0){
+						System.out.println("Kokatu fragata (x,y) koordentuan:");
+						int[] koor = Teklatua.getTeklatua().koordenatuakAukeratu();
+						JokalariZerrenda.getJokalariZerrenda().erasoaGehitu(txanda, new Fragata(), koor[0], koor[1], fragata);
+						fragata--;
+					}
+				case '1' :
+					while ( korazatua >= 0){
+						System.out.println("Kokatu akorazatua (x,y) koordentuan:");
+						int[] koor = Teklatua.getTeklatua().koordenatuakAukeratu();
+						JokalariZerrenda.getJokalariZerrenda().erasoaGehitu(txanda, new Korazatua(), koor[0], koor[1], korazatua);
+						korazatua--;
+					}
+				case '2' :
+					System.out.println("Kokatu hegazkinGarraiolariak (x,y) koordentuan:");
 					int[] koor = Teklatua.getTeklatua().koordenatuakAukeratu();
-					JokalariZerrenda.getJokalariZerrenda().erasoaGehitu(txanda, new Fragata(), koor[0], koor[1], fragata);
+					JokalariZerrenda.getJokalariZerrenda().erasoaGehitu(txanda, new Fragata(), koor[0], koor[1], hegazkinGarraiolariak);
 				}
-				
 			}
 		}
 	}

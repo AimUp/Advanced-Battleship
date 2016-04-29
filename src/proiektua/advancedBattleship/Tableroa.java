@@ -68,10 +68,6 @@ public class Tableroa {
 		}
 	}
 	
-	public void erasoaGehitu(ErasoMota e){
-		//POSIZIOA AUKERATU
-	}
-	
 	public void tableroaInprimatu(){
 		for(int x = 0; x < ibilgailuMatrizea.length; x++){
 			for(int y = 0; y < ibilgailuMatrizea[x].length; y++){

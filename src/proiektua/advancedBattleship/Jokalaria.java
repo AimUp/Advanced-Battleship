@@ -83,6 +83,9 @@ public class Jokalaria {
 	
 	public void erasoaGehitu(ErasoMota em, int x, int y, int l){
 		
+		char nora = Teklatua.getTeklatua().brujula();
+		jokalariTableroa.erasoaGehitu(em, x, y, l, nora);
+		
 	}
 	
 }
