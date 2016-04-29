@@ -1,8 +1,9 @@
 package proiektua.advancedBattleship;
 
 public class Mina extends ErasoMota{
-	public Mina(int pPrezioa){
-		super(pPrezioa);
+	
+	public Mina(){
+		super(1);
 	}
 
 	@Override

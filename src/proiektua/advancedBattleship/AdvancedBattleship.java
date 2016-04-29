@@ -1,10 +1,9 @@
-package proiektua.advancedBattleship;
+ package proiektua.advancedBattleship;
 
 public class AdvancedBattleship {
 
 	private static AdvancedBattleship nAdvancedBattleship = null;
 	private int txanda = 0;
-	private Jokalaria[] jokalariak;
 	private boolean bukatu = false;
 	
 	private AdvancedBattleship(){
@@ -19,12 +18,11 @@ public class AdvancedBattleship {
 	}
 	
 	private void jokalariakSortu(){
-		int jokalariKopurua = 2;
-		jokalariak = new Jokalaria[jokalariKopurua];
+		int jokalariKopurua = JokalariZerrenda.getJokalariZerrenda().luzera();
 		String[] izenak = Teklatua.getTeklatua().jokalariIzenak(jokalariKopurua);
 		for(int x=0; x<jokalariKopurua; x++){
 			Jokalaria j = new Jokalaria(izenak[x]);
-			jokalariak[x] = j;
+			JokalariZerrenda.getJokalariZerrenda().jokalariaGehitu(j, x);
 		}
 	}
 	
@@ -32,18 +30,18 @@ public class AdvancedBattleship {
 		jokalariakSortu();
 		hasierakoErasoaKokatu();
 		while(!bukatu){
-			while(jokalariak[txanda].txandaDu()){
-				jokalariak[txanda].jokatu();
+			while(JokalariZerrenda.getJokalariZerrenda().txandaDu(txanda)){
+				JokalariZerrenda.getJokalariZerrenda().jokatu(txanda);
 			}
 		}
 	}
 	
 	private void hasierakoErasoaKokatu(){
 		int erasoKopurua;
-		for(int x=0; x<jokalariak.length; x++){
+		for(int x=0; x<JokalariZerrenda.getJokalariZerrenda().luzera(); x++){
 			erasoKopurua = 10;
 			while(erasoKopurua>=0){
-				jokalariak[x].ErasoaErosi();
+				JokalariZerrenda.getJokalariZerrenda().erasoaErosi(x);
 				erasoKopurua--;
 			}
 		}
@@ -54,5 +52,14 @@ public class AdvancedBattleship {
 		if(Teklatua.getTeklatua().baiEdoEz()){
 			bukatu = true;
 		}
+	}
+	public void erasoaEgin(int x, int y){
+		int erasoJok;
+		if(txanda==JokalariZerrenda.getJokalariZerrenda().luzera()){ 
+			erasoJok=0;}
+		else{
+			erasoJok=txanda+1;
+		}
+		JokalariZerrenda.getJokalariZerrenda().erasoaEgin(x, y, erasoJok);
 	}
 }
