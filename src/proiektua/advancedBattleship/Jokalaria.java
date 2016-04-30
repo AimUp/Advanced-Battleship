@@ -1,5 +1,7 @@
 package proiektua.advancedBattleship;
 
+import proiektua.salbuespenak.HizkiOkerra;
+
 public class Jokalaria {
 
 	private double dirua;
@@ -85,8 +87,11 @@ public class Jokalaria {
 		
 		char nora = Teklatua.getTeklatua().brujula();
 		jokalariTableroa.erasoaGehitu(em, x, y, l, nora);
-		jokalariTableroa.tableroaInprimatu();
 		
+	}
+	
+	public void tableroaInprimatu(){
+		jokalariTableroa.tableroaInprimatu();
 	}
 	
 }

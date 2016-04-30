@@ -92,28 +92,26 @@ public class Teklatua {
 	}
 	
 	public int[] koordenatuakAukeratu(){
-		System.out.println("Koordenatuak aukeratu");
-		System.out.println("Sartu zutabe zenbakia (1-10)");
-		int zut = zenbakiaEskatu(1, 10);
-		System.out.println("Sartu errenkada zenbakia (1-10)");
-		int err = zenbakiaEskatu(1, 10);
+		System.out.println("Sartu X:");
+		int zut = zenbakiaEskatu(1, 15);
+		System.out.println("Sartu Y");
+		int err = zenbakiaEskatu(1, 15);
 		int[] koor = {zut,err};
 		return koor;
+		
 	}
 	
-	public char brujula(){
+	public char brujula() {
 		
 		char nora;
 		
 		System.out.println("Ontziaren burua (x,y) koordenatuan egonda, gorputza ze noranzkoan sartu nahi duzun adierazi. I(iparraldea), H(hegoaldea), E(ekialdea), M(mendebaldea):");
 		String s = sc.nextLine();
 		nora = s.charAt(0);
-		
 		try{
-			if(nora=='i' || nora=='h' || nora=='e' || nora=='m'){
-				
+			if(nora!='i' && nora!='h' && nora!='e' && nora!='m'){
+				throw new HizkiOkerra();
 			}
-			{throw new HizkiOkerra();}
 		} catch(HizkiOkerra e){
 			System.out.println("Sartu beharrekoa char bat izan behar da!");
 			brujula();

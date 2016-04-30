@@ -5,7 +5,7 @@ public class Tableroa {
 	private ErasoMota[][] ibilgailuMatrizea;
 
 	public Tableroa(){
-		ibilgailuMatrizea = new ErasoMota[10][10];
+		ibilgailuMatrizea = new ErasoMota[15][16];
 	}
 	
 	/*public void ErasoaKokatu(int x, int y,int luzera){
@@ -69,13 +69,33 @@ public class Tableroa {
 	}
 	
 	public void tableroaInprimatu(){
+		
+		char[] letrak = new char[16];
+		letrak[0] = ' ';
+		System.out.print(letrak[0]);
+		char b = 'A';
+		for(int p = 1; p < 16; p++){
+			letrak[p] = b;
+			System.out.print(letrak[p]);
+			b++;
+		}
+		System.out.println();
+		
+		int zenbakiak = 1;
 		for(int x = 0; x < ibilgailuMatrizea.length; x++){
 			for(int y = 0; y < ibilgailuMatrizea[x].length; y++){
-				if(ibilgailuMatrizea[x][y] == null){
+				/*if(x == 0 && y == 0){
 					System.out.print(" ");
+				}*/
+				if(y == 0){
+					System.out.print(zenbakiak);
+					zenbakiak++;
+				}
+				else if(ibilgailuMatrizea[x][y] == null){
+					System.out.print("O");
 				}
 				else if(ibilgailuMatrizea[x][y] instanceof Ura){
-					System.out.print("O");
+					System.out.print("0");
 				}
 				else {
 					System.out.print("X");

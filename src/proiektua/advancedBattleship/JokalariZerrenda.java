@@ -39,8 +39,13 @@ public class JokalariZerrenda {
 	public void jokatu(int txanda){
 		
 	}
+	
 	public void erasoaGehitu(int txanda, ErasoMota em, int x, int y, int l){
 		
 		nJokalariZerrenda.lista[txanda].erasoaGehitu(em, x, y, l);
+	}
+	
+	public void tableroaInprimatu(int txanda){
+		nJokalariZerrenda.lista[txanda].tableroaInprimatu();
 	}
 }

@@ -38,7 +38,6 @@ public class AdvancedBattleship {
 	
 	private void hasierakoErasoaKokatu(){
 		int erasoKopurua;
-		int erasoMota = 0;
 		int fragata = 4;
 		int korazatua = 3;
 		int hegazkinGarraiolariak = 1;
@@ -47,30 +46,27 @@ public class AdvancedBattleship {
 			
 			erasoKopurua = 8;
 			System.out.println(x+" jokalariaren txanda");
-			//for (int erasoMota = 0; erasoMota < 3; erasoMota++){
-				switch(erasoMota){
-				case '0' :
-					while ( fragata >= 0){
-						System.out.println("Kokatu fragata (x,y) koordentuan:");
-						int[] koor = Teklatua.getTeklatua().koordenatuakAukeratu();
-						JokalariZerrenda.getJokalariZerrenda().erasoaGehitu(txanda, new Fragata(), koor[0], koor[1], fragata);
-						fragata--;
-					}
-					break;
-				case '1' :
-					while ( korazatua >= 0){
-						System.out.println("Kokatu akorazatua (x,y) koordentuan:");
-						int[] koor = Teklatua.getTeklatua().koordenatuakAukeratu();
-						JokalariZerrenda.getJokalariZerrenda().erasoaGehitu(txanda, new Korazatua(), koor[0], koor[1], korazatua);
-						korazatua--;
-					}
-					break;
-				case '2' :
-					System.out.println("Kokatu hegazkinGarraiolariak (x,y) koordentuan:");
-					int[] koor = Teklatua.getTeklatua().koordenatuakAukeratu();
-					JokalariZerrenda.getJokalariZerrenda().erasoaGehitu(txanda, new Fragata(), koor[0], koor[1], hegazkinGarraiolariak);
-				//}
+			while ( fragata >= 0){
+				JokalariZerrenda.getJokalariZerrenda().tableroaInprimatu(txanda);
+				System.out.println("Kokatu fragata (x,y) koordentuan:");
+				int[] koor = Teklatua.getTeklatua().koordenatuakAukeratu();
+				JokalariZerrenda.getJokalariZerrenda().erasoaGehitu(txanda, new Fragata(), koor[0], koor[1], fragata);
+				fragata--;
 			}
+			
+			while ( korazatua >= 0){
+				JokalariZerrenda.getJokalariZerrenda().tableroaInprimatu(txanda);
+				System.out.println("Kokatu akorazatua (x,y) koordentuan:");
+				int[] koor = Teklatua.getTeklatua().koordenatuakAukeratu();
+				JokalariZerrenda.getJokalariZerrenda().erasoaGehitu(txanda, new Korazatua(), koor[0], koor[1], korazatua);
+				korazatua--;
+			}
+			
+			JokalariZerrenda.getJokalariZerrenda().tableroaInprimatu(txanda);
+			System.out.println("Kokatu hegazkinGarraiolariak (x,y) koordentuan:");
+			int[] koor = Teklatua.getTeklatua().koordenatuakAukeratu();
+			JokalariZerrenda.getJokalariZerrenda().erasoaGehitu(txanda, new Fragata(), koor[0], koor[1], hegazkinGarraiolariak);
+
 		}
 	}
 	
