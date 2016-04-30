@@ -10,14 +10,22 @@ public abstract class ItsasoIbilgailua extends ErasoMota{
 		egoera=true;
 		luzera=pLuzera;
 	}
+	
+	public int getLuzera(){
+		return luzera;
+	}
+	
 	protected void espezifikazioakInprimatu(){
-	System.out.println(this.getIzena());
-	System.out.println("Prezioa: "+this.getPrezioa());
-	System.out.println("Prezioa: " +egoera);
-	System.out.println("Prezioa: " +luzera);
-}
+		System.out.println(this.getIzena());
+		System.out.println("Prezioa: "+this.getPrezioa());
+		System.out.println("Prezioa: " +egoera);
+		System.out.println("Prezioa: " +luzera);
+	}
+	
+	public void erasoaJaso(){
+		luzera--;
+	}
 	
 	protected abstract void informazioaInprimatu();
-	protected abstract String getIzena();
-	protected abstract void erasoaEgin(int zut, int err);
+	protected abstract boolean erasoaEgin(int zut, int err);
 }

@@ -3,6 +3,7 @@ package proiektua.advancedBattleship;
 import java.util.Scanner;
 
 import proiektua.salbuespenak.HizkiOkerra;
+import proiektua.salbuespenak.IzenBerdinak;
 import proiektua.salbuespenak.ZenbakiOkerra;
 
 public class Teklatua {
@@ -35,7 +36,15 @@ public class Teklatua {
 			izenak[x-1] = sc.nextLine();
 			System.out.println();
 		}
-		System.out.println("Partida hasiko da: \n\t\t"+izenak[0]+" VS "+izenak[1]+"!!!");
+		try{
+			if(izenak[0].equals(izenak[1])){
+				{throw new IzenBerdinak();}
+			}
+			System.out.println("Partida hasiko da: \n\t\t"+izenak[0]+" VS "+izenak[1]+"!!!");
+		}catch (IzenBerdinak e) {
+				System.out.println("Bi jokalarien izenak berdinak dira. Sartu jokalarien izen ezberdinak");
+				izenak = jokalariIzenak(jokKop);
+		}
 		return izenak;
 	}
 	
@@ -93,10 +102,10 @@ public class Teklatua {
 	
 	public int[] koordenatuakAukeratu(){
 		System.out.println("Koordenatuak aukeratu");
-		System.out.println("Sartu zutabe zenbakia (1-10)");
-		int zut = zenbakiaEskatu(1, 10);
-		System.out.println("Sartu errenkada zenbakia (1-10)");
-		int err = zenbakiaEskatu(1, 10);
+		System.out.println("Sartu zutabe zenbakia (0-14)");
+		int zut = zenbakiaEskatu(0, 14);
+		System.out.println("Sartu errenkada zenbakia (0-14)");
+		int err = zenbakiaEskatu(0, 14);
 		int[] koor = {zut,err};
 		return koor;
 	}
@@ -109,15 +118,13 @@ public class Teklatua {
 		nora = s.charAt(0);
 		
 		try{
-			if(nora=='i' || nora=='h' || nora=='e' || nora=='m'){
-				
+			if(nora!='i' && nora!='h' && nora!='e' && nora!='m' && nora!='I' && nora!='H' && nora!='E' && nora!='M'){
+				{throw new HizkiOkerra();}
 			}
-			{throw new HizkiOkerra();}
 		} catch(HizkiOkerra e){
 			System.out.println("Sartu beharrekoa char bat izan behar da!");
 			brujula();
 		}
-		
 		return nora;
 	}
 }

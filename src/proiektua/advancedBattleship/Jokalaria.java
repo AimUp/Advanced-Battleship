@@ -26,6 +26,7 @@ public class Jokalaria {
 			case 2: ErasoaErosi();
 					break;
 			}
+			txandak--;
 		}
 		txandak = 1;
 	}
@@ -42,8 +43,10 @@ public class Jokalaria {
 		ErasoMota erositakoa = Denda.getDenda().erosi(this);
 		if(erositakoa!=null){
 			dirua =- erositakoa.getPrezioa();
-			//jokalariTableroa.erasoaGehitu(erositakoa); //TODO
 			listaErasoak.erasoaGehitu(erositakoa);
+			if(erositakoa instanceof ItsasoIbilgailua){
+				jokalariTableroa.erasoaGehitu((ItsasoIbilgailua) erositakoa);
+			}
 		}
 	}
 	
@@ -52,17 +55,12 @@ public class Jokalaria {
 		else return false;
 	}
 	
-	public boolean txandaDu(){
-		if(txandak>0) return true;
-		else return false;
-	}
-	
 	public void diruaGehitu(int pDiruKop){
 		dirua =+ pDiruKop;
 	}
 	
-	public void erasoaJaso(int x, int y){
-		//jokalariTableroa.
+	public boolean erasoaJaso(int x, int y){
+		return jokalariTableroa.erasoaJaso(x,y);
 	}
 	
 	public void hondoratu(){
@@ -77,12 +75,8 @@ public class Jokalaria {
 		return izena;
 	}
 
-	public void setIzena(String izena) {
-		this.izena = izena;
-	}
-	
-	public void erasoaGehitu(ErasoMota em, int x, int y, int l){
-		
+	public void erasoaGehitu(ItsasoIbilgailua em){
+		jokalariTableroa.erasoaGehitu(em);
 	}
 	
 }

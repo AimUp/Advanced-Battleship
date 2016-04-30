@@ -30,36 +30,35 @@ public class AdvancedBattleship {
 		jokalariakSortu();
 		hasierakoErasoaKokatu();
 		while(!bukatu){
-			while(JokalariZerrenda.getJokalariZerrenda().txandaDu(txanda)){
-				JokalariZerrenda.getJokalariZerrenda().jokatu(txanda);
-			}
+			JokalariZerrenda.getJokalariZerrenda().jokatu(txanda);
 		}
 	}
 	
 	private void hasierakoErasoaKokatu(){
-		int erasoKopurua;
-		int erasoMota = 0;
-		int fragata = 4;
-		int akorazatua = 3;
-		int hegazkinGarraiolaria = 1;
+		int fragata;
+		int akorazatua;
+		int hegazGarraio;
 		
 		for(int x=0; x<JokalariZerrenda.getJokalariZerrenda().luzera(); x++){
-			erasoKopurua = 8;
-			System.out.println(x+" jokalariaren txanda");
-			/*while(erasoKopurua>=0){
-				JokalariZerrenda.getJokalariZerrenda().erasoaErosi(x);
-				jokalariak[x].ErasoaErosi();
-				erasoKopurua--;
-			}*/
-			
-			switch(erasoMota){
-			case '0' :
-				while ( fragata >= 0){
-					System.out.println("Kokatu fragata (x,y) koordentuan:");
-					int[] koor = Teklatua.getTeklatua().koordenatuakAukeratu();
-					JokalariZerrenda.getJokalariZerrenda().erasoaGehitu(txanda, new Fragata(), koor[0], koor[1], fragata);
-				}
-				
+			fragata = 4;
+			akorazatua = 3;
+			hegazGarraio = 1;
+			System.out.println(JokalariZerrenda.getJokalariZerrenda().getJokalariarenIzena(x)+", itsasontziak kokatu:");
+			System.out.println();
+			while (fragata>0){
+				System.out.println("Kokatu fragata (x,y) koordentuan:");
+				JokalariZerrenda.getJokalariZerrenda().erasoaGehitu(x, new Fragata());
+				fragata--;
+			}
+			while (akorazatua>0){
+				System.out.println("Kokatu akorazatua (x,y) koordentuan:");
+				JokalariZerrenda.getJokalariZerrenda().erasoaGehitu(x, new Korazatua());
+				akorazatua--;
+			}
+			while (hegazGarraio>0){
+				System.out.println("Kokatu hegazkin garraiolaria (x,y) koordentuan:");
+				JokalariZerrenda.getJokalariZerrenda().erasoaGehitu(x, new HegazkinGarraiolariak());
+				hegazGarraio--;
 			}
 		}
 	}
@@ -71,13 +70,13 @@ public class AdvancedBattleship {
 		}
 	}
 
-	public void erasoaEgin(int x, int y){
+	public boolean erasoaEgin(int x, int y){ //True ura jotzen ez badu
 		int erasoJok;
 		if(txanda==JokalariZerrenda.getJokalariZerrenda().luzera()){ 
 			erasoJok=0;}
 		else{
 			erasoJok=txanda+1;
 		}
-		JokalariZerrenda.getJokalariZerrenda().erasoaEgin(x, y, erasoJok);
+		return JokalariZerrenda.getJokalariZerrenda().erasoaEgin(x, y, erasoJok);
 	}
 }

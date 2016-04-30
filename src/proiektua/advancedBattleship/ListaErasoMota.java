@@ -23,6 +23,10 @@ public class ListaErasoMota {
 	}
 	
 	public void inprimatuErasoInfo(){
-		
+		ArrayList<ErasoMota> erakutzitakoak = new ArrayList<ErasoMota>();
+		for(int x=0; x<lista.size(); x++){
+			lista.get(x).espezifikazioakInprimatu();
+			erakutzitakoak.add(lista.get(x));
+		}
 	}
 }

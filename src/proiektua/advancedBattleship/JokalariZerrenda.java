@@ -16,9 +16,11 @@ public class JokalariZerrenda {
 		}
 		return nJokalariZerrenda;
 	}
-	public void erasoaEgin(int x, int y, int jokPos){
-		lista[jokPos].erasoaJaso(x,y);
+	
+	public boolean erasoaEgin(int x, int y, int jokPos){
+		return lista[jokPos].erasoaJaso(x,y);
 	}
+	
 	public int luzera(){
 		return lista.length;
 	}
@@ -26,21 +28,20 @@ public class JokalariZerrenda {
 	public void jokalariaGehitu(Jokalaria pJok, int pPos){
 		lista[pPos] = pJok;
 	}
-
-	public boolean txandaDu(int pTxanda){
-		if(lista[pTxanda].txandaDu()) return true;
-		else return false;
-	}
 	
 	public void erasoaErosi(int txanda){
-		
+		lista[txanda].ErasoaErosi();
 	}
 	
 	public void jokatu(int txanda){
-		
+		lista[txanda].jokatu();
 	}
-	public void erasoaGehitu(int txanda, ErasoMota em, int x, int y, int l){
-		
-		nJokalariZerrenda.lista[txanda].erasoaGehitu(em, x, y, l);
+	
+	public void erasoaGehitu(int txanda, ItsasoIbilgailua em){
+		nJokalariZerrenda.lista[txanda].erasoaGehitu(em);
+	}
+	
+	public String getJokalariarenIzena(int pPos){
+		return lista[pPos].getIzena();
 	}
 }

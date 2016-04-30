@@ -21,9 +21,8 @@ public class Mina extends ErasoMota{
 	}
 
 	@Override
-	protected void erasoaEgin(int zut, int err) {
-		// TODO Auto-generated method stub
-		
+	protected boolean erasoaEgin(int zut, int err) {
+		return false;
 	}
 	
 }

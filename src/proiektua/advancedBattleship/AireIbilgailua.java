@@ -7,12 +7,10 @@ public abstract class AireIbilgailua extends ErasoMota{
 
 	@Override
 	protected void espezifikazioakInprimatu() {
-		// TODO Auto-generated method stub
-		System.out.println(this.getIzena());
-		System.out.println("Prezioa: "+this.getPrezioa());
+		System.out.println(getIzena());
+		System.out.println("Prezioa: "+getPrezioa());
 	}
 
 	@Override
 	protected abstract void informazioaInprimatu();
-	protected abstract String getIzena();
 }

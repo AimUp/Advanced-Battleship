@@ -5,7 +5,7 @@ import java.util.Random;
 public class Korazatua extends ItsasoIbilgailua {
 	
 	public Korazatua(){
-		super(50,2);
+		super(50,3);
 	}
 
 	@Override
@@ -20,15 +20,20 @@ public class Korazatua extends ItsasoIbilgailua {
 	}
 
 	@Override
-	protected void erasoaEgin(int zut, int err) {
-		// TODO Auto-generated method stub
-		AdvancedBattleship.getAdvancedBattleship().erasoaEgin(zut,err);
+	protected boolean erasoaEgin(int zut, int err) {
+		boolean jo;
+		boolean b = false;
+		jo = AdvancedBattleship.getAdvancedBattleship().erasoaEgin(zut,err);
 		Random rnd= new Random();
 		for(int i=0;i<3;i++){
-		//Crear excepcion de ataque fuera de tablero
-		int z=rnd.nextInt(zut+2 - zut-2 +1)+zut-2;
-		int e=rnd.nextInt(err+2 - err-2 +1)+err-2;
-		AdvancedBattleship.getAdvancedBattleship().erasoaEgin(z,e);
+			//Crear excepcion de ataque fuera de tablero
+			int z=rnd.nextInt(zut+2 - zut-2 +1)+zut-2;
+			int e=rnd.nextInt(err+2 - err-2 +1)+err-2;
+			b = AdvancedBattleship.getAdvancedBattleship().erasoaEgin(z,e);
+			if(b){
+				jo = true;
+			}
 		}
+		return jo;
 	}
 }

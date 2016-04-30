@@ -1,10 +1,8 @@
 package proiektua.advancedBattleship;
 
-public abstract class Ura extends ErasoMota {
+public abstract class Ura extends ItsasoIbilgailua{
 
-	public Ura(int pPrezioa) {
-		
-		super(pPrezioa);
-	
+	public Ura() {
+		super(0,1);
 	}
 }

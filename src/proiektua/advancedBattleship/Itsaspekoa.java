@@ -16,14 +16,7 @@ public class Itsaspekoa extends ItsasoIbilgailua{
 	}
 
 	@Override
-	protected String getIzena() {
-		// TODO Auto-generated method stub
-		return "Itsaspekoa";
-	}
-	@Override
-	protected void erasoaEgin(int zut, int err) {
-		// TODO Auto-generated method stub
-		AdvancedBattleship.getAdvancedBattleship().erasoaEgin(zut,err);
-		
+	protected boolean erasoaEgin(int zut, int err) {
+		return AdvancedBattleship.getAdvancedBattleship().erasoaEgin(zut,err);
 	}
 }
