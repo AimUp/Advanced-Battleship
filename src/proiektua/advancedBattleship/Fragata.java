@@ -3,7 +3,7 @@ package proiektua.advancedBattleship;
 public class Fragata extends ItsasoIbilgailua{
 	
 	public Fragata(){
-		super(10,2);
+		super("Fragata",10,2);
 	}
 
 	@Override

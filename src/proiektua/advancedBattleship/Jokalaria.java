@@ -1,5 +1,7 @@
 package proiektua.advancedBattleship;
 
+import proiektua.salbuespenak.EzinKokatu;
+
 public class Jokalaria {
 
 	private double dirua;
@@ -42,10 +44,23 @@ public class Jokalaria {
 	public void ErasoaErosi(){
 		ErasoMota erositakoa = Denda.getDenda().erosi(this);
 		if(erositakoa!=null){
-			dirua =- erositakoa.getPrezioa();
-			listaErasoak.erasoaGehitu(erositakoa);
+			dirua = dirua - erositakoa.getPrezioa();
 			if(erositakoa instanceof ItsasoIbilgailua){
-				jokalariTableroa.erasoaGehitu((ItsasoIbilgailua) erositakoa);
+				boolean bukatu = false;
+				while(!bukatu){
+					try {
+						System.out.println("Kokatu tableroan erositako " + erositakoa.getIzena());
+						erasoaGehitu((ItsasoIbilgailua) erositakoa);
+						bukatu=true;
+					} catch (EzinKokatu e) {
+						System.out.println("Ezin duzu " + erositakoa.getIzena() + " hor kokatu.");
+						System.out.println("Berriro kokatzen zaihatu nahi duzu? (Berriro kokatzen ez baduzu dirua itzuliko zaizu)");
+						if(!Teklatua.getTeklatua().baiEdoEz()){
+							dirua = dirua + erositakoa.getPrezioa();
+							bukatu = true;
+						}
+					}
+				}
 			}
 		}
 	}
@@ -75,8 +90,8 @@ public class Jokalaria {
 		return izena;
 	}
 
-	public void erasoaGehitu(ItsasoIbilgailua em){
-		jokalariTableroa.erasoaGehitu(em);
+	public void erasoaGehitu(ItsasoIbilgailua em) throws EzinKokatu{
+		jokalariTableroa.erasoaGehitu(em, listaErasoak);
 	}
 	
 	public void setIzena(String izena) {

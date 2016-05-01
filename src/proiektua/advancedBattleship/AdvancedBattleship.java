@@ -1,5 +1,7 @@
  package proiektua.advancedBattleship;
 
+import proiektua.salbuespenak.EzinKokatu;
+
 public class AdvancedBattleship {
 
 	private static AdvancedBattleship nAdvancedBattleship = null;
@@ -47,18 +49,33 @@ public class AdvancedBattleship {
 			System.out.println();
 			while (fragata>0){
 				System.out.println("Kokatu fragata (x,y) koordentuan:");
-				JokalariZerrenda.getJokalariZerrenda().erasoaGehitu(x, new Fragata());
-				fragata--;
+				try {
+					JokalariZerrenda.getJokalariZerrenda().erasoaGehitu(x, new Fragata());
+					fragata--;
+				} catch (EzinKokatu e) {
+					e.erroreaInprimatu();
+					System.out.println("Berriro koka ezazu");
+				}
 			}
 			while (akorazatua>0){
 				System.out.println("Kokatu akorazatua (x,y) koordentuan:");
-				JokalariZerrenda.getJokalariZerrenda().erasoaGehitu(x, new Korazatua());
-				akorazatua--;
+				try {
+					JokalariZerrenda.getJokalariZerrenda().erasoaGehitu(x, new Korazatua());
+					akorazatua--;
+				} catch (EzinKokatu e) {
+					e.erroreaInprimatu();
+					System.out.println("Berriro koka ezazu");
+				}
 			}
 			while (hegazGarraio>0){
 				System.out.println("Kokatu hegazkin garraiolaria (x,y) koordentuan:");
-				JokalariZerrenda.getJokalariZerrenda().erasoaGehitu(x, new HegazkinGarraiolariak());
-				hegazGarraio--;
+				try {
+					JokalariZerrenda.getJokalariZerrenda().erasoaGehitu(x, new HegazkinGarraiolaria());
+					hegazGarraio--;
+				} catch (EzinKokatu e) {
+					e.erroreaInprimatu();
+					System.out.println("Berriro koka ezazu");
+				}
 			}
 		}
 	}

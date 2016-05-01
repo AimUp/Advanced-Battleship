@@ -1,9 +1,9 @@
 package proiektua.advancedBattleship;
 
-public class HegazkinGarraiolariak extends ItsasoIbilgailua {
+public class HegazkinGarraiolaria extends ItsasoIbilgailua {
 	
-	public HegazkinGarraiolariak(){
-		super(100, 4);
+	public HegazkinGarraiolaria(){
+		super("Hegazkin Garraiolaria",100, 4);
 	}
 
 	@Override

@@ -11,7 +11,7 @@ public class Denda {
 		katalogoa.erasoaGehitu(new Fragata());
 		katalogoa.erasoaGehitu(new Korazatua());
 		katalogoa.erasoaGehitu(new Itsaspekoa());
-		katalogoa.erasoaGehitu(new HegazkinGarraiolariak());
+		katalogoa.erasoaGehitu(new HegazkinGarraiolaria());
 		katalogoa.erasoaGehitu(new Bonbarderoa());
 		katalogoa.erasoaGehitu(new UAV());
 	}

@@ -5,7 +5,8 @@ public abstract class ErasoMota {
 	private String izena;
 	private int prezioa;
 	
-	public ErasoMota(int pPrezioa){
+	public ErasoMota(String pIzena, int pPrezioa){
+		izena = pIzena;
 		prezioa=pPrezioa;
 	}
 	
@@ -18,9 +19,7 @@ public abstract class ErasoMota {
 	}
 	
 	protected abstract void espezifikazioakInprimatu();
-	
 	protected abstract void informazioaInprimatu();
-	
 	protected abstract boolean erasoaEgin(int zut, int err);
 }
  

@@ -64,7 +64,7 @@ public class Teklatua {
 				
 			}
 		}catch(ZenbakiOkerra e){
-			System.out.println("Zure aukera " + pLehenengoa + " eta " + pAzkena + " zenbakien artekoa izan behar da");
+			System.out.println("Zure aukera " + pLehenengoa + " eta " + pAzkena + " zenbakien artekoa izan behar da \n\n");
 		    zenbakiaEskatu(pLehenengoa, pAzkena);
 		}
 		System.out.println("\n\n");
@@ -77,11 +77,9 @@ public class Teklatua {
 		
 		System.out.println("1. Eraso egin.");
 		System.out.println("2. Dendan erosi.");
-		System.out.println("3. ");
-		System.out.println("4. ");
 		System.out.println("0. Partida bertan behera hutsi.");
 		
-		return zenbakiaEskatu(0, 4);
+		return zenbakiaEskatu(0, 2);
 	}
 	
 	public boolean baiEdoEz(){
@@ -102,9 +100,9 @@ public class Teklatua {
 	
 	public int[] koordenatuakAukeratu(){
 		System.out.println("Koordenatuak aukeratu");
-		System.out.println("Sartu zutabe zenbakia (0-14)");
+		System.out.println("Sartu ZUTABE (X) zenbakia (0-14)");
 		int zut = zenbakiaEskatu(0, 14);
-		System.out.println("Sartu errenkada zenbakia (0-14)");
+		System.out.println("Sartu ERRENKADA (Y) zenbakia (0-14)");
 		int err = zenbakiaEskatu(0, 14);
 		int[] koor = {zut,err};
 		return koor;
@@ -112,9 +110,7 @@ public class Teklatua {
 	}
 	
 	public char brujula() {
-		
 		char nora;
-		
 		System.out.println("Ontziaren burua (x,y) koordenatuan egonda, gorputza ze noranzkoan sartu nahi duzun adierazi. I(iparraldea), H(hegoaldea), E(ekialdea), M(mendebaldea):");
 		String s = sc.nextLine();
 		nora = s.charAt(0);
@@ -123,7 +119,8 @@ public class Teklatua {
 				{throw new HizkiOkerra();}
 			}
 		} catch(HizkiOkerra e){
-			System.out.println("Sartu beharrekoa char bat izan behar da!");
+			System.out.println("Sartu nahi duzun noranzkoa espezifikatu bezala izan behar da!");
+			System.out.println("Noranzkoa berriz sartu \n\n");
 			brujula();
 		}
 		return nora;

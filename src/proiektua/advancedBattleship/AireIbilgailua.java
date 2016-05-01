@@ -1,8 +1,8 @@
 package proiektua.advancedBattleship;
 
 public abstract class AireIbilgailua extends ErasoMota{
-	public AireIbilgailua(int pPrezioa){
-		super(pPrezioa);
+	public AireIbilgailua(String pIzena, int pPrezioa){
+		super(pIzena, pPrezioa);
 	}
 
 	@Override

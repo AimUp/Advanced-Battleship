@@ -5,7 +5,7 @@ import java.util.Random;
 public class Korazatua extends ItsasoIbilgailua {
 	
 	public Korazatua(){
-		super(50,3);
+		super("Korazatua",50,3);
 	}
 
 	@Override
@@ -14,8 +14,7 @@ public class Korazatua extends ItsasoIbilgailua {
 	}
 
 	@Override
-	protected String getIzena() {
-		// TODO Auto-generated method stub
+	protected String getIzena(){
 		return "Korazatua";
 	}
 

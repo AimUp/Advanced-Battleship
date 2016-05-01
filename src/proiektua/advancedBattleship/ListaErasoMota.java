@@ -14,6 +14,10 @@ public class ListaErasoMota {
 		lista.add(e);
 	}
 	
+	public void erasoaKendu(ErasoMota e){
+		lista.remove(e);
+	}
+	
 	public ErasoMota posiziokoErasoaLortu(int pPos){
 		return lista.get(pPos);
 	}
@@ -25,7 +29,9 @@ public class ListaErasoMota {
 	public void inprimatuErasoInfo(){
 		ArrayList<ErasoMota> erakutzitakoak = new ArrayList<ErasoMota>();
 		for(int x=0; x<lista.size(); x++){
+			System.out.println(x+1+".");
 			lista.get(x).espezifikazioakInprimatu();
+			lista.get(x).informazioaInprimatu();
 			erakutzitakoak.add(lista.get(x));
 		}
 	}

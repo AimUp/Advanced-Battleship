@@ -1,5 +1,7 @@
 package proiektua.advancedBattleship;
 
+import proiektua.salbuespenak.EzinKokatu;
+
 public class JokalariZerrenda {
 
 	private Jokalaria[] lista;
@@ -37,7 +39,7 @@ public class JokalariZerrenda {
 		lista[txanda].jokatu();
 	}
 	
-	public void erasoaGehitu(int txanda, ItsasoIbilgailua em){
+	public void erasoaGehitu(int txanda, ItsasoIbilgailua em) throws EzinKokatu{
 		nJokalariZerrenda.lista[txanda].erasoaGehitu(em);
 	}
 	

@@ -1,5 +1,6 @@
 package proiektua.advancedBattleship;
 
+import proiektua.salbuespenak.EzinKokatu;
 import proiektua.salbuespenak.PosizioaOkupatua;
 import proiektua.salbuespenak.TablerotikKanpo;
 
@@ -12,60 +13,77 @@ public class Tableroa {
 		ibilgailuMatrizea = new ItsasoIbilgailua[tableroTamaina][tableroTamaina];
 	}
 	
-	public void erasoaGehitu(ItsasoIbilgailua ibil){
+	public void erasoaGehitu(ItsasoIbilgailua ibil, ListaErasoMota lista) throws EzinKokatu{
 		int[] koor = Teklatua.getTeklatua().koordenatuakAukeratu();
 		int x=koor[0], y=koor[1];
 		char nora = Teklatua.getTeklatua().brujula();
 		int luz = ibil.getLuzera();
 		
-		switch(nora){
-			case'i':
-				while(luz > 0){
-					kokatuontzia(ibil, x, y+(luz-1));
-					luz--;
-				}
-				break;
-			case'h':
-				System.out.println("h");
-				while(luz > 0){
-					kokatuontzia(ibil, x-(luz-1), y);
-					luz--;
-				}
-				break;
-			case'm':
-				while(luz > 0){
-					kokatuontzia(ibil, x, y-(luz-1));
-					luz--;
-				}
-				break;
-			case'e':
-				while(luz > 0){
-					kokatuontzia(ibil, x+(luz-1), y);
-					luz--;
-				}
-				break;
+		if(nora=='i' || nora=='I'){
+			if(!kokatuDaiteke(ibil, x, y, nora)){
+				{throw new EzinKokatu();}
+			}
+			while(luz>0){
+				ibilgailuMatrizea[x][y+(luz-1)] = ibil;
+				luz--;
+			}
 		}
+		else if(nora=='h' || nora=='H'){
+			if(!kokatuDaiteke(ibil, x, y, nora)){
+				{throw new EzinKokatu();}
+			}
+			while(luz>0){
+				ibilgailuMatrizea[x-(luz-1)][y] = ibil;
+				luz--;
+			}
+		}
+		else if(nora=='m' || nora=='M'){
+			if(!kokatuDaiteke(ibil, x, y, nora)){
+				{throw new EzinKokatu();}
+			}
+			while(luz>0){
+				ibilgailuMatrizea[x][y-(luz-1)] = ibil;
+				luz--;
+			}	
+		}
+		else if(nora=='e' || nora=='E'){
+			if(!kokatuDaiteke(ibil, x, y, nora)){
+				{throw new EzinKokatu();}
+			}
+			while(luz>0){
+				ibilgailuMatrizea[x+(luz-1)][y] = ibil;
+				luz--;
+			}
+		}
+		lista.erasoaGehitu(ibil);
 		tableroaInprimatu();
 	}
 	
-	private void kokatuontzia(ItsasoIbilgailua ibil, int x, int y){
-		try{
-			if(x<0 || x>14 || y<0 || y>14){
-				{throw new TablerotikKanpo();}
-			}
+	private boolean kokatuDaiteke(ItsasoIbilgailua ibil, int x, int y, char nor){
+		boolean kokatu = true;
+		int l = 0;
+		while(l<ibil.getLuzera() && kokatu){
 			try{
-				if(ibilgailuMatrizea[x][y] != null){
-					{throw new PosizioaOkupatua();}
+				if(x<0 || x>14 || y<0 || y>14){
+					{throw new TablerotikKanpo();}
 				}
-				ibilgailuMatrizea[x][y]=ibil;
+				try{
+					if(ibilgailuMatrizea[x][y] != null){
+						{throw new PosizioaOkupatua();}
+					}
+					l++;
+				}
+				catch(PosizioaOkupatua e){
+					System.out.println("Posizio honetan ezin daiteko ontzirik jarri");
+					kokatu = false;
+				}
 			}
-			catch(PosizioaOkupatua e){
-				System.out.println("Posizio honetan ezin daiteko ontzirik jarri");
+			catch(TablerotikKanpo e){
+				System.out.println("Ezin daiteke itsasontzi kokatu. Posizioa tablerotik KANPO dago.");
+				kokatu = false;
 			}
 		}
-		catch(TablerotikKanpo e){
-			System.out.println("Tablerotik kanpo");
-		}
+		return kokatu;
 	}
 	
 	public void tableroaInprimatu(){
