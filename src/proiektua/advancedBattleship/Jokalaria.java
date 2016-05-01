@@ -79,4 +79,12 @@ public class Jokalaria {
 		jokalariTableroa.erasoaGehitu(em);
 	}
 	
+	public void setIzena(String izena) {
+		this.izena = izena;
+	}
+	
+	public void tableroaInprimatu(){
+		jokalariTableroa.tableroaInprimatu();
+	}
+	
 }

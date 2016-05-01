@@ -44,4 +44,8 @@ public class JokalariZerrenda {
 	public String getJokalariarenIzena(int pPos){
 		return lista[pPos].getIzena();
 	}
+	
+	public void tableroaInprimatu(int txanda){
+		nJokalariZerrenda.lista[txanda].tableroaInprimatu();
+	}
 }

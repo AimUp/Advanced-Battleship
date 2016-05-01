@@ -73,8 +73,11 @@ public class Tableroa {
 				if(ibilgailuMatrizea[x][y] == null){
 					System.out.print("≈");
 				}
-				else if(ibilgailuMatrizea[x][y] instanceof Ura){
+				else if(ibilgailuMatrizea[x][y] == null){
 					System.out.print("O");
+				}
+				else if(ibilgailuMatrizea[x][y] instanceof Ura){
+					System.out.print("0");
 				}
 				else {
 					System.out.print("X");

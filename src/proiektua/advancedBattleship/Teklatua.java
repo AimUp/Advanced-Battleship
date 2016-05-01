@@ -108,15 +108,16 @@ public class Teklatua {
 		int err = zenbakiaEskatu(0, 14);
 		int[] koor = {zut,err};
 		return koor;
+		
 	}
 	
-	public char brujula(){
+	public char brujula() {
+		
 		char nora;
 		
 		System.out.println("Ontziaren burua (x,y) koordenatuan egonda, gorputza ze noranzkoan sartu nahi duzun adierazi. I(iparraldea), H(hegoaldea), E(ekialdea), M(mendebaldea):");
 		String s = sc.nextLine();
 		nora = s.charAt(0);
-		
 		try{
 			if(nora!='i' && nora!='h' && nora!='e' && nora!='m' && nora!='I' && nora!='H' && nora!='E' && nora!='M'){
 				{throw new HizkiOkerra();}
