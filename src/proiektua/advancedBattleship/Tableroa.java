@@ -1,5 +1,6 @@
 package proiektua.advancedBattleship;
 
+import proiektua.salbuespenak.PosizioaOkupatua;
 import proiektua.salbuespenak.TablerotikKanpo;
 
 public class Tableroa {
