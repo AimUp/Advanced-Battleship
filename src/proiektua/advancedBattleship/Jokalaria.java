@@ -12,7 +12,7 @@ public class Jokalaria {
 	
 	public Jokalaria(String pIzena){
 		izena = pIzena;
-		dirua = 0; //Hasierako diru kantitatea
+		dirua = 0; 	//Hasierako diru kantitatea
 		listaErasoak = new ListaErasoMota();
 		jokalariTableroa = new Tableroa();
 	}
@@ -38,7 +38,9 @@ public class Jokalaria {
 		listaErasoak.inprimatuErasoInfo();
 		int aukera = Teklatua.getTeklatua().zenbakiaEskatu(1, listaErasoak.tamaina());
 		int[] koor = Teklatua.getTeklatua().koordenatuakAukeratu();
-		listaErasoak.posiziokoErasoaLortu(aukera).erasoaEgin(koor[0], koor[1]);
+		if(listaErasoak.posiziokoErasoaLortu(aukera).erasoaEgin(koor[0], koor[1])){ //JO BADU
+			txandak++;
+		}
 	}
 	
 	public void ErasoaErosi(){

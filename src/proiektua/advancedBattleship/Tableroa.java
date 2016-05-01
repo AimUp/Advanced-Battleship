@@ -18,13 +18,13 @@ public class Tableroa {
 		int x=koor[0], y=koor[1];
 		char nora = Teklatua.getTeklatua().brujula();
 		int luz = ibil.getLuzera();
-		
 		if(nora=='i' || nora=='I'){
 			if(!kokatuDaiteke(ibil, x, y, nora)){
 				{throw new EzinKokatu();}
 			}
 			while(luz>0){
 				ibilgailuMatrizea[x][y+(luz-1)] = ibil;
+				ibil.kokalekuBatGehitu(luz-1, x, y+(luz-1));
 				luz--;
 			}
 		}
@@ -34,6 +34,7 @@ public class Tableroa {
 			}
 			while(luz>0){
 				ibilgailuMatrizea[x-(luz-1)][y] = ibil;
+				ibil.kokalekuBatGehitu(luz-1, x-(luz-1), y);
 				luz--;
 			}
 		}
@@ -43,6 +44,7 @@ public class Tableroa {
 			}
 			while(luz>0){
 				ibilgailuMatrizea[x][y-(luz-1)] = ibil;
+				ibil.kokalekuBatGehitu(luz-1, x, y-(luz-1));
 				luz--;
 			}	
 		}
@@ -52,6 +54,7 @@ public class Tableroa {
 			}
 			while(luz>0){
 				ibilgailuMatrizea[x+(luz-1)][y] = ibil;
+				ibil.kokalekuBatGehitu(luz-1, x+(luz-1), y);
 				luz--;
 			}
 		}
@@ -92,9 +95,6 @@ public class Tableroa {
 				if(ibilgailuMatrizea[x][y] == null){
 					System.out.print("≈");
 				}
-				else if(ibilgailuMatrizea[x][y] == null){
-					System.out.print("O");
-				}
 				else if(ibilgailuMatrizea[x][y] instanceof Ura){
 					System.out.print("0");
 				}
@@ -106,10 +106,43 @@ public class Tableroa {
 		}
 	}
 	
-	public boolean erasoaJaso(int x, int y){
-		if(ibilgailuMatrizea[x][y] != null && !(ibilgailuMatrizea[x][y] instanceof Ura)){
-			ibilgailuMatrizea[x][y].erasoaJaso();
+	public void erasoTableroaInprimatu(){
+		for(int x = 0; x < ibilgailuMatrizea.length; x++){
+			for(int y = 0; y < ibilgailuMatrizea[x].length; y++){
+				if(ibilgailuMatrizea[x][y] == null){
+					System.out.print("≈");
+				}
+				else if(ibilgailuMatrizea[x][y] instanceof Ura){
+					System.out.print("0");
+				}
+				else if(ibilgailuMatrizea[x][y].joEginda(x,y)){
+					System.out.print("X");
+				}
+				else if(!ibilgailuMatrizea[x][y].joEginda(x,y)){
+					System.out.print("≈");
+				}
+			}
+			System.out.println();
 		}
-		return false;
+	}
+	
+	public boolean erasoaJaso(int x, int y){
+		boolean jo = false;
+		try{
+			if(x<0 || x>14 || y<0 || y>14){
+				{throw new TablerotikKanpo();}
+			}
+			if(ibilgailuMatrizea[x][y] != null && !(ibilgailuMatrizea[x][y] instanceof Ura)){
+				ibilgailuMatrizea[x][y].erasoaJaso(x, y);
+				jo=true;
+			}
+			else if(ibilgailuMatrizea[x][y] == null){
+				ibilgailuMatrizea[x][y] = new Ura();
+			}
+			erasoTableroaInprimatu();
+		}
+		catch(TablerotikKanpo e){}
+		
+		return jo;
 	}
 }

@@ -1,4 +1,4 @@
- package proiektua.advancedBattleship;
+package proiektua.advancedBattleship;
 
 import proiektua.salbuespenak.EzinKokatu;
 
@@ -29,10 +29,20 @@ public class AdvancedBattleship {
 	}
 	
 	public void jokatu(){
+		String unekoJok;
 		jokalariakSortu();
 		hasierakoErasoaKokatu();
 		while(!bukatu){
+			System.out.println("\n\n");
+			unekoJok =  JokalariZerrenda.getJokalariZerrenda().getJokalariarenIzena(txanda);
+			System.out.println(unekoJok +" ZURE TXADA");
 			JokalariZerrenda.getJokalariZerrenda().jokatu(txanda);
+			if(txanda==JokalariZerrenda.getJokalariZerrenda().luzera()-1){ 
+				txanda = 0;
+			}
+			else{
+				txanda = txanda+1;
+			}
 		}
 	}
 	
@@ -89,8 +99,9 @@ public class AdvancedBattleship {
 
 	public boolean erasoaEgin(int x, int y){ //True ura jotzen ez badu
 		int erasoJok;
-		if(txanda==JokalariZerrenda.getJokalariZerrenda().luzera()){ 
-			erasoJok=0;}
+		if(txanda==JokalariZerrenda.getJokalariZerrenda().luzera()-1){ 
+			erasoJok=0;
+		}
 		else{
 			erasoJok=txanda+1;
 		}
