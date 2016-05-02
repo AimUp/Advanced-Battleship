@@ -28,7 +28,7 @@ public class Denda {
 		erasoKatalogoaErakutzi();
 		int auk = Teklatua.getTeklatua().zenbakiaEskatu(1, 6); //LEHENENGO AUKERA / AZKEN AUKERA
 		ErasoMota erostekoErasoa = katalogoa.posiziokoErasoaLortu(auk);
-		if(pEroslea.diruNahikoa(erostekoErasoa.getPrezioa())){
+		if(!pEroslea.diruNahikoa(erostekoErasoa.getPrezioa())){//salbuespena
 			erositakoErasoa = null;
 			System.out.println("Ez duzu eraso hau erosteko diru nahikorik.");
 			System.out.println("Bezte eraso bat erosi nahi duzu?");
