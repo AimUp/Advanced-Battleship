@@ -23,8 +23,8 @@ public class Tableroa {
 				{throw new EzinKokatu();}
 			}
 			while(luz>0){
-				ibilgailuMatrizea[x][y+(luz-1)] = ibil;
-				ibil.kokalekuBatGehitu(luz-1, x, y+(luz-1));
+				ibilgailuMatrizea[x][y-(luz-1)] = ibil;
+				ibil.kokalekuBatGehitu(luz-1, x, y-(luz-1));
 				luz--;
 			}
 		}
@@ -33,9 +33,10 @@ public class Tableroa {
 				{throw new EzinKokatu();}
 			}
 			while(luz>0){
-				ibilgailuMatrizea[x-(luz-1)][y] = ibil;
-				ibil.kokalekuBatGehitu(luz-1, x-(luz-1), y);
+				ibilgailuMatrizea[x][y+(luz-1)] = ibil;
+				ibil.kokalekuBatGehitu(luz-1, x, y+(luz-1));
 				luz--;
+				
 			}
 		}
 		else if(nora=='m' || nora=='M'){
@@ -43,8 +44,8 @@ public class Tableroa {
 				{throw new EzinKokatu();}
 			}
 			while(luz>0){
-				ibilgailuMatrizea[x][y-(luz-1)] = ibil;
-				ibil.kokalekuBatGehitu(luz-1, x, y-(luz-1));
+				ibilgailuMatrizea[x-(luz-1)][y] = ibil;
+				ibil.kokalekuBatGehitu(luz-1, x-(luz-1), y);
 				luz--;
 			}	
 		}
@@ -62,7 +63,7 @@ public class Tableroa {
 		tableroaInprimatu();
 	}
 	
-	private boolean kokatuDaiteke(ItsasoIbilgailua ibil, int x, int y, char nor){
+	private boolean kokatuDaiteke(ItsasoIbilgailua ibil, int x, int y, char nora){
 		boolean kokatu = true;
 		int l = 0;
 		while(l<ibil.getLuzera() && kokatu){
@@ -85,30 +86,49 @@ public class Tableroa {
 				System.out.println("Ezin daiteke itsasontzi kokatu. Posizioa tablerotik KANPO dago.");
 				kokatu = false;
 			}
+			if(nora=='i' || nora=='I'){
+				y--;
+			}
+			else if(nora=='h' || nora=='H'){
+				y++;
+			}
+			else if(nora=='m' || nora=='M'){
+				x--;
+			}
+			else if(nora=='e' || nora=='E'){
+				x++;
+			}
 		}
 		return kokatu;
 	}
 	
 	public void tableroaInprimatu(){
-		for(int x = 0; x < ibilgailuMatrizea.length; x++){
-			for(int y = 0; y < ibilgailuMatrizea[x].length; y++){
+		char c = 'A';
+		for(int i=0; i<15; i++){
+			System.out.print(c+" ");
+			c++;
+		}
+		System.out.println();
+		for(int y = 0; y < ibilgailuMatrizea.length; y++){
+			for(int x = 0; x < ibilgailuMatrizea.length; x++){
 				if(ibilgailuMatrizea[x][y] == null){
-					System.out.print("≈");
+					System.out.print("≈ ");
 				}
 				else if(ibilgailuMatrizea[x][y] instanceof Ura){
-					System.out.print("0");
+					System.out.print("0 ");
 				}
 				else {
-					System.out.print("X");
+					System.out.print("X ");
 				}
 			}
-			System.out.println();
+			System.out.println(y);
 		}
 	}
 	
 	public void erasoTableroaInprimatu(){
-		for(int x = 0; x < ibilgailuMatrizea.length; x++){
-			for(int y = 0; y < ibilgailuMatrizea[x].length; y++){
+		for(int y = 0; y < ibilgailuMatrizea.length; y++){
+			for(int x = 0; x < ibilgailuMatrizea.length; x++){
+				System.out.println(x);
 				if(ibilgailuMatrizea[x][y] == null){
 					System.out.print("≈");
 				}
@@ -124,6 +144,7 @@ public class Tableroa {
 			}
 			System.out.println();
 		}
+		
 	}
 	
 	public boolean erasoaJaso(int x, int y){

@@ -77,6 +77,7 @@ public class Teklatua {
 		
 		System.out.println("1. Eraso egin.");
 		System.out.println("2. Dendan erosi.");
+		System.out.println("3. Diru kopurua.");
 		System.out.println("0. Partida bertan behera hutsi.");
 		
 		return zenbakiaEskatu(0, 2);

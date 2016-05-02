@@ -27,6 +27,10 @@ public class Jokalaria {
 					break;
 			case 2: ErasoaErosi();
 					break;
+			case 3: 
+				System.out.println("ZURE DIRUA:"+ dirua + " DA.");
+				txandak++;
+			
 			}
 			txandak--;
 		}
