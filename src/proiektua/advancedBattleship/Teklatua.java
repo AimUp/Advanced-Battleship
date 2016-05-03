@@ -23,7 +23,7 @@ public class Teklatua {
 	}
 	
 	public void hasierakoMezua(){
-		System.out.println("\n\t ⒶⒹⓋⒶⓃⒸⒺⒹ ⒷⒶⓉⓉⓁⒺⓈⒽⒾⓅ  \t");
+		System.out.println("\n\t �  \t");
 		System.out.println("\n");
 	}
 	
@@ -118,7 +118,7 @@ public class Teklatua {
 			nora = s.charAt(0);
 		}
 		else{
-			nora='Ñ';
+			nora='�';
 		}
 		try{
 			if(nora!='i' && nora!='h' && nora!='e' && nora!='m' && nora!='I' && nora!='H' && nora!='E' && nora!='M'){

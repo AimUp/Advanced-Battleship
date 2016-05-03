@@ -112,7 +112,7 @@ public class Tableroa {
 		for(int y = 0; y < ibilgailuMatrizea.length; y++){
 			for(int x = 0; x < ibilgailuMatrizea.length; x++){
 				if(ibilgailuMatrizea[x][y] == null){
-					System.out.print("≈ ");
+					System.out.print("O ");
 				}
 				else if(ibilgailuMatrizea[x][y] instanceof Ura){
 					System.out.print("0 ");
@@ -155,6 +155,26 @@ public class Tableroa {
 			}
 			if(ibilgailuMatrizea[x][y] != null && !(ibilgailuMatrizea[x][y] instanceof Ura)){
 				ibilgailuMatrizea[x][y].erasoaJaso(x, y);
+				jo=true;
+			}
+			else if(ibilgailuMatrizea[x][y] == null){
+				ibilgailuMatrizea[x][y] = new Ura();
+			}
+			erasoTableroaInprimatu();
+		}
+		catch(TablerotikKanpo e){}
+		
+		return jo;
+	}
+
+	public boolean itsaspekoErasoaJaso(int x, int y) {
+		boolean jo = false;
+		try{
+			if(x<0 || x>14 || y<0 || y>14){
+				{throw new TablerotikKanpo();}
+			}
+			if(ibilgailuMatrizea[x][y] != null && !(ibilgailuMatrizea[x][y] instanceof Ura)){
+				ibilgailuMatrizea[x][y].itsaspekoErasoaJaso(x, y);
 				jo=true;
 			}
 			else if(ibilgailuMatrizea[x][y] == null){

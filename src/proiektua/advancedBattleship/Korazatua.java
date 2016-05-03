@@ -35,4 +35,10 @@ public class Korazatua extends ItsasoIbilgailua {
 		}
 		return jo;
 	}
+
+	@Override
+	public void itsaspekoErasoaEgin(int x, int i) {
+		// TODO Auto-generated method stub
+		
+	}
 }

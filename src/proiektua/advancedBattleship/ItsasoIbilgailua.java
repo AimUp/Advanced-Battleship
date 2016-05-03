@@ -34,6 +34,15 @@ public abstract class ItsasoIbilgailua extends ErasoMota{
 		kokalekua[i].jo();
 		luzera--;
 	}
+	public void itsaspekoErasoaJaso(int x, int y){
+		int i=0;
+		while(i<kokalekua.length){
+			kokalekua[i].jo();
+			i++;
+			luzera--;
+		}	
+	}
+	public abstract void itsaspekoErasoaEgin(int x, int i);
 	
 	public void kokalekuBatGehitu(int pos, int x, int y){
 		kokalekua[pos].setZutEtaErr(x, y);

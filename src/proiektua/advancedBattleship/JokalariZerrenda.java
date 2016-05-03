@@ -50,4 +50,8 @@ public class JokalariZerrenda {
 	public void tableroaInprimatu(int txanda){
 		nJokalariZerrenda.lista[txanda].tableroaInprimatu();
 	}
+
+	public boolean itsaspekoErasoaEgin(int x, int y, int erasoJok) {
+		return lista[erasoJok].itsaspekoErasoaJaso(x,y);
+	}
 }

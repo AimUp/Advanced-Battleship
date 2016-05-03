@@ -42,7 +42,11 @@ public class Jokalaria {
 		listaErasoak.inprimatuErasoInfo();
 		int aukera = Teklatua.getTeklatua().zenbakiaEskatu(1, listaErasoak.tamaina());
 		int[] koor = Teklatua.getTeklatua().koordenatuakAukeratu();
-		if(listaErasoak.posiziokoErasoaLortu(aukera).erasoaEgin(koor[0], koor[1])){ //JO BADU
+		if(listaErasoak.posiziokoErasoaLortu(aukera).getIzena().equals("Itsaspekoa")){
+			listaErasoak.posiziokoErasoaLortu(aukera).itsaspekoErasoaEgin(koor[0], koor[1]);
+			txandak++;
+		}
+		else if(listaErasoak.posiziokoErasoaLortu(aukera).erasoaEgin(koor[0], koor[1])){ //JO BADU
 			txandak++;
 		}
 	}
@@ -83,11 +87,7 @@ public class Jokalaria {
 	public boolean erasoaJaso(int x, int y){
 		return jokalariTableroa.erasoaJaso(x,y);
 	}
-	
-	public void hondoratu(){
-		
-	}
-	
+			
 	public void galdu(){
 		
 	}
@@ -106,6 +106,11 @@ public class Jokalaria {
 	
 	public void tableroaInprimatu(){
 		jokalariTableroa.tableroaInprimatu();
+	}
+		
+
+	public boolean itsaspekoErasoaJaso(int x, int y) {
+		return jokalariTableroa.itsaspekoErasoaJaso(x,y);
 	}
 	
 }
