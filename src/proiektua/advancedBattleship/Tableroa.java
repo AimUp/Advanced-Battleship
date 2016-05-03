@@ -174,7 +174,7 @@ public class Tableroa {
 				{throw new TablerotikKanpo();}
 			}
 			if(ibilgailuMatrizea[x][y] != null && !(ibilgailuMatrizea[x][y] instanceof Ura)){
-				ibilgailuMatrizea[x][y].itsaspekoErasoaJaso(x, y);
+				ibilgailuMatrizea[x][y].itsaspekoErasoaJaso();
 				jo=true;
 			}
 			else if(ibilgailuMatrizea[x][y] == null){

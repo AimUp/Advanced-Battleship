@@ -34,7 +34,7 @@ public abstract class ItsasoIbilgailua extends ErasoMota{
 		kokalekua[i].jo();
 		luzera--;
 	}
-	public void itsaspekoErasoaJaso(int x, int y){
+	public void itsaspekoErasoaJaso(){
 		int i=0;
 		while(i<kokalekua.length){
 			kokalekua[i].jo();
@@ -42,7 +42,6 @@ public abstract class ItsasoIbilgailua extends ErasoMota{
 			luzera--;
 		}	
 	}
-	public abstract void itsaspekoErasoaEgin(int x, int i);
 	
 	public void kokalekuBatGehitu(int pos, int x, int y){
 		kokalekua[pos].setZutEtaErr(x, y);
@@ -58,4 +57,5 @@ public abstract class ItsasoIbilgailua extends ErasoMota{
 	
 	protected abstract void informazioaInprimatu();
 	protected abstract boolean erasoaEgin(int zut, int err);
+
 }

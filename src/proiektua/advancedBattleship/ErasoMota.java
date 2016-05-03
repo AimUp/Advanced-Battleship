@@ -21,10 +21,5 @@ public abstract class ErasoMota {
 	protected abstract void espezifikazioakInprimatu();
 	protected abstract void informazioaInprimatu();
 	protected abstract boolean erasoaEgin(int zut, int err);
-
-	public void itsaspekoErasoaEgin(int i, int j) {
-		// TODO Auto-generated method stub
-		this.itsaspekoErasoaEgin(i,j);
-	}
 }
  
