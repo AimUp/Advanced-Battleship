@@ -15,12 +15,22 @@ public class Mina extends ErasoMota{
 
 	@Override
 	protected void informazioaInprimatu() {
-		System.out.println("Minak beste jokalariaren tableroan 2x2ko erasoa egingo du");
+		System.out.println("Minak beste jokalariaren tableroan 3x3ko erasoa egingo du");
 	}
 
 	@Override
-	protected boolean erasoaEgin(int zut, int err) {
-		return false;
+	protected void erasoaEgin(int zut, int err) {
+		AdvancedBattleship.getAdvancedBattleship().erasoaEgin(zut-1, err-1);
+		AdvancedBattleship.getAdvancedBattleship().erasoaEgin(zut, err-1);
+		AdvancedBattleship.getAdvancedBattleship().erasoaEgin(zut+1, err-1);
+		AdvancedBattleship.getAdvancedBattleship().erasoaEgin(zut-1, err);
+		AdvancedBattleship.getAdvancedBattleship().erasoaEgin(zut, err);
+		AdvancedBattleship.getAdvancedBattleship().erasoaEgin(zut+1, err);
+		AdvancedBattleship.getAdvancedBattleship().erasoaEgin(zut-1, err+1);
+		AdvancedBattleship.getAdvancedBattleship().erasoaEgin(zut, err+1);
+		AdvancedBattleship.getAdvancedBattleship().erasoaEgin(zut+1, err+1);
+		
+		
 	}
 	
 }

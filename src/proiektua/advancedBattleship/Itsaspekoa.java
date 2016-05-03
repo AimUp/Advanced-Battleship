@@ -13,11 +13,7 @@ public class Itsaspekoa extends ItsasoIbilgailua{
 
 	@Override
 	protected boolean erasoaEgin(int zut, int err) {
-		return AdvancedBattleship.getAdvancedBattleship().erasoaEgin(zut,err);
+		return AdvancedBattleship.getAdvancedBattleship().itsaspekoErasoaEgin(zut,err);
 		
-	}
-
-	public boolean itsaspekoErasoaEgin(int x, int i) {
-		return AdvancedBattleship.getAdvancedBattleship().itsaspekoErasoaEgin(x,i);
 	}
 }

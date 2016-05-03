@@ -18,10 +18,7 @@ public class AdvancedBattleship {
 		}
 		return nAdvancedBattleship;
 	}
-	private void hondoratu(){
-		
-	}
-	
+
 	private void jokalariakSortu(){
 		int jokalariKopurua = JokalariZerrenda.getJokalariZerrenda().luzera();
 		String[] izenak = Teklatua.getTeklatua().jokalariIzenak(jokalariKopurua);
