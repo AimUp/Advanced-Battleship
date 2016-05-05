@@ -186,4 +186,20 @@ public class Tableroa {
 		
 		return jo;
 	}
+	public void uavErasoa(int zut,int err){
+		for(int y=err; y < err+5; y++){
+			for(int x=zut; x < zut+5; x++){
+				System.out.println(x);
+				if(ibilgailuMatrizea[x][y] == null){
+					ibilgailuMatrizea[x][y]=new Ura();
+				}
+				else if(ibilgailuMatrizea[x][y] instanceof Ura){
+					System.out.print("0");
+				}
+				else if((ibilgailuMatrizea[x][y] !=null) &&!(ibilgailuMatrizea[x][y] instanceof Ura ) ){
+					System.out.print("X");
+				}
+			}
+		}
+	}
 }

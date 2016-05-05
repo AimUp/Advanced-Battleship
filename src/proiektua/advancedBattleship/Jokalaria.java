@@ -27,14 +27,10 @@ public class Jokalaria {
 					break;
 			case 2: ErasoaErosi();
 					break;
-			case 3: 
-				System.out.println("ZURE DIRUA:"+ dirua + " DA.");
-				txandak++;
+			case 3: System.out.println("ZURE DIRUA:"+ dirua + " DA.");
 			
 			}
-			txandak--;
 		}
-		txandak = 1;
 	}
 	
 	private void ErasoEgin(){
@@ -42,6 +38,7 @@ public class Jokalaria {
 		listaErasoak.inprimatuErasoInfo();
 		int aukera = Teklatua.getTeklatua().zenbakiaEskatu(1, listaErasoak.tamaina());
 		int[] koor = Teklatua.getTeklatua().koordenatuakAukeratu();
+		txandak--;
 		if(listaErasoak.posiziokoErasoaLortu(aukera).erasoaEgin(koor[0], koor[1])){ //JO BADU
 			txandak++;
 		}
@@ -57,6 +54,7 @@ public class Jokalaria {
 					try {
 						System.out.println("Kokatu tableroan erositako " + erositakoa.getIzena());
 						erasoaGehitu((ItsasoIbilgailua) erositakoa);
+						txandak--;
 						bukatu=true;
 					} catch (EzinKokatu e) {
 						System.out.println("Ezin duzu " + erositakoa.getIzena() + " hor kokatu.");
@@ -103,10 +101,14 @@ public class Jokalaria {
 	public void tableroaInprimatu(){
 		jokalariTableroa.tableroaInprimatu();
 	}
-		
-
+	public double getDirua(){
+		return dirua;
+	}
 	public boolean itsaspekoErasoaJaso(int x, int y) {
 		return jokalariTableroa.itsaspekoErasoaJaso(x,y);
+	}
+	public void uavErasoa(int zut, int err){
+		jokalariTableroa.uavErasoa(zut, err);
 	}
 	
 }

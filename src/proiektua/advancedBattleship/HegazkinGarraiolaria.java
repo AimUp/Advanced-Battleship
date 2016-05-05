@@ -3,13 +3,13 @@ package proiektua.advancedBattleship;
 public class HegazkinGarraiolaria extends ItsasoIbilgailua {
 	
 	public HegazkinGarraiolaria(){
-		super("Hegazkin Garraiolaria",100, 4);
+		super("Hegazkin Garraiolaria",10, 4);
 	}
 
 	@Override
 	protected void informazioaInprimatu() {
 		// TODO Auto-generated method stub
-		System.out.println("Luzera 4 izango duen itsaso erasolaria izango da \n bere erasoa kasila  bakarrekoa izango da");
+		System.out.println("Luzera: 4 \n Erasoa: Kasila bakarra");
 	}
 
 	@Override

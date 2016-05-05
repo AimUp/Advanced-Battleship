@@ -3,7 +3,7 @@ package proiektua.advancedBattleship;
 public class Mina extends ErasoMota{
 	
 	public Mina(){
-		super("Mina",1);
+		super("Mina",10);
 	}
 
 	@Override
@@ -19,16 +19,27 @@ public class Mina extends ErasoMota{
 	}
 
 	@Override
-	protected void erasoaEgin(int zut, int err) {
-		AdvancedBattleship.getAdvancedBattleship().erasoaEgin(zut-1, err-1);
-		AdvancedBattleship.getAdvancedBattleship().erasoaEgin(zut, err-1);
-		AdvancedBattleship.getAdvancedBattleship().erasoaEgin(zut+1, err-1);
-		AdvancedBattleship.getAdvancedBattleship().erasoaEgin(zut-1, err);
-		AdvancedBattleship.getAdvancedBattleship().erasoaEgin(zut, err);
-		AdvancedBattleship.getAdvancedBattleship().erasoaEgin(zut+1, err);
-		AdvancedBattleship.getAdvancedBattleship().erasoaEgin(zut-1, err+1);
-		AdvancedBattleship.getAdvancedBattleship().erasoaEgin(zut, err+1);
-		AdvancedBattleship.getAdvancedBattleship().erasoaEgin(zut+1, err+1);
+	protected boolean erasoaEgin(int zut, int err) {
+		boolean txandaGehitu=false;
+		boolean joDu=AdvancedBattleship.getAdvancedBattleship().erasoaEgin(zut-1, err-1);
+		if(joDu)txandaGehitu=true;
+		joDu=AdvancedBattleship.getAdvancedBattleship().erasoaEgin(zut, err-1);
+		if(joDu)txandaGehitu=true;
+		joDu=AdvancedBattleship.getAdvancedBattleship().erasoaEgin(zut+1, err-1);
+		if(joDu)txandaGehitu=true;
+		joDu=AdvancedBattleship.getAdvancedBattleship().erasoaEgin(zut-1, err);
+		if(joDu)txandaGehitu=true;
+		joDu=AdvancedBattleship.getAdvancedBattleship().erasoaEgin(zut, err);
+		if(joDu)txandaGehitu=true;
+		joDu=AdvancedBattleship.getAdvancedBattleship().erasoaEgin(zut+1, err);
+		if(joDu)txandaGehitu=true;
+		joDu=AdvancedBattleship.getAdvancedBattleship().erasoaEgin(zut-1, err+1);
+		if(joDu)txandaGehitu=true;
+		joDu=AdvancedBattleship.getAdvancedBattleship().erasoaEgin(zut, err+1);
+		if(joDu)txandaGehitu=true;
+		joDu=AdvancedBattleship.getAdvancedBattleship().erasoaEgin(zut+1, err+1);
+		if(joDu)txandaGehitu=true;
+		return txandaGehitu;
 		
 		
 	}

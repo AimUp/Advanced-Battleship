@@ -54,4 +54,7 @@ public class JokalariZerrenda {
 	public boolean itsaspekoErasoaEgin(int x, int y, int erasoJok) {
 		return lista[erasoJok].itsaspekoErasoaJaso(x,y);
 	}
+	public void uavErasoa(int zut, int err,int jokPos){
+		lista[jokPos].uavErasoa(zut, err);
+	}
 }

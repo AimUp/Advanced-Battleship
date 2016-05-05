@@ -26,7 +26,7 @@ public class Denda {
 	public ErasoMota erosi(Jokalaria pEroslea){
 		ErasoMota erositakoErasoa = null;
 		erasoKatalogoaErakutzi();
-		int auk = Teklatua.getTeklatua().zenbakiaEskatu(1, 6); //LEHENENGO AUKERA / AZKEN AUKERA
+		int auk = Teklatua.getTeklatua().zenbakiaEskatu(0, 6); //LEHENENGO AUKERA / AZKEN AUKERA
 		ErasoMota erostekoErasoa = katalogoa.posiziokoErasoaLortu(auk);
 		if(!pEroslea.diruNahikoa(erostekoErasoa.getPrezioa())){//salbuespena
 			erositakoErasoa = null;
