@@ -9,7 +9,7 @@ public class HegazkinGarraiolaria extends ItsasoIbilgailua {
 	@Override
 	protected void informazioaInprimatu() {
 		// TODO Auto-generated method stub
-		System.out.println("Luzera 4 izango duen itsaso erasolaria izango da \n bere erasoa kasila  bakarrekoa izango da");
+		System.out.println("Luzera: 4 \n Erasoa: Kasila bakarra");
 	}
 
 	@Override

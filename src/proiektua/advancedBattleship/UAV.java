@@ -17,8 +17,8 @@ public class UAV extends AireIbilgailua{
 	}
 
 	@Override
-	protected boolean erasoaEgin(int zut, int err) {
-		//TODO 4X4
+	protected boolean erasoaEgin(int x, int y) {
+		AdvancedBattleship.getAdvancedBattleship().uavErasoa(x, y);
 		return false;
 	}
 }

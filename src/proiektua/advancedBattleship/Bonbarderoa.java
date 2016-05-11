@@ -5,24 +5,24 @@ import java.util.Random;
 public class Bonbarderoa extends AireIbilgailua{
 	
 	public Bonbarderoa(){
-		super("Bonbarderoa",5);
+		super("Bonbarderoa",10);
 	}
 
 	@Override
 	protected void informazioaInprimatu() {
-		System.out.println("Tableroa zeharkatuko du 3 kasilako zabalera duen lerro batean erasoz  \n erasoak random baten bidez egingo dira \n erabilzaileak zutabe bat edo errenkada bat soilik aukeratu beharizango du.");
+		System.out.println("Erasoa: 3 zutabe zeharkatuko ditu 5 random misil jaurtiz");
 	}
 
 	@Override
 	protected boolean erasoaEgin(int zut, int err) {
 		boolean b = false;
 		boolean jo = false;
-		int e=15;
+		err=14;
 		Random rnd=new Random();
 		for(int i=0;i<5;i++){
 			int z=rnd.nextInt(zut+1 - zut-1 +1)+zut-1;
-			e=e-rnd.nextInt(2)+1;
-			b = AdvancedBattleship.getAdvancedBattleship().erasoaEgin(z,e);
+			err=err-rnd.nextInt(2)+1;
+			b = AdvancedBattleship.getAdvancedBattleship().erasoaEgin(z,err);
 			if(b){
 				jo = true;
 			}

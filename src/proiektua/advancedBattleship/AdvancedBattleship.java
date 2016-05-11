@@ -18,7 +18,7 @@ public class AdvancedBattleship {
 		}
 		return nAdvancedBattleship;
 	}
-	
+
 	private void jokalariakSortu(){
 		int jokalariKopurua = JokalariZerrenda.getJokalariZerrenda().luzera();
 		String[] izenak = Teklatua.getTeklatua().jokalariIzenak(jokalariKopurua);
@@ -35,14 +35,17 @@ public class AdvancedBattleship {
 		while(!bukatu){
 			System.out.println("\n\n");
 			unekoJok =  JokalariZerrenda.getJokalariZerrenda().getJokalariarenIzena(txanda);
-			System.out.println(unekoJok +" ZURE TXADA");
+			System.out.println(unekoJok +" ZURE TXANDA");
 			JokalariZerrenda.getJokalariZerrenda().jokatu(txanda);
-			if(txanda==JokalariZerrenda.getJokalariZerrenda().luzera()-1){ 
-				txanda = 0;
-			}
-			else{
-				txanda = txanda+1;
-			}
+			txandaAldatu();
+		}
+	}
+	public void txandaAldatu(){
+		if(txanda==JokalariZerrenda.getJokalariZerrenda().luzera()-1){ 
+			txanda = 0;
+		}
+		else{
+			txanda = txanda+1;
 		}
 	}
 	
@@ -96,8 +99,7 @@ public class AdvancedBattleship {
 			bukatu = true;
 		}
 	}
-
-	public boolean erasoaEgin(int x, int y){ //True ura jotzen ez badu
+	public int txandaAurkitu(){
 		int erasoJok;
 		if(txanda==JokalariZerrenda.getJokalariZerrenda().luzera()-1){ 
 			erasoJok=0;
@@ -105,6 +107,19 @@ public class AdvancedBattleship {
 		else{
 			erasoJok=txanda+1;
 		}
+		return erasoJok;
+	}
+
+	public boolean erasoaEgin(int x, int y){ //True ura jotzen ez badu
+		int erasoJok=txandaAurkitu();
 		return JokalariZerrenda.getJokalariZerrenda().erasoaEgin(x, y, erasoJok);
+	}
+	public boolean itsaspekoErasoaEgin(int x,int y){
+		int erasoJok=txandaAurkitu();
+		return JokalariZerrenda.getJokalariZerrenda().itsaspekoErasoaEgin(x, y, erasoJok);
+	}
+	public void uavErasoa(int x, int y){
+		int erasoJok=txandaAurkitu();
+		JokalariZerrenda.getJokalariZerrenda().uavErasoa(x,y,erasoJok);
 	}
 }

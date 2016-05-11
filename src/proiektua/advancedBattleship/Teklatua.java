@@ -23,8 +23,7 @@ public class Teklatua {
 	}
 	
 	public void hasierakoMezua(){
-		System.out.println("\n\t ADVANCED BATTLESHIP  \t");
-		System.out.println("\n");
+		System.out.println("\n\t ADVANCED BATTLESHIP \t\n");
 	}
 	
 	public String[] jokalariIzenak(int jokKop){
@@ -93,7 +92,7 @@ public class Teklatua {
 			return false;
 		}
 		else{
-			System.out.println("Satutako erantzuna ez da egokia, berriz erantzun");
+			System.out.println("Sartutako erantzuna ez da egokia, berriz erantzun");
 			System.out.println();
 			return baiEdoEz();
 		}
@@ -118,7 +117,7 @@ public class Teklatua {
 			nora = s.charAt(0);
 		}
 		else{
-			nora='Ñ';
+			nora='�';
 		}
 		try{
 			if(nora!='i' && nora!='h' && nora!='e' && nora!='m' && nora!='I' && nora!='H' && nora!='E' && nora!='M'){
