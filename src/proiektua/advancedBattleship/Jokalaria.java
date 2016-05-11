@@ -4,7 +4,7 @@ import proiektua.salbuespenak.EzinKokatu;
 
 public class Jokalaria {
 
-	private double dirua;
+	private int dirua;
 	private String izena;
 	private int txandak = 1;
 	private ListaErasoMota listaErasoak;
@@ -43,11 +43,12 @@ public class Jokalaria {
 		int aukera = Teklatua.getTeklatua().zenbakiaEskatu(1, listaErasoak.tamaina());
 		int[] koor = Teklatua.getTeklatua().koordenatuakAukeratu();
 		if(listaErasoak.posiziokoErasoaLortu(aukera).erasoaEgin(koor[0], koor[1])){ //JO BADU
+			dirua++;
 			txandak++;
 		}
 	}
 	
-	public void ErasoaErosi(){
+	private void ErasoaErosi(){
 		ErasoMota erositakoa = Denda.getDenda().erosi(this);
 		if(erositakoa!=null){
 			dirua = dirua - erositakoa.getPrezioa();
@@ -69,6 +70,7 @@ public class Jokalaria {
 				}
 			}
 		}
+		else txandak++;
 	}
 	
 	public boolean diruNahikoa(int pKostua){
@@ -98,6 +100,10 @@ public class Jokalaria {
 
 	public void erasoaGehitu(ItsasoIbilgailua em) throws EzinKokatu{
 		jokalariTableroa.erasoaGehitu(em, listaErasoak);
+	}
+	
+	public void zerrendanGehitu(ErasoMota pEraso){
+		listaErasoak.erasoaGehitu(pEraso);
 	}
 	
 	public void setIzena(String izena) {

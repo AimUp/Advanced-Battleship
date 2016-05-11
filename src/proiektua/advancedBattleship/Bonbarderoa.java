@@ -5,7 +5,7 @@ import java.util.Random;
 public class Bonbarderoa extends AireIbilgailua{
 	
 	public Bonbarderoa(){
-		super("Bonbarderoa",200);
+		super("Bonbarderoa",5);
 	}
 
 	@Override

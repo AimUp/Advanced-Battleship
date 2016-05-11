@@ -3,7 +3,7 @@ package proiektua.advancedBattleship;
 public class UAV extends AireIbilgailua{
 	
 	public UAV(){
-		super("UAV",100);
+		super("UAV",50);
 	}
 
 	@Override
@@ -18,6 +18,7 @@ public class UAV extends AireIbilgailua{
 
 	@Override
 	protected boolean erasoaEgin(int zut, int err) {
+		//TODO 4X4
 		return false;
 	}
 }

@@ -31,10 +31,6 @@ public class JokalariZerrenda {
 		lista[pPos] = pJok;
 	}
 	
-	public void erasoaErosi(int txanda){
-		lista[txanda].ErasoaErosi();
-	}
-	
 	public void jokatu(int txanda){
 		lista[txanda].jokatu();
 	}

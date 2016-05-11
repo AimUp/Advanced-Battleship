@@ -1,5 +1,7 @@
 package proiektua.advancedBattleship;
 
+import proiektua.salbuespenak.EzinKokatu;
+
 public class Denda {
 
 	private static Denda nDenda = null;
@@ -27,7 +29,7 @@ public class Denda {
 		ErasoMota erositakoErasoa = null;
 		erasoKatalogoaErakutzi();
 		int auk = Teklatua.getTeklatua().zenbakiaEskatu(1, 6); //LEHENENGO AUKERA / AZKEN AUKERA
-		ErasoMota erostekoErasoa = katalogoa.posiziokoErasoaLortu(auk);
+		ErasoMota erostekoErasoa = katalogoa.posiziokoErasoaLortu(auk-1);
 		if(!pEroslea.diruNahikoa(erostekoErasoa.getPrezioa())){//salbuespena
 			erositakoErasoa = null;
 			System.out.println("Ez duzu eraso hau erosteko diru nahikorik.");
@@ -35,6 +37,20 @@ public class Denda {
 			if(Teklatua.getTeklatua().baiEdoEz()){
 				erositakoErasoa = erosi(pEroslea);
 			}
+		}
+		else if(erostekoErasoa instanceof ItsasoIbilgailua){
+			boolean kok = false;
+			while(!kok){
+				try {
+					pEroslea.erasoaGehitu((ItsasoIbilgailua) erostekoErasoa);
+					kok = true;
+				} catch (EzinKokatu e) {
+					e.printStackTrace();
+				}
+			}
+		}
+		else{
+			pEroslea.zerrendanGehitu(erostekoErasoa);
 		}
 		return erositakoErasoa;
 	}

@@ -5,7 +5,7 @@ import java.util.Random;
 public class Korazatua extends ItsasoIbilgailua {
 	
 	public Korazatua(){
-		super("Korazatua",50,3);
+		super("Korazatua",6,3);
 	}
 
 	@Override

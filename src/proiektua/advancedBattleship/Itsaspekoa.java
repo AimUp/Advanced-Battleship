@@ -5,7 +5,7 @@ public class Itsaspekoa extends ItsasoIbilgailua{
 	private boolean ikusgarria;
 	
 	public Itsaspekoa(){
-		super("Itsaspekoa",100, 1);
+		super("Itsaspekoa",15, 1);
 		ikusgarria=true;
 	}
 

@@ -3,7 +3,7 @@ package proiektua.advancedBattleship;
 public class Mina extends ErasoMota{
 	
 	public Mina(){
-		super("Mina",1);
+		super("Mina",10);
 	}
 
 	@Override
@@ -20,6 +20,7 @@ public class Mina extends ErasoMota{
 
 	@Override
 	protected boolean erasoaEgin(int zut, int err) {
+		//TODO 3x3
 		return false;
 	}
 	

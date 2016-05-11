@@ -3,12 +3,11 @@ package proiektua.advancedBattleship;
 public class Fragata extends ItsasoIbilgailua{
 	
 	public Fragata(){
-		super("Fragata",10,2);
+		super("Fragata",4,2);
 	}
 
 	@Override
 	protected void informazioaInprimatu() {
-		// TODO Auto-generated method stub
 		System.out.println("Luzera 2 duen itsaso erasoa izango da \n Fragataren eraso kasila bakarrekoa izango da");
 	}
 

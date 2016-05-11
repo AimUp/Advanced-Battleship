@@ -23,7 +23,7 @@ public class Teklatua {
 	}
 	
 	public void hasierakoMezua(){
-		System.out.println("\n\t ⒶⒹⓋⒶⓃⒸⒺⒹ ⒷⒶⓉⓉⓁⒺⓈⒽⒾⓅ  \t");
+		System.out.println("\n\t ADVANCED BATTLESHIP  \t");
 		System.out.println("\n");
 	}
 	
@@ -72,7 +72,7 @@ public class Teklatua {
 	}
 	
 	public int jokalariakJokatzekoAukerak(){
-		System.out.println("HAUKERATU EGIN NAHI DUZUN JOKALDIA: ");
+		System.out.println("AUKERATU EGIN NAHI DUZUN JOKALDIA: ");
 		System.out.println();
 		
 		System.out.println("1. Eraso egin.");
@@ -80,7 +80,7 @@ public class Teklatua {
 		System.out.println("3. Diru kopurua.");
 		System.out.println("0. Partida bertan behera hutsi.");
 		
-		return zenbakiaEskatu(0, 2);
+		return zenbakiaEskatu(0, 3);
 	}
 	
 	public boolean baiEdoEz(){

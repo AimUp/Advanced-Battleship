@@ -126,9 +126,14 @@ public class Tableroa {
 	}
 	
 	public void erasoTableroaInprimatu(){
+		char c = 'A';
+		for(int i=0; i<15; i++){
+			System.out.print(c+" ");
+			c++;
+		}
+		System.out.println();
 		for(int y = 0; y < ibilgailuMatrizea.length; y++){
 			for(int x = 0; x < ibilgailuMatrizea.length; x++){
-				System.out.println(x);
 				if(ibilgailuMatrizea[x][y] == null){
 					System.out.print("≈");
 				}
@@ -142,9 +147,8 @@ public class Tableroa {
 					System.out.print("≈");
 				}
 			}
-			System.out.println();
+			System.out.println(y);
 		}
-		
 	}
 	
 	public boolean erasoaJaso(int x, int y){
