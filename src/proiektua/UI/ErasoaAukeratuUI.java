@@ -23,6 +23,7 @@ public class ErasoaAukeratuUI extends JPanel{
 
 	private static final long serialVersionUID = 1L;
 	private ListaErasoMota lem;
+	private ButtonGroup botoiTaldea;
 
 	public ErasoaAukeratuUI(){
 		lem = JokalariZerrenda.getJokalariZerrenda().jokalariarenErasoMotak(AdvancedBattleship.getAdvancedBattleship().unekoTxanda());
@@ -31,7 +32,7 @@ public class ErasoaAukeratuUI extends JPanel{
 		JLabel erasoa = new JLabel("ERASOA AUKERATU", SwingConstants.CENTER);
 		
 		JPanel aukerak = new JPanel(new GridLayout(lem.tamaina(),1,0,5));
-		ButtonGroup botoiTaldea = new ButtonGroup();
+		botoiTaldea = new ButtonGroup();
 		for(int i=0; i<lem.tamaina();i++){
 			ErasoMota em = lem.posiziokoErasoaLortu(i);
 			JRadioButton bot = new JRadioButton((i+1)+"- "+em.getIzena());
