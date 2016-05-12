@@ -1,15 +1,15 @@
 package proiektua.advancedBattleship;
 
+import proiektua.salbuespenak.Hondoratua;
+
 public abstract class ItsasoIbilgailua extends ErasoMota{
 	
-	private boolean egoera;
 	private int luzera;
 	private ItsasontziKokalekua[] kokalekua;
 	
 	public ItsasoIbilgailua(String pIzena, int pPrezioa, int pLuzera){
 		super(pIzena, pPrezioa);
 		luzera=pLuzera;
-		egoera=true;
 		kokalekua = new ItsasontziKokalekua[luzera];
 		for(int x=0; x<luzera; x++){
 			kokalekua[x] = new ItsasontziKokalekua();
@@ -26,21 +26,25 @@ public abstract class ItsasoIbilgailua extends ErasoMota{
 		System.out.println("Luzera: " +luzera);
 	}
 	
-	public void erasoaJaso(int x, int y){
+	public void erasoaJaso(int x, int y) throws Hondoratua{
 		int i=0;
 		while(!kokalekua[i].kokalekuHauDa(x, y)){
 			i++;
 		}
 		kokalekua[i].jo();
 		luzera--;
+		if(luzera<=0){
+			{throw new Hondoratua();}
+		}
 	}
-	public void itsaspekoErasoaJaso(){
+	public ItsasontziKokalekua[] itsaspekoErasoaJaso(){
 		int i=0;
 		while(i<kokalekua.length){
 			kokalekua[i].jo();
 			i++;
-			luzera--;
 		}	
+		luzera=0;
+		return kokalekua;
 	}
 	
 	public void kokalekuBatGehitu(int pos, int x, int y){
@@ -55,7 +59,7 @@ public abstract class ItsasoIbilgailua extends ErasoMota{
 		return kokalekua[i].jotaDago();
 	}
 	
-	protected abstract void informazioaInprimatu();
-	protected abstract boolean erasoaEgin(int zut, int err);
+	public abstract String informazioaInprimatu();
+	public abstract boolean erasoaEgin(int zut, int err) throws Hondoratua;
 
 }

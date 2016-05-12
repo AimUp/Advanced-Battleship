@@ -1,5 +1,7 @@
 package proiektua.advancedBattleship;
 
+import proiektua.salbuespenak.Hondoratua;
+
 public class Mina extends ErasoMota{
 	
 	public Mina(){
@@ -14,32 +16,23 @@ public class Mina extends ErasoMota{
 	}
 
 	@Override
-	protected void informazioaInprimatu() {
-		System.out.println("Minak beste jokalariaren tableroan 3x3ko erasoa egingo du");
+	public String informazioaInprimatu() {
+		return "3x3ko eztanda egingo du";
 	}
 
 	@Override
-	protected boolean erasoaEgin(int zut, int err) {
-		boolean txandaGehitu=false;
-		boolean joDu=AdvancedBattleship.getAdvancedBattleship().erasoaEgin(zut-1, err-1);
-		if(joDu)txandaGehitu=true;
-		joDu=AdvancedBattleship.getAdvancedBattleship().erasoaEgin(zut, err-1);
-		if(joDu)txandaGehitu=true;
-		joDu=AdvancedBattleship.getAdvancedBattleship().erasoaEgin(zut+1, err-1);
-		if(joDu)txandaGehitu=true;
-		joDu=AdvancedBattleship.getAdvancedBattleship().erasoaEgin(zut-1, err);
-		if(joDu)txandaGehitu=true;
-		joDu=AdvancedBattleship.getAdvancedBattleship().erasoaEgin(zut, err);
-		if(joDu)txandaGehitu=true;
-		joDu=AdvancedBattleship.getAdvancedBattleship().erasoaEgin(zut+1, err);
-		if(joDu)txandaGehitu=true;
-		joDu=AdvancedBattleship.getAdvancedBattleship().erasoaEgin(zut-1, err+1);
-		if(joDu)txandaGehitu=true;
-		joDu=AdvancedBattleship.getAdvancedBattleship().erasoaEgin(zut, err+1);
-		if(joDu)txandaGehitu=true;
-		joDu=AdvancedBattleship.getAdvancedBattleship().erasoaEgin(zut+1, err+1);
-		if(joDu)txandaGehitu=true;
-		return txandaGehitu;
+	public boolean erasoaEgin(int zut, int err) throws Hondoratua{
+		boolean joDu=false;
+		boolean b=false;
+		for(int x=-1; x<2; x++){
+			for(int y=-1; y<2; y++){
+				b=AdvancedBattleship.getAdvancedBattleship().erasoaEgin(zut+x, err+y);
+				if(b){
+					joDu=true;
+				}
+			}
+		}
+		return joDu;
 	}
 	
 }

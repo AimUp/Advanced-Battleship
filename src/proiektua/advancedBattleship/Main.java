@@ -7,7 +7,6 @@ public abstract class Main {
 
 	public static void main(String[] args) {
 		Leihoa.getLeihoa().panelaAldatu(new IzenakPanelaUI());
-		AdvancedBattleship.getAdvancedBattleship().jokatu();
-		
+		//AdvancedBattleship.getAdvancedBattleship().jokatu();
 	}
 }

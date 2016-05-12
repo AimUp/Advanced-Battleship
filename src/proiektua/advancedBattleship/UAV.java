@@ -7,17 +7,12 @@ public class UAV extends AireIbilgailua{
 	}
 
 	@Override
-	protected void informazioaInprimatu() {
-		System.out.println("Aurkariaren tableroan 5x5 eko laukiaren edukia bistaratuko du. \n ezin daiteke mugitu");	
+	public String informazioaInprimatu() {
+		return "5x5 area bistaratuko du aurkarian";	
 	}
 
 	@Override
-	protected String getIzena() {
-		return "UAV";
-	}
-
-	@Override
-	protected boolean erasoaEgin(int x, int y) {
+	public boolean erasoaEgin(int x, int y) {
 		AdvancedBattleship.getAdvancedBattleship().uavErasoa(x, y);
 		return false;
 	}

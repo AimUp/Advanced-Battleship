@@ -1,5 +1,7 @@
 package proiektua.advancedBattleship;
 
+import proiektua.salbuespenak.Hondoratua;
+
 public class Fragata extends ItsasoIbilgailua{
 	
 	public Fragata(){
@@ -7,12 +9,12 @@ public class Fragata extends ItsasoIbilgailua{
 	}
 
 	@Override
-	protected void informazioaInprimatu() {
-		System.out.println("Luzera 2 duen itsaso erasoa izango da \n Fragataren eraso kasila bakarrekoa izango da");
+	public String informazioaInprimatu() {
+		return "Fragataren eraso kasila bakarrekoa da";
 	}
 
 	@Override
-	protected boolean erasoaEgin(int zut, int err) {
+	public boolean erasoaEgin(int zut, int err) throws Hondoratua{
 		return AdvancedBattleship.getAdvancedBattleship().erasoaEgin(zut,err);
 	}
 }

@@ -26,4 +26,12 @@ public class ItsasontziKokalekua {
 		if(zut==x && err==y) return true;
 		else return false;
 	}
+	
+	protected int getX(){
+		return zut;
+	}
+	
+	protected int getY(){
+		return err;
+	}
 }

@@ -1,15 +1,18 @@
 package proiektua.advancedBattleship;
 
-import proiektua.salbuespenak.EzinKokatu;
+import java.util.Observable;
 
-public class AdvancedBattleship {
+import proiektua.salbuespenak.DirurikEz;
+import proiektua.salbuespenak.ErasoaKokatu;
+import proiektua.salbuespenak.Hondoratua;
+
+public class AdvancedBattleship extends Observable{
 
 	private static AdvancedBattleship nAdvancedBattleship = null;
 	private int txanda = 0;
-	private boolean bukatu = false;
 	
 	private AdvancedBattleship(){
-		Teklatua.getTeklatua().hasierakoMezua();
+		
 	}
 	
 	public static AdvancedBattleship getAdvancedBattleship(){
@@ -18,88 +21,27 @@ public class AdvancedBattleship {
 		}
 		return nAdvancedBattleship;
 	}
-
-	private void jokalariakSortu(){
+	
+	public void jokatu(String jok1, String jok2){
+		jokalariakSortu(jok1, jok2);
+		JokalariZerrenda.getJokalariZerrenda().hasierakoa();
+	}
+	
+	private void jokalariakSortu(String izena1, String izena2){
 		int jokalariKopurua = JokalariZerrenda.getJokalariZerrenda().luzera();
-		String[] izenak = Teklatua.getTeklatua().jokalariIzenak(jokalariKopurua);
+		String[] izenak = {izena1, izena2};
 		for(int x=0; x<jokalariKopurua; x++){
 			Jokalaria j = new Jokalaria(izenak[x]);
 			JokalariZerrenda.getJokalariZerrenda().jokalariaGehitu(j, x);
 		}
 	}
 	
-	public void jokatu(){
-		String unekoJok;
-		jokalariakSortu();
-		hasierakoErasoaKokatu();
-		while(!bukatu){
-			System.out.println("\n\n");
-			unekoJok =  JokalariZerrenda.getJokalariZerrenda().getJokalariarenIzena(txanda);
-			System.out.println(unekoJok +" ZURE TXANDA");
-			JokalariZerrenda.getJokalariZerrenda().jokatu(txanda);
-			txandaAldatu();
-		}
-	}
-	public void txandaAldatu(){
-		if(txanda==JokalariZerrenda.getJokalariZerrenda().luzera()-1){ 
-			txanda = 0;
-		}
-		else{
-			txanda = txanda+1;
-		}
+	public void txandaJokatu(){
+		setChanged();
+		notifyObservers(txanda);
 	}
 	
-	private void hasierakoErasoaKokatu(){
-		int fragata;
-		int akorazatua;
-		int hegazGarraio;
-		
-		for(int x=0; x<JokalariZerrenda.getJokalariZerrenda().luzera(); x++){
-			fragata = 4;
-			akorazatua = 3;
-			hegazGarraio = 1;
-			System.out.println(JokalariZerrenda.getJokalariZerrenda().getJokalariarenIzena(x)+", itsasontziak kokatu:");
-			System.out.println();
-			while (fragata>0){
-				System.out.println("Kokatu fragata (x,y) koordentuan:");
-				try {
-					JokalariZerrenda.getJokalariZerrenda().erasoaGehitu(x, new Fragata());
-					fragata--;
-				} catch (EzinKokatu e) {
-					e.erroreaInprimatu();
-					System.out.println("Berriro koka ezazu");
-				}
-			}
-			while (akorazatua>0){
-				System.out.println("Kokatu akorazatua (x,y) koordentuan:");
-				try {
-					JokalariZerrenda.getJokalariZerrenda().erasoaGehitu(x, new Korazatua());
-					akorazatua--;
-				} catch (EzinKokatu e) {
-					e.erroreaInprimatu();
-					System.out.println("Berriro koka ezazu");
-				}
-			}
-			while (hegazGarraio>0){
-				System.out.println("Kokatu hegazkin garraiolaria (x,y) koordentuan:");
-				try {
-					JokalariZerrenda.getJokalariZerrenda().erasoaGehitu(x, new HegazkinGarraiolaria());
-					hegazGarraio--;
-				} catch (EzinKokatu e) {
-					e.erroreaInprimatu();
-					System.out.println("Berriro koka ezazu");
-				}
-			}
-		}
-	}
-	
-	public void partidaBukatu(){
-		System.out.println("Zihur zaude partida bukatu nahi duzula?");
-		if(Teklatua.getTeklatua().baiEdoEz()){
-			bukatu = true;
-		}
-	}
-	public int txandaAurkitu(){
+	private int urrengotxandaAurkitu(){
 		int erasoJok;
 		if(txanda==JokalariZerrenda.getJokalariZerrenda().luzera()-1){ 
 			erasoJok=0;
@@ -109,17 +51,36 @@ public class AdvancedBattleship {
 		}
 		return erasoJok;
 	}
-
-	public boolean erasoaEgin(int x, int y){ //True ura jotzen ez badu
-		int erasoJok=txandaAurkitu();
-		return JokalariZerrenda.getJokalariZerrenda().erasoaEgin(x, y, erasoJok);
+	
+	public int unekoTxanda(){
+		return txanda;
 	}
-	public boolean itsaspekoErasoaEgin(int x,int y){
-		int erasoJok=txandaAurkitu();
+	
+	public void dendanErosi(int em) throws DirurikEz, ErasoaKokatu{
+		JokalariZerrenda.getJokalariZerrenda().erasoaErosi(em, txanda);
+	}
+	
+	public void jokarariakErasoaBurutu(int x, int y, ErasoMota em){ //True ura jotzen ez badu
+		boolean jo = JokalariZerrenda.getJokalariZerrenda().erasoaBurutu(x, y, em, txanda);
+		if(!jo){
+			txanda = urrengotxandaAurkitu();
+			setChanged();
+			notifyObservers();
+		}
+	}
+
+	public boolean erasoaEgin(int x, int y) throws Hondoratua{ //True ura jotzen ez badu
+		int t = urrengotxandaAurkitu();
+		return JokalariZerrenda.getJokalariZerrenda().erasoaEgin(x, y, t);
+	}
+	
+	public boolean itsaspekoErasoaEgin(int x,int y) throws Hondoratua{
+		int erasoJok=urrengotxandaAurkitu();
 		return JokalariZerrenda.getJokalariZerrenda().itsaspekoErasoaEgin(x, y, erasoJok);
 	}
+	
 	public void uavErasoa(int x, int y){
-		int erasoJok=txandaAurkitu();
+		int erasoJok=urrengotxandaAurkitu();
 		JokalariZerrenda.getJokalariZerrenda().uavErasoa(x,y,erasoJok);
 	}
 }

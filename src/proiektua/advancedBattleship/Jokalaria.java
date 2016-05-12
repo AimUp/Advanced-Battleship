@@ -1,74 +1,31 @@
 package proiektua.advancedBattleship;
 
+import java.util.Observer;
+
 import proiektua.salbuespenak.EzinKokatu;
+import proiektua.salbuespenak.HasierakoakJarrita;
+import proiektua.salbuespenak.Hondoratua;
+import proiektua.salbuespenak.PartidaGaldu;
 
 public class Jokalaria {
 
 	private int dirua;
 	private String izena;
-	private int txandak = 1;
 	private ListaErasoMota listaErasoak;
 	private Tableroa jokalariTableroa;
+	private HasierakoTableroaBuilder builder;
 	
 	public Jokalaria(String pIzena){
+		builder = new HasierakoTableroaBuilder();
 		izena = pIzena;
 		dirua = 0; 	//Hasierako diru kantitatea
 		listaErasoak = new ListaErasoMota();
 		jokalariTableroa = new Tableroa();
 	}
 	
-	public void jokatu(){
-		while(txandak>0){
-			int aukera = Teklatua.getTeklatua().jokalariakJokatzekoAukerak();
-			switch (aukera) {
-			case 0: AdvancedBattleship.getAdvancedBattleship().partidaBukatu();
-					break;
-			case 1: ErasoEgin();
-					break;
-			case 2: ErasoaErosi();
-					break;
-			case 3: System.out.println("ZURE DIRUA:"+ dirua + " DA.");
-			
-			}
-		}
-	}
-	
-	private void ErasoEgin(){
-		System.out.println("Erasoa egiteko eraso mota bat aukeratu behar duzu.");
-		listaErasoak.inprimatuErasoInfo();
-		int aukera = Teklatua.getTeklatua().zenbakiaEskatu(1, listaErasoak.tamaina());
-		int[] koor = Teklatua.getTeklatua().koordenatuakAukeratu();
-		txandak--;
-		if(listaErasoak.posiziokoErasoaLortu(aukera).erasoaEgin(koor[0], koor[1])){ //JO BADU
-			dirua++;
-			txandak++;
-		}
-	}
-	
-	private void ErasoaErosi(){
-		ErasoMota erositakoa = Denda.getDenda().erosi(this);
-		if(erositakoa!=null){
-			dirua = dirua - erositakoa.getPrezioa();
-			if(erositakoa instanceof ItsasoIbilgailua){
-				boolean bukatu = false;
-				while(!bukatu){
-					try {
-						System.out.println("Kokatu tableroan erositako " + erositakoa.getIzena());
-						erasoaGehitu((ItsasoIbilgailua) erositakoa);
-						txandak--;
-						bukatu=true;
-					} catch (EzinKokatu e) {
-						System.out.println("Ezin duzu " + erositakoa.getIzena() + " hor kokatu.");
-						System.out.println("Berriro kokatzen zaihatu nahi duzu? (Berriro kokatzen ez baduzu dirua itzuliko zaizu)");
-						if(!Teklatua.getTeklatua().baiEdoEz()){
-							dirua = dirua + erositakoa.getPrezioa();
-							bukatu = true;
-						}
-					}
-				}
-			}
-		}
-		else txandak++;
+	public void erosketaGorde(ErasoMota em){
+		dirua = dirua - em.getPrezioa();
+		listaErasoak.erasoaGehitu(em);
 	}
 	
 	public boolean diruNahikoa(int pKostua){
@@ -80,41 +37,80 @@ public class Jokalaria {
 		dirua =+ pDiruKop;
 	}
 	
-	public boolean erasoaJaso(int x, int y){
-		return jokalariTableroa.erasoaJaso(x,y);
+	public boolean erasoEgin(int x, int y, ErasoMota em){
+		boolean jo = false;
+		try {
+			jo = em.erasoaEgin(x, y);
+		} catch (Hondoratua e) {
+			jo = true;
+			dirua = dirua+10;
+		}
+		return jo;
 	}
-			
-	public void galdu(){
-		
+	
+	public boolean erasoaJaso(int x, int y) throws Hondoratua{
+		try {
+			return jokalariTableroa.erasoaJaso(x,y);
+		} catch (Hondoratua e) {
+			listaErasoak.erasoaKendu(jokalariTableroa.posIbilgailua(x, y));
+			try{
+				if(listaErasoak.tamaina()<=0){
+					{throw new PartidaGaldu(this);}
+				} 
+			}catch (PartidaGaldu e1) {
+				e1.partidaBukatu();
+			}
+			{throw new Hondoratua();}
+		}
 	}
 
 	public String getIzena() {
 		return izena;
 	}
-
-	public void erasoaGehitu(ItsasoIbilgailua em) throws EzinKokatu{
-		jokalariTableroa.erasoaGehitu(em, listaErasoak);
-	}
 	
 	public void zerrendanGehitu(ErasoMota pEraso){
 		listaErasoak.erasoaGehitu(pEraso);
 	}
-	
-	public void setIzena(String izena) {
-		this.izena = izena;
+
+	public ListaErasoMota getErasoMotak(){
+		return listaErasoak;
 	}
 	
-	public void tableroaInprimatu(){
-		jokalariTableroa.tableroaInprimatu();
-	}
 	public double getDirua(){
 		return dirua;
 	}
-	public boolean itsaspekoErasoaJaso(int x, int y) {
-		return jokalariTableroa.itsaspekoErasoaJaso(x,y);
+	
+	public boolean itsaspekoErasoaJaso(int x, int y) throws Hondoratua{
+		try {
+			return jokalariTableroa.itsaspekoErasoaJaso(x,y);
+		} catch (Hondoratua e) {
+			listaErasoak.erasoaKendu(jokalariTableroa.posIbilgailua(x, y));
+			try{
+				if(listaErasoak.tamaina()<=0){
+					{throw new PartidaGaldu(this);}
+				} 
+			}catch (PartidaGaldu e1) {
+				e1.partidaBukatu();
+			}
+			{throw new Hondoratua();}
+		}
 	}
+	
 	public void uavErasoa(int zut, int err){
 		jokalariTableroa.uavErasoa(zut, err);
 	}
 	
+	public void hasierakoErasoakKokatu(ItsasoIbilgailua i, char c, int x, int y) throws EzinKokatu, HasierakoakJarrita{
+		try {
+			builder.erasoaGehitu(i, c, x, y);
+			jokalariTableroa.setIbilgailuMatrizea(builder.getMatrizea());
+			listaErasoak = builder.getListaErasoak();
+		} catch (HasierakoakJarrita e) {
+			{throw new HasierakoakJarrita();}
+		}
+	}
+	
+	public void tablerokoObserverra(Observer o){
+		jokalariTableroa.addObserver(o);
+	}
 }

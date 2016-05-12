@@ -1,5 +1,7 @@
 package proiektua.advancedBattleship;
 
+import proiektua.salbuespenak.Hondoratua;
+
 public abstract class ErasoMota {
 
 	private String izena;
@@ -10,17 +12,17 @@ public abstract class ErasoMota {
 		prezioa=pPrezioa;
 	}
 	
-	protected int getPrezioa(){
+	public int getPrezioa(){
 		return prezioa;
 	}
 	
-	protected String getIzena(){
+	public String getIzena(){
 		return izena;
 	}
 	
 	protected abstract void espezifikazioakInprimatu();
-	protected abstract void informazioaInprimatu();
-	protected abstract boolean erasoaEgin(int zut, int err);
+	public abstract String informazioaInprimatu();
+	public abstract boolean erasoaEgin(int zut, int err) throws Hondoratua;
 	
 }
  

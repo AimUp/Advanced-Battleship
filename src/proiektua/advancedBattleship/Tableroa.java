@@ -1,10 +1,11 @@
 package proiektua.advancedBattleship;
 
-import proiektua.salbuespenak.EzinKokatu;
-import proiektua.salbuespenak.PosizioaOkupatua;
+import java.util.Observable;
+
+import proiektua.salbuespenak.Hondoratua;
 import proiektua.salbuespenak.TablerotikKanpo;
 
-public class Tableroa {
+public class Tableroa extends Observable{
 	
 	private ItsasoIbilgailua[][] ibilgailuMatrizea;
 
@@ -13,196 +14,70 @@ public class Tableroa {
 		ibilgailuMatrizea = new ItsasoIbilgailua[tableroTamaina][tableroTamaina];
 	}
 	
-	public void erasoaGehitu(ItsasoIbilgailua ibil, ListaErasoMota lista) throws EzinKokatu{
-		int[] koor = Teklatua.getTeklatua().koordenatuakAukeratu();
-		int x=koor[0], y=koor[1];
-		char nora = Teklatua.getTeklatua().brujula();
-		int luz = ibil.getLuzera();
-		if(nora=='i' || nora=='I'){
-			if(!kokatuDaiteke(ibil, x, y, nora)){
-				{throw new EzinKokatu();}
-			}
-			while(luz>0){
-				ibilgailuMatrizea[x][y-(luz-1)] = ibil;
-				ibil.kokalekuBatGehitu(luz-1, x, y-(luz-1));
-				luz--;
-			}
-		}
-		else if(nora=='h' || nora=='H'){
-			if(!kokatuDaiteke(ibil, x, y, nora)){
-				{throw new EzinKokatu();}
-			}
-			while(luz>0){
-				ibilgailuMatrizea[x][y+(luz-1)] = ibil;
-				ibil.kokalekuBatGehitu(luz-1, x, y+(luz-1));
-				luz--;
-				
-			}
-		}
-		else if(nora=='m' || nora=='M'){
-			if(!kokatuDaiteke(ibil, x, y, nora)){
-				{throw new EzinKokatu();}
-			}
-			while(luz>0){
-				ibilgailuMatrizea[x-(luz-1)][y] = ibil;
-				ibil.kokalekuBatGehitu(luz-1, x-(luz-1), y);
-				luz--;
-			}	
-		}
-		else if(nora=='e' || nora=='E'){
-			if(!kokatuDaiteke(ibil, x, y, nora)){
-				{throw new EzinKokatu();}
-			}
-			while(luz>0){
-				ibilgailuMatrizea[x+(luz-1)][y] = ibil;
-				ibil.kokalekuBatGehitu(luz-1, x+(luz-1), y);
-				luz--;
-			}
-		}
-		lista.erasoaGehitu(ibil);
-		tableroaInprimatu();
+	public void setIbilgailuMatrizea(ItsasoIbilgailua[][] im){
+		ibilgailuMatrizea = im;
 	}
 	
-	private boolean kokatuDaiteke(ItsasoIbilgailua ibil, int x, int y, char nora){
-		boolean kokatu = true;
-		int l = 0;
-		while(l<ibil.getLuzera() && kokatu){
-			try{
-				if(x<0 || x>14 || y<0 || y>14){
-					{throw new TablerotikKanpo();}
-				}
-				try{
-					if(ibilgailuMatrizea[x][y] != null){
-						{throw new PosizioaOkupatua();}
-					}
-					l++;
-				}
-				catch(PosizioaOkupatua e){
-					System.out.println("Posizio honetan ezin daiteko ontzirik jarri");
-					kokatu = false;
-				}
-			}
-			catch(TablerotikKanpo e){
-				System.out.println("Ezin daiteke itsasontzi kokatu. Posizioa tablerotik KANPO dago.");
-				kokatu = false;
-			}
-			if(nora=='i' || nora=='I'){
-				y--;
-			}
-			else if(nora=='h' || nora=='H'){
-				y++;
-			}
-			else if(nora=='m' || nora=='M'){
-				x--;
-			}
-			else if(nora=='e' || nora=='E'){
-				x++;
-			}
-		}
-		return kokatu;
+	public ItsasoIbilgailua posIbilgailua(int x, int y){
+		return ibilgailuMatrizea[x][y];
 	}
 	
-	public void tableroaInprimatu(){
-		char c = 'A';
-		for(int i=0; i<15; i++){
-			System.out.print(c+" ");
-			c++;
-		}
-		System.out.println();
-		for(int y = 0; y < ibilgailuMatrizea.length; y++){
-			for(int x = 0; x < ibilgailuMatrizea.length; x++){
-				if(ibilgailuMatrizea[x][y] == null){
-					System.out.print("O ");
-				}
-				else if(ibilgailuMatrizea[x][y] instanceof Ura){
-					System.out.print("0 ");
-				}
-				else {
-					System.out.print("X ");
-				}
-			}
-			System.out.println(y);
-		}
-	}
-	
-	public void erasoTableroaInprimatu(){
-		char c = 'A';
-		for(int i=0; i<15; i++){
-			System.out.print(c+" ");
-			c++;
-		}
-		System.out.println();
-		for(int y = 0; y < ibilgailuMatrizea.length; y++){
-			for(int x = 0; x < ibilgailuMatrizea.length; x++){
-				if(ibilgailuMatrizea[x][y] == null){
-					System.out.print("≈");
-				}
-				else if(ibilgailuMatrizea[x][y] instanceof Ura){
-					System.out.print("0");
-				}
-				else if(ibilgailuMatrizea[x][y].joEginda(x,y)){
-					System.out.print("X");
-				}
-				else if(!ibilgailuMatrizea[x][y].joEginda(x,y)){
-					System.out.print("≈");
-				}
-			}
-			System.out.println(y);
-		}
-	}
-	
-	public boolean erasoaJaso(int x, int y){
+	public boolean erasoaJaso(int x, int y) throws Hondoratua{
 		boolean jo = false;
 		try{
 			if(x<0 || x>14 || y<0 || y>14){
 				{throw new TablerotikKanpo();}
 			}
 			if(ibilgailuMatrizea[x][y] != null && !(ibilgailuMatrizea[x][y] instanceof Ura)){
-				ibilgailuMatrizea[x][y].erasoaJaso(x, y);
 				jo=true;
+				Object[] ob = {true, x,y};
+				setChanged();
+				notifyObservers(ob);
+				ibilgailuMatrizea[x][y].erasoaJaso(x, y);
 			}
 			else if(ibilgailuMatrizea[x][y] == null){
 				ibilgailuMatrizea[x][y] = new Ura();
-			}
-			erasoTableroaInprimatu();
+				Object[] ob = {false, x,y};
+				setChanged();
+				notifyObservers(ob);
+			}	
 		}
 		catch(TablerotikKanpo e){}
-		
 		return jo;
 	}
 
-	public boolean itsaspekoErasoaJaso(int x, int y) {
+	public boolean itsaspekoErasoaJaso(int x, int y) throws Hondoratua{
 		boolean jo = false;
-		try{
-			if(x<0 || x>14 || y<0 || y>14){
-				{throw new TablerotikKanpo();}
+		if(ibilgailuMatrizea[x][y] != null && !(ibilgailuMatrizea[x][y] instanceof Ura)){
+			ItsasontziKokalekua[] ik = ibilgailuMatrizea[x][y].itsaspekoErasoaJaso();
+			jo=true;
+			for(int i=0; i<ik.length; i++){
+				Object[] ob = {true, ik[i].getX(),ik[i].getY()};
+				setChanged();
+				notifyObservers(ob);
 			}
-			if(ibilgailuMatrizea[x][y] != null && !(ibilgailuMatrizea[x][y] instanceof Ura)){
-				ibilgailuMatrizea[x][y].itsaspekoErasoaJaso();
-				jo=true;
-			}
-			else if(ibilgailuMatrizea[x][y] == null){
-				ibilgailuMatrizea[x][y] = new Ura();
-			}
-			erasoTableroaInprimatu();
 		}
-		catch(TablerotikKanpo e){}
-		
+		else if(ibilgailuMatrizea[x][y] == null){
+			ibilgailuMatrizea[x][y] = new Ura();
+			Object[] ob = {false, x,y};
+			setChanged();
+			notifyObservers(ob);
+		}
 		return jo;
 	}
 	public void uavErasoa(int zut,int err){
-		for(int y=err; y < err+5; y++){
-			for(int x=zut; x < zut+5; x++){
-				System.out.println(x);
-				if(ibilgailuMatrizea[x][y] == null){
-					ibilgailuMatrizea[x][y]=new Ura();
-				}
-				else if(ibilgailuMatrizea[x][y] instanceof Ura){
-					System.out.print("0");
-				}
-				else if((ibilgailuMatrizea[x][y] !=null) &&!(ibilgailuMatrizea[x][y] instanceof Ura ) ){
-					System.out.print("X");
-				}
+		for(int y=err-2; y < err+2; y++){
+			for(int x=zut-2; x < zut+2; x++){
+				try{
+					if(x<0 || x>14 || y<0 || y>14){
+						{throw new TablerotikKanpo();}
+					}
+					if((ibilgailuMatrizea[x][y] !=null) &&!(ibilgailuMatrizea[x][y] instanceof Ura ) ){
+						int[] kor = {x,y};
+						setChanged();
+						notifyObservers(kor);
+					}
+				}catch(TablerotikKanpo e){}
 			}
 		}
 	}

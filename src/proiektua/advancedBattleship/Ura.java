@@ -7,8 +7,8 @@ public class Ura extends ItsasoIbilgailua{
 	}
 
 	@Override
-	protected void informazioaInprimatu() {}
+	public String informazioaInprimatu() {return null;}
 
 	@Override
-	protected boolean erasoaEgin(int zut, int err) {return false;}
+	public boolean erasoaEgin(int zut, int err) {return false;}
 }

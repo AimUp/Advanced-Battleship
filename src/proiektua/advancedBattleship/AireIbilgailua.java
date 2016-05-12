@@ -12,5 +12,5 @@ public abstract class AireIbilgailua extends ErasoMota{
 	}
 
 	@Override
-	protected abstract void informazioaInprimatu();
+	public abstract String informazioaInprimatu();
 }

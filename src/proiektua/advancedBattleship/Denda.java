@@ -1,6 +1,7 @@
 package proiektua.advancedBattleship;
 
-import proiektua.salbuespenak.EzinKokatu;
+import proiektua.salbuespenak.DirurikEz;
+import proiektua.salbuespenak.ErasoaKokatu;
 
 public class Denda {
 
@@ -25,38 +26,18 @@ public class Denda {
 		return nDenda;
 	}
 	
-	public ErasoMota erosi(Jokalaria pEroslea){
-		ErasoMota erositakoErasoa = null;
-		erasoKatalogoaErakutzi();
-		int auk = Teklatua.getTeklatua().zenbakiaEskatu(1, 6); //LEHENENGO AUKERA / AZKEN AUKERA
-		ErasoMota erostekoErasoa = katalogoa.posiziokoErasoaLortu(auk-1);
-		if(!pEroslea.diruNahikoa(erostekoErasoa.getPrezioa())){//salbuespena
-			erositakoErasoa = null;
-			System.out.println("Ez duzu eraso hau erosteko diru nahikorik.");
-			System.out.println("Bezte eraso bat erosi nahi duzu?");
-			if(Teklatua.getTeklatua().baiEdoEz()){
-				erositakoErasoa = erosi(pEroslea);
-			}
+	public void erosi(Jokalaria pEroslea, int ePos) throws DirurikEz, ErasoaKokatu{
+		ErasoMota em = katalogoa.posiziokoErasoaLortu(ePos);
+		if(!pEroslea.diruNahikoa(em.getPrezioa())){
+			{throw new DirurikEz();}
 		}
-		else if(erostekoErasoa instanceof ItsasoIbilgailua){
-			boolean kok = false;
-			while(!kok){
-				try {
-					pEroslea.erasoaGehitu((ItsasoIbilgailua) erostekoErasoa);
-					kok = true;
-				} catch (EzinKokatu e) {
-					e.printStackTrace();
-				}
-			}
+		pEroslea.erosketaGorde(em);
+		if(em instanceof ItsasoIbilgailua){
+			{throw new ErasoaKokatu(em);}
 		}
-		else{
-			pEroslea.zerrendanGehitu(erostekoErasoa);
-		}
-		return erositakoErasoa;
 	}
 	
-	private void erasoKatalogoaErakutzi(){
-		katalogoa.inprimatuErasoInfo();
-		System.out.println("\n\n");
+	public ListaErasoMota getKatalogoa(){
+		return katalogoa;
 	}
 }

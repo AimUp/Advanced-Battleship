@@ -1,5 +1,7 @@
 package proiektua.advancedBattleship;
 
+import proiektua.salbuespenak.Hondoratua;
+
 public class Itsaspekoa extends ItsasoIbilgailua{
 	
 	public Itsaspekoa(){
@@ -7,13 +9,13 @@ public class Itsaspekoa extends ItsasoIbilgailua{
 	}
 
 	@Override
-	protected void informazioaInprimatu() {
-		System.out.println("Luzera: Kasila bakarra \n Erasoa: Kasila bakarrarekin itsasontzia hondoratu.");
+	public String informazioaInprimatu() {
+		return "Tiro batekin itsasontzia hondoratu dezake";
 	}
 
 	@Override
-	protected boolean erasoaEgin(int zut, int err) {
-		return AdvancedBattleship.getAdvancedBattleship().itsaspekoErasoaEgin(zut,err);
-		
+	public boolean erasoaEgin(int zut, int err) throws Hondoratua{
+		AdvancedBattleship.getAdvancedBattleship().itsaspekoErasoaEgin(zut,err);
+		return false;
 	}
 }

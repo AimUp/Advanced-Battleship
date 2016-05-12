@@ -2,6 +2,8 @@ package proiektua.advancedBattleship;
 
 import java.util.Random;
 
+import proiektua.salbuespenak.Hondoratua;
+
 public class Bonbarderoa extends AireIbilgailua{
 	
 	public Bonbarderoa(){
@@ -9,12 +11,12 @@ public class Bonbarderoa extends AireIbilgailua{
 	}
 
 	@Override
-	protected void informazioaInprimatu() {
-		System.out.println("Erasoa: 3 zutabe zeharkatuko ditu 5 random misil jaurtiz");
+	public String informazioaInprimatu() {
+		return"3 zutabe zeharkatuko ditu 5 misil jaurtiz";
 	}
 
 	@Override
-	protected boolean erasoaEgin(int zut, int err) {
+	public boolean erasoaEgin(int zut, int err) throws Hondoratua{
 		boolean b = false;
 		boolean jo = false;
 		err=14;

@@ -1,5 +1,7 @@
 package proiektua.advancedBattleship;
 
+import proiektua.salbuespenak.Hondoratua;
+
 public class HegazkinGarraiolaria extends ItsasoIbilgailua {
 	
 	public HegazkinGarraiolaria(){
@@ -7,13 +9,12 @@ public class HegazkinGarraiolaria extends ItsasoIbilgailua {
 	}
 
 	@Override
-	protected void informazioaInprimatu() {
-		// TODO Auto-generated method stub
-		System.out.println("Luzera: 4 \n Erasoa: Kasila bakarra");
+	public String informazioaInprimatu() {
+		return "Kasila bakarreko erasoa";
 	}
 
 	@Override
-	protected boolean erasoaEgin(int zut, int err) {
+	public boolean erasoaEgin(int zut, int err) throws Hondoratua{
 		return AdvancedBattleship.getAdvancedBattleship().erasoaEgin(zut,err);
 	}
 }
