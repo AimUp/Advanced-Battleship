@@ -135,16 +135,16 @@ public class Tableroa {
 		for(int y = 0; y < ibilgailuMatrizea.length; y++){
 			for(int x = 0; x < ibilgailuMatrizea.length; x++){
 				if(ibilgailuMatrizea[x][y] == null){
-					System.out.print("≈");
+					System.out.print("O ");
 				}
 				else if(ibilgailuMatrizea[x][y] instanceof Ura){
-					System.out.print("0");
+					System.out.print("0 ");
 				}
 				else if(ibilgailuMatrizea[x][y].joEginda(x,y)){
-					System.out.print("X");
+					System.out.print("X ");
 				}
 				else if(!ibilgailuMatrizea[x][y].joEginda(x,y)){
-					System.out.print("≈");
+					System.out.print("O ");
 				}
 			}
 			System.out.println(y);
