@@ -39,7 +39,9 @@ public class KasilaUI extends JButton implements MouseListener{
 		irudiaBerrezarri();
 		setEnabled(!b);
 		if(b) removeMouseListener(this);
-		else addMouseListener(this);
+		else if(getMouseListeners().length<=1){
+			addMouseListener(this);
+		}
 	}
 
 	@Override

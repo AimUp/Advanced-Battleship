@@ -20,7 +20,6 @@ public abstract class ErasoMota {
 		return izena;
 	}
 	
-	protected abstract void espezifikazioakInprimatu();
 	public abstract String informazioaInprimatu();
 	public abstract boolean erasoaEgin(int zut, int err) throws Hondoratua;
 	

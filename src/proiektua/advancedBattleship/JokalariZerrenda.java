@@ -86,4 +86,13 @@ public class JokalariZerrenda extends Observable{
 	public void tableroetanObservablea(int jok, Observer o){
 		lista[jok].tablerokoObserverra(o);	
 	}
+	
+	public Jokalaria irabazleaLortu(Jokalaria j){
+		boolean topatu = false;
+		int i=0;
+		while(!topatu){
+			if(!lista[i].equals(j)) topatu = true;
+		}
+		return lista[i];
+	}
 }

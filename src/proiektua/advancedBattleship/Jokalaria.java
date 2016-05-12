@@ -33,10 +33,6 @@ public class Jokalaria {
 		else return false;
 	}
 	
-	public void diruaGehitu(int pDiruKop){
-		dirua =+ pDiruKop;
-	}
-	
 	public boolean erasoEgin(int x, int y, ErasoMota em){
 		boolean jo = false;
 		try {
@@ -68,10 +64,6 @@ public class Jokalaria {
 		return izena;
 	}
 	
-	public void zerrendanGehitu(ErasoMota pEraso){
-		listaErasoak.erasoaGehitu(pEraso);
-	}
-
 	public ListaErasoMota getErasoMotak(){
 		return listaErasoak;
 	}

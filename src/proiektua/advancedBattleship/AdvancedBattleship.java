@@ -83,4 +83,9 @@ public class AdvancedBattleship extends Observable{
 		int erasoJok=urrengotxandaAurkitu();
 		JokalariZerrenda.getJokalariZerrenda().uavErasoa(x,y,erasoJok);
 	}
+	
+	public void partidaBukatu(Jokalaria galtzailea){
+		setChanged();
+		notifyObservers(JokalariZerrenda.getJokalariZerrenda().irabazleaLortu(galtzailea));
+	}
 }

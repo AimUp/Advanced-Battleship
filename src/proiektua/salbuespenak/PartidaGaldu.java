@@ -1,5 +1,6 @@
 package proiektua.salbuespenak;
 
+import proiektua.advancedBattleship.AdvancedBattleship;
 import proiektua.advancedBattleship.Jokalaria;
 
 public class PartidaGaldu extends Exception{
@@ -13,7 +14,7 @@ public class PartidaGaldu extends Exception{
 	}
 	
 	public void partidaBukatu(){
-		
+		AdvancedBattleship.getAdvancedBattleship().partidaBukatu(galtzailea);
 	}
 	
 }

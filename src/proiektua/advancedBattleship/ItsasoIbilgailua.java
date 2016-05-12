@@ -20,12 +20,6 @@ public abstract class ItsasoIbilgailua extends ErasoMota{
 		return luzera;
 	}
 	
-	protected void espezifikazioakInprimatu(){
-		System.out.println(this.getIzena());
-		System.out.println("Prezioa: "+this.getPrezioa());
-		System.out.println("Luzera: " +luzera);
-	}
-	
 	public void erasoaJaso(int x, int y) throws Hondoratua{
 		int i=0;
 		while(!kokalekua[i].kokalekuHauDa(x, y)){

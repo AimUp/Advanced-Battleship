@@ -25,14 +25,4 @@ public class ListaErasoMota {
 	public int tamaina(){
 		return lista.size();
 	}
-	
-	public void inprimatuErasoInfo(){
-		ArrayList<ErasoMota> erakutzitakoak = new ArrayList<ErasoMota>();
-		for(int x=0; x<lista.size(); x++){
-			System.out.println(x+1+".");
-			lista.get(x).espezifikazioakInprimatu();
-			lista.get(x).informazioaInprimatu();
-			erakutzitakoak.add(lista.get(x));
-		}
-	}
 }

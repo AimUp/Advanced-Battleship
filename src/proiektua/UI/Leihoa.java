@@ -8,6 +8,7 @@ import javax.swing.JPanel;
 
 import proiektua.advancedBattleship.AdvancedBattleship;
 import proiektua.advancedBattleship.JokalariZerrenda;
+import proiektua.advancedBattleship.Jokalaria;
 import proiektua.advanncedBattleship.baliabideak.Irudiak;
 
 public class Leihoa extends JFrame implements Observer{
@@ -49,9 +50,14 @@ public class Leihoa extends JFrame implements Observer{
 				panelaAldatu(new ItsasontziakKokatuUI((Integer) arg));
 			}
 		}
-		else if(o instanceof AdvancedBattleship){	
-			panelaAldatu(TableroenPanelaUI.getTableroenPanelaUI());
-			TableroenPanelaUI.getTableroenPanelaUI().txandaJokatu();
+		else if(o instanceof AdvancedBattleship){
+			if(arg instanceof Jokalaria){
+				panelaAldatu(new IrabazlePanelaUI((Jokalaria) arg));
+			}
+			else{
+				panelaAldatu(TableroenPanelaUI.getTableroenPanelaUI());
+				TableroenPanelaUI.getTableroenPanelaUI().txandaJokatu();
+			}
 		}
 	}
 }

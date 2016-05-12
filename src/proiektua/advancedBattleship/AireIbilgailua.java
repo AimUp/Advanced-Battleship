@@ -6,11 +6,5 @@ public abstract class AireIbilgailua extends ErasoMota{
 	}
 
 	@Override
-	protected void espezifikazioakInprimatu() {
-		System.out.println(getIzena());
-		System.out.println("Prezioa: "+getPrezioa());
-	}
-
-	@Override
 	public abstract String informazioaInprimatu();
 }

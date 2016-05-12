@@ -9,13 +9,6 @@ public class Mina extends ErasoMota{
 	}
 
 	@Override
-	protected void espezifikazioakInprimatu() {
-		System.out.println("Izena: Mina");
-		System.out.println("Prezioa: " +this.getPrezioa());
-		
-	}
-
-	@Override
 	public String informazioaInprimatu() {
 		return "3x3ko eztanda egingo du";
 	}
