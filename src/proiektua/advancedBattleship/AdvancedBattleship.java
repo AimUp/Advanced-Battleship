@@ -3,7 +3,6 @@ package proiektua.advancedBattleship;
 import java.util.Observable;
 
 import proiektua.salbuespenak.DirurikEz;
-import proiektua.salbuespenak.ErasoaKokatu;
 import proiektua.salbuespenak.Hondoratua;
 
 public class AdvancedBattleship extends Observable{
@@ -36,11 +35,6 @@ public class AdvancedBattleship extends Observable{
 		}
 	}
 	
-	public void txandaJokatu(){
-		setChanged();
-		notifyObservers(txanda);
-	}
-	
 	private int urrengotxandaAurkitu(){
 		int erasoJok;
 		if(txanda==JokalariZerrenda.getJokalariZerrenda().luzera()-1){ 
@@ -56,8 +50,9 @@ public class AdvancedBattleship extends Observable{
 		return txanda;
 	}
 	
-	public void dendanErosi(int em) throws DirurikEz, ErasoaKokatu{
+	public void dendanErosi(int em) throws DirurikEz{
 		JokalariZerrenda.getJokalariZerrenda().erasoaErosi(em, txanda);
+		txanda = urrengotxandaAurkitu();
 	}
 	
 	public void jokarariakErasoaBurutu(int x, int y, ErasoMota em){ //True ura jotzen ez badu

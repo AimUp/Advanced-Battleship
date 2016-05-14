@@ -26,6 +26,9 @@ public class Jokalaria {
 	public void erosketaGorde(ErasoMota em){
 		dirua = dirua - em.getPrezioa();
 		listaErasoak.erasoaGehitu(em);
+		if(em instanceof ItsasoIbilgailua){
+			jokalariTableroa.ErasoaKokatu();
+		}
 	}
 	
 	public boolean diruNahikoa(int pKostua){
@@ -36,10 +39,14 @@ public class Jokalaria {
 	public boolean erasoEgin(int x, int y, ErasoMota em){
 		boolean jo = false;
 		try {
-			jo = em.erasoaEgin(x, y);
+			if(!(em instanceof ItsasoIbilgailua)) listaErasoak.erasoaKendu(em);
+			if(em.erasoaEgin(x, y)){
+				jo=true;
+				dirua++;
+			}
 		} catch (Hondoratua e) {
 			jo = true;
-			dirua = dirua+10;
+			dirua = dirua+e.getGehitzekoPuntuak();
 		}
 		return jo;
 	}
@@ -56,7 +63,7 @@ public class Jokalaria {
 			}catch (PartidaGaldu e1) {
 				e1.partidaBukatu();
 			}
-			{throw new Hondoratua();}
+			{throw e;}
 		}
 	}
 
@@ -66,10 +73,6 @@ public class Jokalaria {
 	
 	public ListaErasoMota getErasoMotak(){
 		return listaErasoak;
-	}
-	
-	public double getDirua(){
-		return dirua;
 	}
 	
 	public boolean itsaspekoErasoaJaso(int x, int y) throws Hondoratua{
@@ -84,7 +87,7 @@ public class Jokalaria {
 			}catch (PartidaGaldu e1) {
 				e1.partidaBukatu();
 			}
-			{throw new Hondoratua();}
+			{throw new Hondoratua(0);}
 		}
 	}
 	
@@ -95,10 +98,10 @@ public class Jokalaria {
 	public void hasierakoErasoakKokatu(ItsasoIbilgailua i, char c, int x, int y) throws EzinKokatu, HasierakoakJarrita{
 		try {
 			builder.erasoaGehitu(i, c, x, y);
+		} catch (HasierakoakJarrita e) {
 			jokalariTableroa.setIbilgailuMatrizea(builder.getMatrizea());
 			listaErasoak = builder.getListaErasoak();
-		} catch (HasierakoakJarrita e) {
-			{throw new HasierakoakJarrita();}
+			{throw e;}
 		}
 	}
 	

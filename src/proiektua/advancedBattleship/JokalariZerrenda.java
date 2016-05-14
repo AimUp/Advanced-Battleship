@@ -1,7 +1,6 @@
 package proiektua.advancedBattleship;
 
 import proiektua.salbuespenak.DirurikEz;
-import proiektua.salbuespenak.ErasoaKokatu;
 import proiektua.salbuespenak.EzinKokatu;
 import proiektua.salbuespenak.HasierakoakJarrita;
 import proiektua.salbuespenak.Hondoratua;
@@ -27,7 +26,7 @@ public class JokalariZerrenda extends Observable{
 		return nJokalariZerrenda;
 	}
 	
-	public void erasoaErosi(int em, int pos)throws DirurikEz, ErasoaKokatu{
+	public void erasoaErosi(int em, int pos)throws DirurikEz{
 		Denda.getDenda().erosi(lista[pos], em);
 	}
 	
@@ -65,17 +64,13 @@ public class JokalariZerrenda extends Observable{
 	
 	public void hasierakoa(){
 		unekoJok++;
-		try {
-		    Thread.sleep(500);          
-		} catch(InterruptedException ex) {
-		    Thread.currentThread().interrupt();
-		}
 		if(unekoJok<=lista.length-1){
 			setChanged();
 			notifyObservers(unekoJok);
 		}
 		else{
-			AdvancedBattleship.getAdvancedBattleship().txandaJokatu();
+			setChanged();
+			notifyObservers();
 		}
 	}
 	

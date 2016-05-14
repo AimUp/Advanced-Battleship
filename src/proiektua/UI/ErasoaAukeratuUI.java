@@ -45,7 +45,9 @@ public class ErasoaAukeratuUI extends JPanel{
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				String izena = getSelectedButtonText(botoiTaldea);
-				TableroenPanelaUI.getTableroenPanelaUI().erasoEgitekoPrest(biltauErasoMota(izena));
+				if(izena!=null){
+					TableroenPanelaUI.getTableroenPanelaUI().erasoEgitekoPrest(biltauErasoMota(izena));
+				}
 			}
 		});
 		

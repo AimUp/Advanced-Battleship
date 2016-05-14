@@ -22,6 +22,11 @@ public class Tableroa extends Observable{
 		return ibilgailuMatrizea[x][y];
 	}
 	
+	public void ErasoaKokatu(){
+		setChanged();
+		notifyObservers();
+	}
+	
 	public boolean erasoaJaso(int x, int y) throws Hondoratua{
 		boolean jo = false;
 		try{

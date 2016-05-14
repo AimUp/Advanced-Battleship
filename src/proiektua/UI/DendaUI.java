@@ -6,10 +6,13 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 
+import proiektua.advancedBattleship.AdvancedBattleship;
 import proiektua.advancedBattleship.Denda;
+import proiektua.advancedBattleship.JokalariZerrenda;
 import proiektua.advancedBattleship.ListaErasoMota;
 
 public class DendaUI extends JPanel{
@@ -23,7 +26,8 @@ public class DendaUI extends JPanel{
 		itzuli.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				TableroenPanelaUI.getTableroenPanelaUI().aukerakAldatu(new AukerakPanelaUI());
+				String i = JokalariZerrenda.getJokalariZerrenda().getJokalariarenIzena(AdvancedBattleship.getAdvancedBattleship().unekoTxanda());
+				TableroenPanelaUI.getTableroenPanelaUI().aukerakAldatu(new AukerakPanelaUI(i));
 			}
 		});
 		add(itzuli, BorderLayout.NORTH);
@@ -40,5 +44,8 @@ public class DendaUI extends JPanel{
 		}
 	
 		add(scrollPane, BorderLayout.CENTER);
+		
+		JLabel diruKop = new JLabel("Zure diru kopurua: ");
+		add(diruKop, BorderLayout.SOUTH);
 	}
 }

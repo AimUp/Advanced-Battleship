@@ -7,7 +7,7 @@ import proiektua.salbuespenak.Hondoratua;
 public class Bonbarderoa extends AireIbilgailua{
 	
 	public Bonbarderoa(){
-		super("Bonbarderoa",10);
+		super("Bonbarderoa",5);
 	}
 
 	@Override
@@ -16,15 +16,15 @@ public class Bonbarderoa extends AireIbilgailua{
 	}
 
 	@Override
-	public boolean erasoaEgin(int zut, int err) throws Hondoratua{
+	public boolean erasoaEgin(int err, int zut) throws Hondoratua{
 		boolean b = false;
 		boolean jo = false;
-		err=14;
+		err=-1;
 		Random rnd=new Random();
 		for(int i=0;i<5;i++){
-			int z=rnd.nextInt(zut+1 - zut-1 +1)+zut-1;
-			err=err-rnd.nextInt(2)+1;
-			b = AdvancedBattleship.getAdvancedBattleship().erasoaEgin(z,err);
+			int z=rnd.nextInt(2)-1;
+			err=(1+rnd.nextInt(2))+(3*i);
+			b = AdvancedBattleship.getAdvancedBattleship().erasoaEgin(err,zut+z);
 			if(b){
 				jo = true;
 			}

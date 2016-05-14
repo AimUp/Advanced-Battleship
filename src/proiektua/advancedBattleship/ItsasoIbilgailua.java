@@ -28,7 +28,7 @@ public abstract class ItsasoIbilgailua extends ErasoMota{
 		kokalekua[i].jo();
 		luzera--;
 		if(luzera<=0){
-			{throw new Hondoratua();}
+			{throw new Hondoratua(kokalekua.length);}
 		}
 	}
 	public ItsasontziKokalekua[] itsaspekoErasoaJaso(){

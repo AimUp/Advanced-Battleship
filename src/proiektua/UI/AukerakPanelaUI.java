@@ -13,15 +13,14 @@ import javax.swing.SwingConstants;
 public class AukerakPanelaUI extends JPanel{
 
 	private static final long serialVersionUID = 1L;
-	private JLabel izena;
 	
-	public AukerakPanelaUI(){
+	public AukerakPanelaUI(String i){
 		setLayout(new BorderLayout(0,50));
 		
 		JPanel jokalaria = new JPanel();
 		jokalaria.setLayout(new GridLayout(2,1,0,5));
 		JLabel txanda = new JLabel("JOKALARIAREN TXANDA:", SwingConstants.CENTER); 
-		izena = new JLabel("", SwingConstants.CENTER); 
+		JLabel izena = new JLabel(i, SwingConstants.CENTER); 
 		jokalaria.add(txanda);
 		jokalaria.add(izena);
 		
@@ -45,9 +44,5 @@ public class AukerakPanelaUI extends JPanel{
 		
 		add(jokalaria, BorderLayout.NORTH);
 		add(aukerak, BorderLayout.CENTER);
-	}
-	
-	public void txandaJokalariaAldatu(String i){
-		izena.setText(i);
 	}
 }

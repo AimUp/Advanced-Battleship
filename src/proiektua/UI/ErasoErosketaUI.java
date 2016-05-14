@@ -9,18 +9,20 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.SwingConstants;
+import javax.swing.Timer;
 
 import proiektua.advancedBattleship.AdvancedBattleship;
 import proiektua.advancedBattleship.Denda;
+import proiektua.advancedBattleship.JokalariZerrenda;
 import proiektua.advancedBattleship.ListaErasoMota;
 import proiektua.salbuespenak.DirurikEz;
-import proiektua.salbuespenak.ErasoaKokatu;
 
 public class ErasoErosketaUI extends JPanel{
 
 	private static final long serialVersionUID = 1L;
 	private JLabel izena;
 	private JButton botoia;
+	private Timer t;
 
 	public ErasoErosketaUI(int i){
 		ListaErasoMota lem = Denda.getDenda().getKatalogoa();
@@ -41,14 +43,26 @@ public class ErasoErosketaUI extends JPanel{
 			public void actionPerformed(ActionEvent e){
 				try {
 					AdvancedBattleship.getAdvancedBattleship().dendanErosi((Character.getNumericValue(izena.getText().charAt(0)))-1);
+					remove(botoia);
+					JLabel er = new JLabel("Erosketa egin da");
+					er.setForeground(Color.green);
+					add(er, BorderLayout.CENTER);
+					Leihoa.getLeihoa().setVisible(true);
+					t = new Timer(500, new ActionListener() {
+						@Override
+						public void actionPerformed(ActionEvent e) {
+							String i = JokalariZerrenda.getJokalariZerrenda().getJokalariarenIzena(AdvancedBattleship.getAdvancedBattleship().unekoTxanda());
+							TableroenPanelaUI.getTableroenPanelaUI().aukerakAldatu(new AukerakPanelaUI(i));
+							t.stop();
+						}
+					});
+					t.start();
 				} catch (DirurikEz e1) {
 					remove(botoia);
 					JLabel er = new JLabel("Diruri nahikorik ez");
 					er.setForeground(Color.red);
 					add(er, BorderLayout.CENTER);
 					Leihoa.getLeihoa().setVisible(true);
-				} catch (ErasoaKokatu e1) {
-					TableroenPanelaUI.getTableroenPanelaUI().erasoaKokatu(e1.getKokatzekoErasoa());
 				}
 			}
 		});

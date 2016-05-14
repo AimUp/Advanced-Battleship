@@ -7,5 +7,4 @@ public class IzenBerdinak extends Exception{
 	public IzenBerdinak(){
 		super();
 	}
-	
 }

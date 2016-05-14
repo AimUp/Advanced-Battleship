@@ -49,6 +49,10 @@ public class Leihoa extends JFrame implements Observer{
 			if(arg instanceof Integer){
 				panelaAldatu(new ItsasontziakKokatuUI((Integer) arg));
 			}
+			else{
+				panelaAldatu(TableroenPanelaUI.getTableroenPanelaUI());
+				TableroenPanelaUI.getTableroenPanelaUI().txandaJokatu();
+			}
 		}
 		else if(o instanceof AdvancedBattleship){
 			if(arg instanceof Jokalaria){

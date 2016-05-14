@@ -25,7 +25,7 @@ public class TableroenPanelaUI extends JPanel{
 	private static final long serialVersionUID = 1L;
 	private static TableroenPanelaUI nTableroenPanelaUI = null;
 	private TableroaUI tableroa1 = new TableroaUI();
-	private JPanel aukerakPan = new AukerakPanelaUI();
+	private JPanel aukerakPan = new AukerakPanelaUI("");
 	private TableroaUI tableroa2 = new TableroaUI();
 	private JPanel tab;
 	private ErasoMota unekoErasoa;
@@ -69,9 +69,7 @@ public class TableroenPanelaUI extends JPanel{
 	}
 	
 	public void txandaJokatu(){
-		aukerakAldatu(new AukerakPanelaUI());
-		AukerakPanelaUI a = (AukerakPanelaUI) aukerakPan;
-		a.txandaJokalariaAldatu(JokalariZerrenda.getJokalariZerrenda().getJokalariarenIzena(AdvancedBattleship.getAdvancedBattleship().unekoTxanda()));
+		aukerakAldatu(new AukerakPanelaUI(JokalariZerrenda.getJokalariZerrenda().getJokalariarenIzena(AdvancedBattleship.getAdvancedBattleship().unekoTxanda())));
 		tableroa1.tableroaDesgaitu(true);
 		tableroa1.setEnabled(false);
 		tableroa2.tableroaDesgaitu(true);
@@ -96,21 +94,32 @@ public class TableroenPanelaUI extends JPanel{
 	}
 	
 	public void tableroanKlik(int x, int y){
-		AdvancedBattleship.getAdvancedBattleship().jokarariakErasoaBurutu(x, y, unekoErasoa);
+		if(unekoErasoa != null){
+			AdvancedBattleship.getAdvancedBattleship().jokarariakErasoaBurutu(x, y, unekoErasoa);
+			if(!(unekoErasoa instanceof ItsasoIbilgailua)){
+				TableroaUI tablero = erabilgarriTableroa();
+				for(int i=0; i<15; i++){
+					for(int j=0; j<15; j++){
+						tablero.kasilaBerrezarri(i, j);
+					}
+				}
+				unekoErasoa=null;
+				aukerakAldatu(new ErasoaAukeratuUI());
+			}
+		}
 	}
 	
 	public void erasoaKokatu(ItsasoIbilgailua its){
 		aukerakAldatu(new JPanel());
 	}
 	
+	private TableroaUI erabilgarriTableroa(){
+		if(tableroa1.isEnabled()) return tableroa1;
+		else return tableroa2;
+	}
+	
 	public void kasilaGainean(boolean b, int x, int y){
-		TableroaUI tablero = null;
-		if(tableroa1.isEnabled()){
-			tablero = tableroa1;
-		}
-		else{
-			tablero = tableroa2;
-		}
+		TableroaUI tablero = erabilgarriTableroa();
 		
 		if(b){
 			if(unekoErasoa instanceof Korazatua){
@@ -132,7 +141,11 @@ public class TableroenPanelaUI extends JPanel{
 				tablero.kasilaIrudiaAldatu(Irudiak.target[0], x, y);
 			}
 			else if(unekoErasoa instanceof Bonbarderoa){
-				
+				for(int i=-1; i<2; i++){
+					for(int j=0; j<15; j++){
+						tablero.kasilaIrudiaAldatu(Irudiak.bonbarderoErasoa, j, y+i);
+					}
+				}
 			}
 			else if(unekoErasoa instanceof UAV){
 				int pos = 0;
@@ -171,7 +184,11 @@ public class TableroenPanelaUI extends JPanel{
 				tablero.kasilaBerrezarri(x, y);
 			}
 			else if(unekoErasoa instanceof Bonbarderoa){
-				tablero.kasilaBerrezarri(x, y);
+				for(int i=-1; i<2; i++){
+					for(int j=0; j<15; j++){
+						tablero.kasilaBerrezarri(j, y+i);
+					}
+				}
 			}
 			else if(unekoErasoa instanceof UAV){
 				for(int i=-2; i<3; i++){

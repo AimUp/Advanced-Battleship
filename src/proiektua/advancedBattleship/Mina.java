@@ -27,5 +27,4 @@ public class Mina extends ErasoMota{
 		}
 		return joDu;
 	}
-	
 }

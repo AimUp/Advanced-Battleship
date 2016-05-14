@@ -37,13 +37,14 @@ public class TableroaUI extends JPanel implements Observer{
 			if(x<0 || x>14 || y<0 || y>14){
 				{throw new TablerotikKanpo();}
 			}
-			kasilak[x][y].setIcon(ima);
+			if(kasilak[x][y].getIcon().equals(Irudiak.ura)){
+				kasilak[x][y].setIcon(ima);
+			}
 		}
 		catch(TablerotikKanpo e){}
 	}
 	
 	public void kasilaAldatu(ImageIcon ima, int x, int y){
-		
 		try{
 			if(x<0 || x>14 || y<0 || y>14){
 				{throw new TablerotikKanpo();}

@@ -1,4 +1,4 @@
-package proiektua.UI;
+ package proiektua.UI;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -27,7 +27,7 @@ public class ItsasontziakKokatuUI extends JPanel{
 	private JRadioButton bert;
 	private JComboBox<String> comBox;
 	private TableroaUI tableroa;
-	private int jokalaria;
+	private int jokalaria;  
 
 	public ItsasontziakKokatuUI(int jokPos){
 		jokalaria=jokPos;
@@ -40,7 +40,7 @@ public class ItsasontziakKokatuUI extends JPanel{
 		JLabel titul = new JLabel(JokalariZerrenda.getJokalariZerrenda().getJokalariarenIzena(jokalaria) + ", KOKATU ZURE ITSASONTZIAK", SwingConstants.CENTER);
 		titul.setForeground(new Color(177, 177, 177));
 		TextuPanela.add(titul);
-		
+		  
 		JPanel auk = new JPanel();
 		auk.setLayout(new BorderLayout());
 		JLabel textua = new JLabel("AUKERATU: ");
@@ -120,42 +120,38 @@ public class ItsasontziakKokatuUI extends JPanel{
 		if(bert.isSelected()){
 			switch ((String) comBox.getSelectedItem()) {
 				case "FRAGATA": 
-					tableroa.kasilaBerrezarri(x, y);
-					tableroa.kasilaBerrezarri(x+1, y);
+					for(int i=0; i<2; i++){
+						tableroa.kasilaBerrezarri(x+i, y);
+					}
 					break;
-	
 				case "KORAZATUA":
-					tableroa.kasilaBerrezarri(x, y);
-					tableroa.kasilaBerrezarri(x+1, y);
-					tableroa.kasilaBerrezarri(x+2, y);
+					for(int i=0; i<3; i++){
+						tableroa.kasilaBerrezarri(x+i, y);
+					}
 					break;
-	
 				case "HEGAZKIN GARRAIOLARIA":
-					tableroa.kasilaBerrezarri(x, y);
-					tableroa.kasilaBerrezarri(x+1, y);
-					tableroa.kasilaBerrezarri(x+2, y);
-					tableroa.kasilaBerrezarri(x+3, y);
+					for(int i=0; i<4; i++){
+						tableroa.kasilaBerrezarri(x+i, y);
+					}
 					break;
 			}
 		}
 		else if(horiz.isSelected()){
 			switch ((String) comBox.getSelectedItem()) {
 			case "FRAGATA": 
-				tableroa.kasilaBerrezarri(x, y);
-				tableroa.kasilaBerrezarri(x, y+1);
+				for(int i=0; i<2; i++){
+					tableroa.kasilaBerrezarri(x, y+i);
+				}
 				break;
-
 			case "KORAZATUA":
-				tableroa.kasilaBerrezarri(x, y);
-				tableroa.kasilaBerrezarri(x, y+1);
-				tableroa.kasilaBerrezarri(x, y+2);
+				for(int i=0; i<3; i++){
+					tableroa.kasilaBerrezarri(x, y+i);
+				}
 				break;
-
 			case "HEGAZKIN GARRAIOLARIA":
-				tableroa.kasilaBerrezarri(x, y);
-				tableroa.kasilaBerrezarri(x, y+1);
-				tableroa.kasilaBerrezarri(x, y+2);
-				tableroa.kasilaBerrezarri(x, y+3);
+				for(int i=0; i<4; i++){
+					tableroa.kasilaBerrezarri(x, y+i);
+				}
 				break;
 			}
 		}

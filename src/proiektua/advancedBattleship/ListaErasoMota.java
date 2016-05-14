@@ -8,6 +8,7 @@ public class ListaErasoMota {
 	
 	public ListaErasoMota(){
 		lista = new ArrayList<ErasoMota>();
+		lista.add(new Bonbarderoa());
 	}
 	
 	public void erasoaGehitu(ErasoMota e){
