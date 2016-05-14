@@ -1,11 +1,12 @@
 package proiektua.salbuespenak;
 
-import proiektua.advancedBattleship.Teklatua;
 
 public class HizkiOkerra extends Exception {
 
+	private static final long serialVersionUID = 1L;
+
 	public HizkiOkerra() {
-		// TODO Auto-generated constructor stub
+		super();
 	}
 	
 }
