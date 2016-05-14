@@ -117,7 +117,7 @@ public class Teklatua {
 			nora = s.charAt(0);
 		}
 		else{
-			nora='ï¿½';
+			nora='ñ';
 		}
 		try{
 			if(nora!='i' && nora!='h' && nora!='e' && nora!='m' && nora!='I' && nora!='H' && nora!='E' && nora!='M'){
