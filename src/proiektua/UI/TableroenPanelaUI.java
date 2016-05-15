@@ -143,7 +143,7 @@ public class TableroenPanelaUI extends JPanel{
 			else if(unekoErasoa instanceof Bonbarderoa){
 				for(int i=-1; i<2; i++){
 					for(int j=0; j<15; j++){
-						tablero.kasilaIrudiaAldatu(Irudiak.bonbarderoErasoa, j, y+i);
+						tablero.kasilaIrudiaAldatu(Irudiak.kasilaGorria, j, y+i);
 					}
 				}
 			}

@@ -17,6 +17,7 @@ public class Bonbarderoa extends AireIbilgailua{
 
 	@Override
 	public boolean erasoaEgin(int err, int zut) throws Hondoratua{
+		Hondoratua hondoratu=null;
 		boolean b = false;
 		boolean jo = false;
 		err=-1;
@@ -24,10 +25,17 @@ public class Bonbarderoa extends AireIbilgailua{
 		for(int i=0;i<5;i++){
 			int z=rnd.nextInt(2)-1;
 			err=(1+rnd.nextInt(2))+(3*i);
-			b = AdvancedBattleship.getAdvancedBattleship().erasoaEgin(err,zut+z);
+			try {
+				b = AdvancedBattleship.getAdvancedBattleship().erasoaEgin(err,zut+z);
+			} catch (Hondoratua e) {
+				hondoratu=e;
+			}
 			if(b){
 				jo = true;
 			}
+		}
+		if(hondoratu!=null){
+			{throw hondoratu;}
 		}
 		return jo;
 	}

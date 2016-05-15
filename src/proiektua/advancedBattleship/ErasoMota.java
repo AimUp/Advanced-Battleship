@@ -22,6 +22,5 @@ public abstract class ErasoMota {
 	
 	public abstract String informazioaInprimatu();
 	public abstract boolean erasoaEgin(int zut, int err) throws Hondoratua;
-	
 }
  

@@ -7,6 +7,7 @@ import java.util.Observer;
 import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 
+import proiektua.advancedBattleship.ItsasoIbilgailua;
 import proiektua.advanncedBattleship.baliabideak.Irudiak;
 import proiektua.salbuespenak.TablerotikKanpo;
 
@@ -75,18 +76,25 @@ public class TableroaUI extends JPanel implements Observer{
 	@Override
 	public void update(Observable o, Object arg) {
 		if(arg instanceof Object[]){
-			Object[] argumentuak = (Object[]) arg;
-			boolean jo = (boolean) argumentuak[0];
-			if(jo){
-				kasilaAldatu(Irudiak.tiroak[0], (Integer)argumentuak[1], (Integer)argumentuak[2]);
+			if(((Object[]) arg).length==3){
+				Object[] argumentuak = (Object[]) arg;
+				boolean jo = (boolean) argumentuak[0];
+				if(jo){
+					kasilaAldatu(Irudiak.tiroak[0], (Integer)argumentuak[1], (Integer)argumentuak[2]);
+				}
+				else{
+					kasilaAldatu(Irudiak.tiroak[1], (Integer)argumentuak[1], (Integer)argumentuak[2]);     
+				}
 			}
-			else{
-				kasilaAldatu(Irudiak.tiroak[1], (Integer)argumentuak[1], (Integer)argumentuak[2]);     
+			else if(((Object[]) arg).length==2){
+				Object[] ob = (Object[]) arg;
+				Leihoa.getLeihoa().panelaAldatu(new IbilgailuBerriaKokatuUI((ItsasoIbilgailua[][]) ob[0], (ItsasoIbilgailua) ob[1]));
 			}
 		}
 		else if(arg instanceof int[]){
 			int[] argumentuak = (int[]) arg;
 			kasilaAldatu(Irudiak.radarBarkuak, argumentuak[0], argumentuak[1]);
 		}
+
 	}
 }

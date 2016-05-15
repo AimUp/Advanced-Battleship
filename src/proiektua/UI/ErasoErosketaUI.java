@@ -50,7 +50,7 @@ public class ErasoErosketaUI extends JPanel{
 					Leihoa.getLeihoa().setVisible(true);
 					t = new Timer(500, new ActionListener() {
 						@Override
-						public void actionPerformed(ActionEvent e) {
+						public void actionPerformed(ActionEvent e){
 							String i = JokalariZerrenda.getJokalariZerrenda().getJokalariarenIzena(AdvancedBattleship.getAdvancedBattleship().unekoTxanda());
 							TableroenPanelaUI.getTableroenPanelaUI().aukerakAldatu(new AukerakPanelaUI(i));
 							t.stop();

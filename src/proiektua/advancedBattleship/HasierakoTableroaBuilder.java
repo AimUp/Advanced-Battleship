@@ -45,6 +45,27 @@ public class HasierakoTableroaBuilder {
 		guztiakJarritaKonprobatu();
 	}
 	
+	public void IbilgailuBerriaGehitu(ItsasoIbilgailua i, char c, int x, int y) throws EzinKokatu{
+		int luz = i.getLuzera();
+		if(!luzeeraKokatuDaiteke(i, x, y, c)){
+			{throw new EzinKokatu();}
+		}
+		if(c=='b'){
+			while(luz>0){
+				ibilgailuMatrizea[x+(luz-1)][y] = i;
+				i.kokalekuBatGehitu(luz-1, x+(luz-1), y);
+				luz--;
+			}
+		}
+		if(c=='h'){
+			while(luz>0){
+				ibilgailuMatrizea[x][y+(luz-1)] = i;
+				i.kokalekuBatGehitu(luz-1, x, y+(luz-1));
+				luz--;
+			}
+		}
+	}
+	
 	private void guztiakJarritaKonprobatu() throws HasierakoakJarrita{
 		if(fragata<=0 && akorazatua<=0 && hegazGarraio<=0){
 			{throw new HasierakoakJarrita();}
@@ -65,27 +86,33 @@ public class HasierakoTableroaBuilder {
 		else if(i instanceof Korazatua && akorazatua<=0) kokatu=false;
 		else if(i instanceof HegazkinGarraiolaria && hegazGarraio<=0) kokatu=false;
 		else {
-			int l = 0;
-			while(l<i.getLuzera() && kokatu){
-				try{
-					if(x<0 || x>14 || y<0 || y>14){
-						{throw new TablerotikKanpo();}
-					}
-					try{
-						if(ibilgailuMatrizea[x][y] != null){
-							{throw new PosizioaOkupatua();}
-						}
-						l++;
-						if(c=='b') x++;
-						else if(c=='h')	y++;	
-					}
-					catch(PosizioaOkupatua e){
-						kokatu = false;
-					}
+			kokatu = luzeeraKokatuDaiteke(i, x, y, c);
+		}
+		return kokatu;
+	}
+	
+	private boolean luzeeraKokatuDaiteke(ItsasoIbilgailua i, int x, int y, char c){
+		boolean kokatu = true;
+		int l = 0;
+		while(l<i.getLuzera() && kokatu){
+			try{
+				if(x<0 || x>14 || y<0 || y>14){
+					{throw new TablerotikKanpo();}
 				}
-				catch(TablerotikKanpo e){
+				try{
+					if(ibilgailuMatrizea[x][y] != null){
+						{throw new PosizioaOkupatua();}
+					}
+					l++;
+					if(c=='b') x++;
+					else if(c=='h')	y++;	
+				}
+				catch(PosizioaOkupatua e){
 					kokatu = false;
 				}
+			}
+			catch(TablerotikKanpo e){
+				kokatu = false;
 			}
 		}
 		return kokatu;

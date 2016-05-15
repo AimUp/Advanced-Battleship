@@ -62,6 +62,10 @@ public class JokalariZerrenda extends Observable{
 		lista[jokPos].hasierakoErasoakKokatu(i, c, x, y);
 	}
 	
+	public void erasoBerriaKokatu(ItsasoIbilgailua i, char c, int x, int y, int jokPos) throws EzinKokatu{
+		lista[jokPos].erasoBerriaKokatu(i, c, x, y);
+	}
+	
 	public void hasierakoa(){
 		unekoJok++;
 		if(unekoJok<=lista.length-1){

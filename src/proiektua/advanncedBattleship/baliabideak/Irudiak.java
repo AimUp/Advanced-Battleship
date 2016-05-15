@@ -7,7 +7,7 @@ public class Irudiak {
 	public static ImageIcon ura;
 	public static ImageIcon itsaspekoa;
 	public static ImageIcon radarBarkuak;
-	public static ImageIcon bonbarderoErasoa;
+	public static ImageIcon kasilaGorria;
 	public static ImageIcon[] itsasontziak = new ImageIcon[10];
 	public static ImageIcon[] tiroak = new ImageIcon[2];
 	public static ImageIcon[] target = new ImageIcon[10];
@@ -37,6 +37,8 @@ public class Irudiak {
 		itsasontziak[9] = new ImageIcon(Irudiak.class.getResource("batt10.gif"));
 		
 		itsaspekoa = new ImageIcon(Irudiak.class.getResource("itsaspeko.gif"));
+		
+		kasilaGorria = new ImageIcon(Irudiak.class.getResource("gorria.png")); 
 	}
 	
 	private static void uraKargatu(){
@@ -59,8 +61,6 @@ public class Irudiak {
 		target[7] = new ImageIcon(Irudiak.class.getResource("target7.png")); 
 		target[8] = new ImageIcon(Irudiak.class.getResource("target8.png")); 
 		target[9] = new ImageIcon(Irudiak.class.getResource("target9.png")); 
-		
-		bonbarderoErasoa = new ImageIcon(Irudiak.class.getResource("bonbardero.png")); 
 	}
 	
 	private static void korazatuaTargetKargatu(){

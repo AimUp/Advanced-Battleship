@@ -18,7 +18,7 @@ public class Jokalaria {
 	public Jokalaria(String pIzena){
 		builder = new HasierakoTableroaBuilder();
 		izena = pIzena;
-		dirua = 0; 	//Hasierako diru kantitatea
+		dirua = 100; 	//Hasierako diru kantitatea
 		listaErasoak = new ListaErasoMota();
 		jokalariTableroa = new Tableroa();
 	}
@@ -27,7 +27,7 @@ public class Jokalaria {
 		dirua = dirua - em.getPrezioa();
 		listaErasoak.erasoaGehitu(em);
 		if(em instanceof ItsasoIbilgailua){
-			jokalariTableroa.ErasoaKokatu();
+			jokalariTableroa.pantailaratuTableroa((ItsasoIbilgailua) em);
 		}
 	}
 	
@@ -103,6 +103,11 @@ public class Jokalaria {
 			listaErasoak = builder.getListaErasoak();
 			{throw e;}
 		}
+	}
+	
+	public void erasoBerriaKokatu(ItsasoIbilgailua i, char c, int x, int y) throws EzinKokatu{
+		builder.IbilgailuBerriaGehitu(i, c, x, y);
+		jokalariTableroa.setIbilgailuMatrizea(builder.getMatrizea());
 	}
 	
 	public void tablerokoObserverra(Observer o){

@@ -22,9 +22,10 @@ public class Tableroa extends Observable{
 		return ibilgailuMatrizea[x][y];
 	}
 	
-	public void ErasoaKokatu(){
+	public void pantailaratuTableroa(ItsasoIbilgailua i){
+		Object[] o = {ibilgailuMatrizea, i};
 		setChanged();
-		notifyObservers();
+		notifyObservers(o);
 	}
 	
 	public boolean erasoaJaso(int x, int y) throws Hondoratua{
@@ -77,7 +78,7 @@ public class Tableroa extends Observable{
 					if(x<0 || x>14 || y<0 || y>14){
 						{throw new TablerotikKanpo();}
 					}
-					if((ibilgailuMatrizea[x][y] !=null) &&!(ibilgailuMatrizea[x][y] instanceof Ura ) ){
+					if((ibilgailuMatrizea[x][y] !=null) && !ibilgailuMatrizea[x][y].joEginda(x, y)  && !(ibilgailuMatrizea[x][y] instanceof Ura)){
 						int[] kor = {x,y};
 						setChanged();
 						notifyObservers(kor);

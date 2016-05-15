@@ -9,6 +9,7 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
+import javax.swing.SwingConstants;
 
 import proiektua.advancedBattleship.AdvancedBattleship;
 import proiektua.advancedBattleship.Denda;
@@ -45,7 +46,7 @@ public class DendaUI extends JPanel{
 	
 		add(scrollPane, BorderLayout.CENTER);
 		
-		JLabel diruKop = new JLabel("Zure diru kopurua: ");
+		JLabel diruKop = new JLabel("Zure diru kopurua: ", SwingConstants.CENTER);
 		add(diruKop, BorderLayout.SOUTH);
 	}
 }

@@ -31,6 +31,7 @@ public abstract class ItsasoIbilgailua extends ErasoMota{
 			{throw new Hondoratua(kokalekua.length);}
 		}
 	}
+	
 	public ItsasontziKokalekua[] itsaspekoErasoaJaso(){
 		int i=0;
 		while(i<kokalekua.length){

@@ -15,7 +15,6 @@ public class Itsaspekoa extends ItsasoIbilgailua{
 
 	@Override
 	public boolean erasoaEgin(int zut, int err) throws Hondoratua{
-		AdvancedBattleship.getAdvancedBattleship().itsaspekoErasoaEgin(zut,err);
-		return false;
+		return AdvancedBattleship.getAdvancedBattleship().itsaspekoErasoaEgin(zut,err);
 	}
 }

@@ -57,6 +57,10 @@ public class KasilaUI extends JButton implements MouseListener{
 		else if(Leihoa.getLeihoa().getUnekoPanela() instanceof TableroenPanelaUI){
 			TableroenPanelaUI.getTableroenPanelaUI().tableroanKlik(zut, err);
 		}
+		else if(Leihoa.getLeihoa().getUnekoPanela() instanceof IbilgailuBerriaKokatuUI){
+			IbilgailuBerriaKokatuUI i = (IbilgailuBerriaKokatuUI) Leihoa.getLeihoa().getUnekoPanela();
+			i.klikEginDa(zut, err);
+		}
 	}
 
 	@Override
@@ -68,6 +72,10 @@ public class KasilaUI extends JButton implements MouseListener{
 		else if(Leihoa.getLeihoa().getUnekoPanela() instanceof TableroenPanelaUI){
 			TableroenPanelaUI.getTableroenPanelaUI().kasilaGainean(true, zut, err);
 		}
+		else if(Leihoa.getLeihoa().getUnekoPanela() instanceof IbilgailuBerriaKokatuUI){
+			IbilgailuBerriaKokatuUI i = (IbilgailuBerriaKokatuUI) Leihoa.getLeihoa().getUnekoPanela();
+			i.arratoiaGainean(zut, err);
+		}
 	}
 
 	@Override
@@ -78,6 +86,10 @@ public class KasilaUI extends JButton implements MouseListener{
 		}
 		else if(Leihoa.getLeihoa().getUnekoPanela() instanceof TableroenPanelaUI){
 			TableroenPanelaUI.getTableroenPanelaUI().kasilaGainean(false, zut, err);
+		}
+		else if(Leihoa.getLeihoa().getUnekoPanela() instanceof IbilgailuBerriaKokatuUI){
+			IbilgailuBerriaKokatuUI i = (IbilgailuBerriaKokatuUI) Leihoa.getLeihoa().getUnekoPanela();
+			i.arratoiaIrten(zut, err);
 		}
 	}
 	
