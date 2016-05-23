@@ -67,7 +67,7 @@ public class ErasoaAukeratuUI extends JPanel{
     }
 	
 	private ErasoMota biltauErasoMota(String b){
-		int pos = Character.getNumericValue(b.charAt(0))-1;
+		int pos = Integer.parseInt(b.split("-")[0])-1;
 		return lem.posiziokoErasoaLortu(pos);
 	}
 }
