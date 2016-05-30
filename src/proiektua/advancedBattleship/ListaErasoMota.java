@@ -25,4 +25,8 @@ public class ListaErasoMota {
 	public int tamaina(){
 		return lista.size();
 	}
+	
+	public boolean itsasoIbilgailurik(){
+		return lista.stream().anyMatch(e -> e instanceof ItsasoIbilgailua);
+	}
 }

@@ -5,6 +5,8 @@ import java.util.Observable;
 import proiektua.salbuespenak.DirurikEz;
 import proiektua.salbuespenak.EzinKokatu;
 import proiektua.salbuespenak.Hondoratua;
+import proiektua.salbuespenak.IzenBerdinak;
+import proiektua.salbuespenak.IzenHutsa;
 
 public class AdvancedBattleship extends Observable{
 
@@ -22,9 +24,15 @@ public class AdvancedBattleship extends Observable{
 		return nAdvancedBattleship;
 	}
 	
-	public void jokatu(String jok1, String jok2){
+	public void jokatu(String jok1, String jok2) throws IzenBerdinak, IzenHutsa{
+		if(jok1.equals(jok2)){
+			throw new IzenBerdinak();
+		}
+		if((jok1.isEmpty() || jok2.isEmpty())){
+			throw new IzenHutsa();
+		}
 		jokalariakSortu(jok1, jok2);
-		JokalariZerrenda.getJokalariZerrenda().hasierakoa();
+		JokalariZerrenda.getJokalariZerrenda().hasierakoa();	
 	}
 	
 	private void jokalariakSortu(String izena1, String izena2){
@@ -60,13 +68,14 @@ public class AdvancedBattleship extends Observable{
 		JokalariZerrenda.getJokalariZerrenda().erasoBerriaKokatu(i, c, x, y, urrengotxandaAurkitu());
 	}
 	
-	public void jokarariakErasoaBurutu(int x, int y, ErasoMota em){ //True ura jotzen ez badu
+	public boolean jokarariakErasoaBurutu(int x, int y, ErasoMota em){ //True ura jotzen ez badu
 		boolean jo = JokalariZerrenda.getJokalariZerrenda().erasoaBurutu(x, y, em, txanda);
 		if(!jo){
 			txanda = urrengotxandaAurkitu();
 			setChanged();
 			notifyObservers();
 		}
+		return jo;
 	}
 
 	public boolean erasoaEgin(int x, int y) throws Hondoratua{ //True ura jotzen ez badu

@@ -11,6 +11,8 @@ import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 
 import proiektua.advancedBattleship.AdvancedBattleship;
+import proiektua.salbuespenak.IzenBerdinak;
+import proiektua.salbuespenak.IzenHutsa;
 
 public class IzenakPanelaUI extends JPanel{
 
@@ -56,22 +58,17 @@ public class IzenakPanelaUI extends JPanel{
 	}
 	
 	public void enterSakatu(){
-		if((!(izena1.getText().isEmpty() || izena2.getText().isEmpty()))){
-			if(!(izena1.getText().equals(izena2.getText()))){
-				AdvancedBattleship.getAdvancedBattleship().jokatu(izena1.getText(), izena2.getText());
-				//Leihoa.getLeihoa().panelaAldatu(new ItsasontziakKokatuUI());
-			}
-			else{
-				izena1.setText("");
-				izena2.setText("");
-				remove(error);
-				error = new JLabel("IZENAK EZBERDINAK IZAN BEHAR DIRA", SwingConstants.CENTER);
-				error.setForeground(new Color(255, 0, 0));
-				add(error);
-				Leihoa.getLeihoa().setVisible(true);
-			}
-		}
-		else{
+		try {
+			AdvancedBattleship.getAdvancedBattleship().jokatu(izena1.getText(), izena2.getText());
+		} catch (IzenBerdinak e) {
+			izena1.setText("");
+			izena2.setText("");
+			remove(error);
+			error = new JLabel("IZENAK EZBERDINAK IZAN BEHAR DIRA", SwingConstants.CENTER);
+			error.setForeground(new Color(255, 0, 0));
+			add(error);
+			Leihoa.getLeihoa().setVisible(true);
+		} catch (IzenHutsa e) {
 			remove(error);
 			error = new JLabel("JOKALARIEN IZENAK SARTU BEHAR DIRA", SwingConstants.CENTER);
 			error.setForeground(new Color(255, 0, 0));
