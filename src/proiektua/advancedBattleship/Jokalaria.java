@@ -57,7 +57,7 @@ public class Jokalaria {
 		} catch (Hondoratua e) {
 			listaErasoak.erasoaKendu(jokalariTableroa.posIbilgailua(x, y));
 			try{
-				if(listaErasoak.tamaina()<=0){
+				if(!listaErasoak.itsasoIbilgailurik()){
 					{throw new PartidaGaldu(this);}
 				} 
 			}catch (PartidaGaldu e1) {

@@ -94,9 +94,10 @@ public class TableroenPanelaUI extends JPanel{
 	}
 	
 	public void tableroanKlik(int x, int y){
+		boolean jo;
 		if(unekoErasoa != null){
-			AdvancedBattleship.getAdvancedBattleship().jokarariakErasoaBurutu(x, y, unekoErasoa);
-			if(!(unekoErasoa instanceof ItsasoIbilgailua)){
+			jo = AdvancedBattleship.getAdvancedBattleship().jokarariakErasoaBurutu(x, y, unekoErasoa);
+			if((!(unekoErasoa instanceof ItsasoIbilgailua)) && jo){
 				TableroaUI tablero = erabilgarriTableroa();
 				for(int i=0; i<15; i++){
 					for(int j=0; j<15; j++){
@@ -107,10 +108,6 @@ public class TableroenPanelaUI extends JPanel{
 				aukerakAldatu(new ErasoaAukeratuUI());
 			}
 		}
-	}
-	
-	public void erasoaKokatu(ItsasoIbilgailua its){
-		aukerakAldatu(new JPanel());
 	}
 	
 	private TableroaUI erabilgarriTableroa(){
