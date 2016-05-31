@@ -14,7 +14,6 @@ public class JokalariaTest {
 	private Korazatua e;
 	private Fragata d;
 	private HegazkinGarraiolaria s;
-	private Itsaspekoa i;
 	private Jokalaria j2;
 	@Before
 	public void setUp() throws Exception {
