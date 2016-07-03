@@ -1,5 +1,7 @@
 package proiektua.advancedBattleship;
 
+import proiektua.salbuespenak.JotaDago;
+
 public class ItsasontziKokalekua {
 	
 	private int zut;
@@ -14,7 +16,10 @@ public class ItsasontziKokalekua {
 		err = y;
 	}
 	
-	public void jo(){
+	public void jo() throws JotaDago{
+		if(jota){
+			{throw new JotaDago();}
+		}
 		jota = true;
 	}
 	

@@ -1,6 +1,7 @@
 package proiektua.advancedBattleship;
 
 import proiektua.salbuespenak.Hondoratua;
+import proiektua.salbuespenak.JotaDago;
 
 public abstract class ItsasoIbilgailua extends ErasoMota{
 	
@@ -20,7 +21,7 @@ public abstract class ItsasoIbilgailua extends ErasoMota{
 		return luzera;
 	}
 	
-	public void erasoaJaso(int x, int y) throws Hondoratua{
+	public void erasoaJaso(int x, int y) throws Hondoratua, JotaDago{
 		int i=0;
 		while(!kokalekua[i].kokalekuHauDa(x, y)){
 			i++;
@@ -32,7 +33,7 @@ public abstract class ItsasoIbilgailua extends ErasoMota{
 		}
 	}
 	
-	public ItsasontziKokalekua[] itsaspekoErasoaJaso(){
+	public ItsasontziKokalekua[] itsaspekoErasoaJaso() throws JotaDago{
 		int i=0;
 		while(i<kokalekua.length){
 			kokalekua[i].jo();

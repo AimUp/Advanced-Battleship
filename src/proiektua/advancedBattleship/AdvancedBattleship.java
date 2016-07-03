@@ -59,6 +59,10 @@ public class AdvancedBattleship extends Observable{
 		return txanda;
 	}
 	
+	public int unekoDirua(){
+		return JokalariZerrenda.getJokalariZerrenda().unekoDirua(txanda);
+	}
+	
 	public void dendanErosi(int em) throws DirurikEz{
 		JokalariZerrenda.getJokalariZerrenda().erasoaErosi(em, txanda);
 		txanda = urrengotxandaAurkitu();

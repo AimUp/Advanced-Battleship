@@ -18,7 +18,7 @@ public class Jokalaria {
 	public Jokalaria(String pIzena){
 		builder = new HasierakoTableroaBuilder();
 		izena = pIzena;
-		dirua = 100; 	//Hasierako diru kantitatea
+		dirua = 0; 	//Hasierako diru kantitatea
 		listaErasoak = new ListaErasoMota();
 		jokalariTableroa = new Tableroa();
 	}
@@ -34,6 +34,10 @@ public class Jokalaria {
 	public boolean diruNahikoa(int pKostua){
 		if(dirua>pKostua) return true;
 		else return false;
+	}
+	
+	public int getDirua(){
+		return dirua;
 	}
 	
 	public boolean erasoEgin(int x, int y, ErasoMota em){

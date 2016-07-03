@@ -46,7 +46,8 @@ public class DendaUI extends JPanel{
 	
 		add(scrollPane, BorderLayout.CENTER);
 		
-		JLabel diruKop = new JLabel("Zure diru kopurua: ", SwingConstants.CENTER);
+		int dirua = AdvancedBattleship.getAdvancedBattleship().unekoDirua();
+		JLabel diruKop = new JLabel("Zure diru kopurua: " + dirua, SwingConstants.CENTER);
 		add(diruKop, BorderLayout.SOUTH);
 	}
 }

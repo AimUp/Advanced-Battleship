@@ -49,6 +49,10 @@ public class JokalariZerrenda extends Observable{
 	public String getJokalariarenIzena(int pPos){
 		return lista[pPos].getIzena();
 	}
+	
+	public int unekoDirua(int pTxanda){
+		return lista[pTxanda].getDirua();
+	}
 
 	public boolean itsaspekoErasoaEgin(int x, int y, int erasoJok) throws Hondoratua{
 		return lista[erasoJok].itsaspekoErasoaJaso(x,y);

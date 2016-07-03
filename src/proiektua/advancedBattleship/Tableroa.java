@@ -3,6 +3,7 @@ package proiektua.advancedBattleship;
 import java.util.Observable;
 
 import proiektua.salbuespenak.Hondoratua;
+import proiektua.salbuespenak.JotaDago;
 import proiektua.salbuespenak.TablerotikKanpo;
 
 public class Tableroa extends Observable{
@@ -35,11 +36,20 @@ public class Tableroa extends Observable{
 				{throw new TablerotikKanpo();}
 			}
 			if(ibilgailuMatrizea[x][y] != null && !(ibilgailuMatrizea[x][y] instanceof Ura)){
-				jo=true;
-				Object[] ob = {true, x,y};
-				setChanged();
-				notifyObservers(ob);
-				ibilgailuMatrizea[x][y].erasoaJaso(x, y);
+				try {
+					try {
+						ibilgailuMatrizea[x][y].erasoaJaso(x, y);
+						jo=true;
+						Object[] ob = {true, x,y};
+						setChanged();
+						notifyObservers(ob);
+					} catch (Hondoratua e) {
+						Object[] ob = {true, x,y};
+						setChanged();
+						notifyObservers(ob);
+						{throw new Hondoratua(e.getGehitzekoPuntuak());}
+					}
+				} catch (JotaDago e) {}
 			}
 			else if(ibilgailuMatrizea[x][y] == null){
 				ibilgailuMatrizea[x][y] = new Ura();
@@ -55,13 +65,16 @@ public class Tableroa extends Observable{
 	public boolean itsaspekoErasoaJaso(int x, int y) throws Hondoratua{
 		boolean jo = false;
 		if(ibilgailuMatrizea[x][y] != null && !(ibilgailuMatrizea[x][y] instanceof Ura)){
-			ItsasontziKokalekua[] ik = ibilgailuMatrizea[x][y].itsaspekoErasoaJaso();
-			jo=true;
-			for(int i=0; i<ik.length; i++){
-				Object[] ob = {true, ik[i].getX(),ik[i].getY()};
-				setChanged();
-				notifyObservers(ob);
-			}
+			ItsasontziKokalekua[] ik;
+			try {
+				ik = ibilgailuMatrizea[x][y].itsaspekoErasoaJaso();
+				jo=true;
+				for(int i=0; i<ik.length; i++){
+					Object[] ob = {true, ik[i].getX(),ik[i].getY()};
+					setChanged();
+					notifyObservers(ob);
+				}
+			} catch (JotaDago e) {}
 		}
 		else if(ibilgailuMatrizea[x][y] == null){
 			ibilgailuMatrizea[x][y] = new Ura();
