@@ -1,11 +1,12 @@
 package proiektua.advancedBattleship;
 
+import proiektua.advanncedBattleship.baliabideak.Textua;
 import proiektua.salbuespenak.Hondoratua;
 
 public class Fragata extends ItsasoIbilgailua{
 	
 	public Fragata(){
-		super("Fragata",4,2);
+		super(Textua.fragata,4,2);
 	}
 
 	@Override

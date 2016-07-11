@@ -18,6 +18,7 @@ import proiektua.advancedBattleship.AdvancedBattleship;
 import proiektua.advancedBattleship.ErasoMota;
 import proiektua.advancedBattleship.JokalariZerrenda;
 import proiektua.advancedBattleship.ListaErasoMota;
+import proiektua.advanncedBattleship.baliabideak.Textua;
 
 public class ErasoaAukeratuUI extends JPanel{
 
@@ -29,7 +30,7 @@ public class ErasoaAukeratuUI extends JPanel{
 		lem = JokalariZerrenda.getJokalariZerrenda().jokalariarenErasoMotak(AdvancedBattleship.getAdvancedBattleship().unekoTxanda());
 		
 		setLayout(new BorderLayout(0,10));
-		JLabel erasoa = new JLabel("ERASOA AUKERATU", SwingConstants.CENTER);
+		JLabel erasoa = new JLabel(Textua.erasoAuk, SwingConstants.CENTER);
 		
 		JPanel aukerak = new JPanel(new GridLayout(lem.tamaina(),1,0,5));
 		botoiTaldea = new ButtonGroup();
@@ -40,7 +41,7 @@ public class ErasoaAukeratuUI extends JPanel{
 			aukerak.add(bot);
 		}
 		
-		JButton erasoBot = new JButton("ERASO EGIN");
+		JButton erasoBot = new JButton(Textua.erasoEgin);
 		erasoBot.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {

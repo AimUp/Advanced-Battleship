@@ -91,10 +91,12 @@ public class Tableroa extends Observable{
 					if(x<0 || x>14 || y<0 || y>14){
 						{throw new TablerotikKanpo();}
 					}
-					if((ibilgailuMatrizea[x][y] !=null) && !ibilgailuMatrizea[x][y].joEginda(x, y)  && !(ibilgailuMatrizea[x][y] instanceof Ura)){
-						int[] kor = {x,y};
-						setChanged();
-						notifyObservers(kor);
+					if((ibilgailuMatrizea[x][y] !=null) && !(ibilgailuMatrizea[x][y] instanceof Ura)){
+						if(!ibilgailuMatrizea[x][y].joEginda(x, y)){
+							int[] kor = {x,y};
+							setChanged();
+							notifyObservers(kor);
+						}
 					}
 				}catch(TablerotikKanpo e){}
 			}

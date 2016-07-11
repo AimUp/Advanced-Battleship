@@ -2,12 +2,13 @@ package proiektua.advancedBattleship;
 
 import java.util.Random;
 
+import proiektua.advanncedBattleship.baliabideak.Textua;
 import proiektua.salbuespenak.Hondoratua;
 
 public class Bonbarderoa extends AireIbilgailua{
 	
 	public Bonbarderoa(){
-		super("Bonbarderoa",5);
+		super(Textua.bonbarderoa,5);
 	}
 
 	@Override

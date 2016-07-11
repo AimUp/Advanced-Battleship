@@ -10,6 +10,7 @@ import proiektua.advancedBattleship.AdvancedBattleship;
 import proiektua.advancedBattleship.JokalariZerrenda;
 import proiektua.advancedBattleship.Jokalaria;
 import proiektua.advanncedBattleship.baliabideak.Irudiak;
+import proiektua.advanncedBattleship.baliabideak.Textua;
 
 public class Leihoa extends JFrame implements Observer{
 
@@ -21,6 +22,8 @@ public class Leihoa extends JFrame implements Observer{
 		JokalariZerrenda.getJokalariZerrenda().addObserver(this);
 		AdvancedBattleship.getAdvancedBattleship().addObserver(this);
 		Irudiak.kargatu();
+		Textua.kargatu();
+		setTitle("ADVANCED BATTLESHIP");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	}
 

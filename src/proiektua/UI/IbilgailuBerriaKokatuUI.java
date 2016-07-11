@@ -18,6 +18,7 @@ import proiektua.advancedBattleship.Itsaspekoa;
 import proiektua.advancedBattleship.Korazatua;
 import proiektua.advancedBattleship.Ura;
 import proiektua.advanncedBattleship.baliabideak.Irudiak;
+import proiektua.advanncedBattleship.baliabideak.Textua;
 import proiektua.salbuespenak.EzinKokatu;
 
 public class IbilgailuBerriaKokatuUI extends JPanel{
@@ -39,15 +40,15 @@ public class IbilgailuBerriaKokatuUI extends JPanel{
 		JPanel TextuPanela = new JPanel();
 		TextuPanela.setLayout(new GridLayout(3, 1));
 		
-		JLabel titul = new JLabel("EROSITAKO ITSASONTZIA KOKATU: " + ibilgailua.getIzena(), SwingConstants.CENTER);
+		JLabel titul = new JLabel(Textua.erositakoItsaKokatu + ibilgailua.getIzena(), SwingConstants.CENTER);
 		titul.setForeground(new Color(177, 177, 177));
 		TextuPanela.add(titul);
 		  
 		JPanel bot = new JPanel();
 		ButtonGroup norantzaAuk = new ButtonGroup();
-		horiz = new JRadioButton("HORIZONTAL");
+		horiz = new JRadioButton(Textua.horizontal);
 		horiz.setSelected(true);
-		bert = new JRadioButton("BERTIKAL");
+		bert = new JRadioButton(Textua.bertikal);
 		bert.setSize(30, 30);
 		norantzaAuk.add(horiz);
 		norantzaAuk.add(bert);

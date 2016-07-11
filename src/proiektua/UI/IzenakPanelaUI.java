@@ -11,6 +11,7 @@ import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 
 import proiektua.advancedBattleship.AdvancedBattleship;
+import proiektua.advanncedBattleship.baliabideak.Textua;
 import proiektua.salbuespenak.IzenBerdinak;
 import proiektua.salbuespenak.IzenHutsa;
 
@@ -25,8 +26,8 @@ public class IzenakPanelaUI extends JPanel{
 		Leihoa.getLeihoa().setSize(500,300);
 		setLayout(new GridLayout(6, 1));
 		
-		JLabel text1 = new JLabel("LEHENENGO JOKALARIA", SwingConstants.CENTER);
-		JLabel text2 = new JLabel("BIGARREN JOKALARIA", SwingConstants.CENTER);
+		JLabel text1 = new JLabel(Textua.lehenengoJok, SwingConstants.CENTER);
+		JLabel text2 = new JLabel(Textua.bigarrenJok, SwingConstants.CENTER);
 		
 		JLabel vs = new JLabel("VS", SwingConstants.CENTER);
 
@@ -64,13 +65,13 @@ public class IzenakPanelaUI extends JPanel{
 			izena1.setText("");
 			izena2.setText("");
 			remove(error);
-			error = new JLabel("IZENAK EZBERDINAK IZAN BEHAR DIRA", SwingConstants.CENTER);
+			error = new JLabel(Textua.izenakEzberdinak, SwingConstants.CENTER);
 			error.setForeground(new Color(255, 0, 0));
 			add(error);
 			Leihoa.getLeihoa().setVisible(true);
 		} catch (IzenHutsa e) {
 			remove(error);
-			error = new JLabel("JOKALARIEN IZENAK SARTU BEHAR DIRA", SwingConstants.CENTER);
+			error = new JLabel(Textua.izenaSartuBehar, SwingConstants.CENTER);
 			error.setForeground(new Color(255, 0, 0));
 			add(error);
 			Leihoa.getLeihoa().setVisible(true);

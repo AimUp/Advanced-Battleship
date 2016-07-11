@@ -1,9 +1,11 @@
 package proiektua.advancedBattleship;
 
+import proiektua.advanncedBattleship.baliabideak.Textua;
+
 public class UAV extends AireIbilgailua{
 	
 	public UAV(){
-		super("UAV",20);
+		super(Textua.UAV,20);
 	}
 
 	@Override

@@ -15,6 +15,7 @@ import proiektua.advancedBattleship.AdvancedBattleship;
 import proiektua.advancedBattleship.Denda;
 import proiektua.advancedBattleship.JokalariZerrenda;
 import proiektua.advancedBattleship.ListaErasoMota;
+import proiektua.advanncedBattleship.baliabideak.Textua;
 import proiektua.salbuespenak.DirurikEz;
 
 public class ErasoErosketaUI extends JPanel{
@@ -31,20 +32,20 @@ public class ErasoErosketaUI extends JPanel{
 		JPanel motak = new JPanel(new BorderLayout());
 		izena = new JLabel((i+1) + "- " + lem.posiziokoErasoaLortu(i).getIzena(), SwingConstants.CENTER);
 		JLabel l2 = new JLabel(lem.posiziokoErasoaLortu(i).informazioaInprimatu());
-		JLabel l3 = new JLabel("PREZIOA: " + String.valueOf(lem.posiziokoErasoaLortu(i).getPrezioa()), SwingConstants.CENTER);
+		JLabel l3 = new JLabel(Textua.prezioa + String.valueOf(lem.posiziokoErasoaLortu(i).getPrezioa()), SwingConstants.CENTER);
 		motak.add(izena, BorderLayout.NORTH);
 		motak.add(l2, BorderLayout.CENTER);
 		motak.add(l3, BorderLayout.SOUTH);
 		
 		add(motak, BorderLayout.NORTH);
-		botoia = new JButton("EROSI");
+		botoia = new JButton(Textua.erosi);
 		botoia.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e){
 				try {
 					AdvancedBattleship.getAdvancedBattleship().dendanErosi((Character.getNumericValue(izena.getText().charAt(0)))-1);
 					remove(botoia);
-					JLabel er = new JLabel("Erosketa egin da");
+					JLabel er = new JLabel(Textua.erosketaEginDa);
 					er.setForeground(Color.green);
 					add(er, BorderLayout.CENTER);
 					Leihoa.getLeihoa().setVisible(true);
@@ -59,7 +60,7 @@ public class ErasoErosketaUI extends JPanel{
 					t.start();
 				} catch (DirurikEz e1) {
 					remove(botoia);
-					JLabel er = new JLabel("Diruri nahikorik ez");
+					JLabel er = new JLabel(Textua.diruNahikoEz);
 					er.setForeground(Color.red);
 					add(er, BorderLayout.CENTER);
 					Leihoa.getLeihoa().setVisible(true);

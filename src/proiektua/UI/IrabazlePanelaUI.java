@@ -8,6 +8,7 @@ import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 
 import proiektua.advancedBattleship.Jokalaria;
+import proiektua.advanncedBattleship.baliabideak.Textua;
 
 public class IrabazlePanelaUI extends JPanel{
 	
@@ -16,7 +17,7 @@ public class IrabazlePanelaUI extends JPanel{
 	public IrabazlePanelaUI(Jokalaria j){
 		Leihoa.getLeihoa().setSize(500,300);
 		setLayout(new BorderLayout());
-		JLabel text = new JLabel("IRABAZI EGIN DUZU", SwingConstants.CENTER);
+		JLabel text = new JLabel(Textua.irabazi, SwingConstants.CENTER);
 		add(text, BorderLayout.NORTH);
 		
 		JLabel izena = new JLabel(j.getIzena(), SwingConstants.CENTER);

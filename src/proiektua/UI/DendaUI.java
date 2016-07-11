@@ -15,6 +15,7 @@ import proiektua.advancedBattleship.AdvancedBattleship;
 import proiektua.advancedBattleship.Denda;
 import proiektua.advancedBattleship.JokalariZerrenda;
 import proiektua.advancedBattleship.ListaErasoMota;
+import proiektua.advanncedBattleship.baliabideak.Textua;
 
 public class DendaUI extends JPanel{
 
@@ -23,7 +24,7 @@ public class DendaUI extends JPanel{
 	public DendaUI(){
 		setLayout(new BorderLayout());
 		
-		JButton itzuli = new JButton("ATZERA ITZULI");
+		JButton itzuli = new JButton(Textua.atzera);
 		itzuli.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -47,7 +48,7 @@ public class DendaUI extends JPanel{
 		add(scrollPane, BorderLayout.CENTER);
 		
 		int dirua = AdvancedBattleship.getAdvancedBattleship().unekoDirua();
-		JLabel diruKop = new JLabel("Zure diru kopurua: " + dirua, SwingConstants.CENTER);
+		JLabel diruKop = new JLabel(Textua.diruKop + dirua, SwingConstants.CENTER);
 		add(diruKop, BorderLayout.SOUTH);
 	}
 }

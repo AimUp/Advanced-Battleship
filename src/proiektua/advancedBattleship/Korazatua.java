@@ -2,12 +2,13 @@ package proiektua.advancedBattleship;
 
 import java.util.Random;
 
+import proiektua.advanncedBattleship.baliabideak.Textua;
 import proiektua.salbuespenak.Hondoratua;
 
 public class Korazatua extends ItsasoIbilgailua {
 	
 	public Korazatua(){
-		super("Korazatua",6,3);
+		super(Textua.korazatua,6,3);
 	}
 
 	@Override

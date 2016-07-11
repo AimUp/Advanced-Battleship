@@ -1,11 +1,12 @@
 package proiektua.advancedBattleship;
 
+import proiektua.advanncedBattleship.baliabideak.Textua;
 import proiektua.salbuespenak.Hondoratua;
 
 public class Mina extends ErasoMota{
 	
 	public Mina(){
-		super("Mina",10);
+		super(Textua.mina,10);
 	}
 
 	@Override

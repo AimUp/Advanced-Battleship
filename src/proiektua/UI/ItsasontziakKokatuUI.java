@@ -15,6 +15,7 @@ import proiektua.advancedBattleship.HegazkinGarraiolaria;
 import proiektua.advancedBattleship.JokalariZerrenda;
 import proiektua.advancedBattleship.Korazatua;
 import proiektua.advanncedBattleship.baliabideak.Irudiak;
+import proiektua.advanncedBattleship.baliabideak.Textua;
 import proiektua.salbuespenak.EzinKokatu;
 import proiektua.salbuespenak.HasierakoakJarrita;
 
@@ -37,24 +38,24 @@ public class ItsasontziakKokatuUI extends JPanel{
 		JPanel TextuPanela = new JPanel();
 		TextuPanela.setLayout(new GridLayout(3, 1));
 		
-		JLabel titul = new JLabel(JokalariZerrenda.getJokalariZerrenda().getJokalariarenIzena(jokalaria) + ", KOKATU ZURE ITSASONTZIAK", SwingConstants.CENTER);
+		JLabel titul = new JLabel(JokalariZerrenda.getJokalariZerrenda().getJokalariarenIzena(jokalaria) + Textua.kokatuZureItsasontziak , SwingConstants.CENTER);
 		titul.setForeground(new Color(177, 177, 177));
 		TextuPanela.add(titul);
 		  
 		JPanel auk = new JPanel();
 		auk.setLayout(new BorderLayout());
-		JLabel textua = new JLabel("AUKERATU: ");
+		JLabel textua = new JLabel(Textua.aukeratu);
 		auk.add(textua, BorderLayout.WEST);
-		String[] a = {"FRAGATA", "KORAZATUA", "HEGAZKIN GARRAIOLARIA"};
+		String[] a = {Textua.fragata, Textua.korazatua, Textua.HegazkinGarraiolaria};
 		comBox = new JComboBox<String>(a);
 		auk.add(comBox);
 		TextuPanela.add(auk, BorderLayout.EAST);
 		
 		JPanel bot = new JPanel();
 		ButtonGroup norantzaAuk = new ButtonGroup();
-		horiz = new JRadioButton("HORIZONTAL");
+		horiz = new JRadioButton(Textua.horizontal);
 		horiz.setSelected(true);
-		bert = new JRadioButton("BERTIKAL");
+		bert = new JRadioButton(Textua.bertikal);
 		bert.setSize(30, 30);
 		norantzaAuk.add(horiz);
 		norantzaAuk.add(bert);
@@ -74,17 +75,17 @@ public class ItsasontziakKokatuUI extends JPanel{
 	public void arratoiaGainean(int x, int y){
 		if(bert.isSelected()){
 			tableroa.kasilaIrudiaAldatu(Irudiak.itsasontziak[5], x, y);
-			switch ((String) comBox.getSelectedItem()) {
-				case "FRAGATA": 
+			switch (comBox.getSelectedIndex()) {
+				case 0: 
 					tableroa.kasilaIrudiaAldatu(Irudiak.itsasontziak[9], x+1, y);
 					break;
 	
-				case "KORAZATUA":
+				case 1:
 					tableroa.kasilaIrudiaAldatu(Irudiak.itsasontziak[6], x+1, y);
 					tableroa.kasilaIrudiaAldatu(Irudiak.itsasontziak[9], x+2, y);
 					break;
 	
-				case "HEGAZKIN GARRAIOLARIA":
+				case 2:
 					tableroa.kasilaIrudiaAldatu(Irudiak.itsasontziak[6], x+1, y);
 					tableroa.kasilaIrudiaAldatu(Irudiak.itsasontziak[7], x+2, y);
 					tableroa.kasilaIrudiaAldatu(Irudiak.itsasontziak[9], x+3, y);
@@ -93,17 +94,17 @@ public class ItsasontziakKokatuUI extends JPanel{
 		}
 		else if(horiz.isSelected()){
 			tableroa.kasilaIrudiaAldatu(Irudiak.itsasontziak[0], x, y);
-			switch ((String) comBox.getSelectedItem()) {
-			case "FRAGATA": 
+			switch (comBox.getSelectedIndex()) {
+			case 0: 
 				tableroa.kasilaIrudiaAldatu(Irudiak.itsasontziak[4], x, y+1);
 				break;
 
-			case "KORAZATUA":
+			case 1:
 				tableroa.kasilaIrudiaAldatu(Irudiak.itsasontziak[1], x, y+1);
 				tableroa.kasilaIrudiaAldatu(Irudiak.itsasontziak[4], x, y+2);
 				break;
 
-			case "HEGAZKIN GARRAIOLARIA":
+			case 2:
 				tableroa.kasilaIrudiaAldatu(Irudiak.itsasontziak[1], x, y+1);
 				tableroa.kasilaIrudiaAldatu(Irudiak.itsasontziak[2], x, y+2);
 				tableroa.kasilaIrudiaAldatu(Irudiak.itsasontziak[4], x, y+3);
@@ -114,18 +115,18 @@ public class ItsasontziakKokatuUI extends JPanel{
 	
 	public void arratoiaIrten(int x, int y){
 		if(bert.isSelected()){
-			switch ((String) comBox.getSelectedItem()) {
-				case "FRAGATA": 
+			switch (comBox.getSelectedIndex()) {
+				case 0: 
 					for(int i=0; i<2; i++){
 						tableroa.kasilaBerrezarri(x+i, y);
 					}
 					break;
-				case "KORAZATUA":
+				case 1:
 					for(int i=0; i<3; i++){
 						tableroa.kasilaBerrezarri(x+i, y);
 					}
 					break;
-				case "HEGAZKIN GARRAIOLARIA":
+				case 2:
 					for(int i=0; i<4; i++){
 						tableroa.kasilaBerrezarri(x+i, y);
 					}
@@ -133,18 +134,18 @@ public class ItsasontziakKokatuUI extends JPanel{
 			}
 		}
 		else if(horiz.isSelected()){
-			switch ((String) comBox.getSelectedItem()) {
-			case "FRAGATA": 
+			switch (comBox.getSelectedIndex()) {
+			case 0: 
 				for(int i=0; i<2; i++){
 					tableroa.kasilaBerrezarri(x, y+i);
 				}
 				break;
-			case "KORAZATUA":
+			case 1:
 				for(int i=0; i<3; i++){
 					tableroa.kasilaBerrezarri(x, y+i);
 				}
 				break;
-			case "HEGAZKIN GARRAIOLARIA":
+			case 2:
 				for(int i=0; i<4; i++){
 					tableroa.kasilaBerrezarri(x, y+i);
 				}
@@ -155,8 +156,8 @@ public class ItsasontziakKokatuUI extends JPanel{
 	
 	public void klikEginDa(int x, int y) throws HasierakoakJarrita{ //Advanced battleship-era bidali itsasontzia, kokatu ezin bada false itsuli eta ez pantailaratu
 		if(bert.isSelected()){
-			switch ((String) comBox.getSelectedItem()) {
-				case "FRAGATA":
+			switch (comBox.getSelectedIndex()) {
+				case 0:
 					Fragata f = new Fragata();
 					try {
 						JokalariZerrenda.getJokalariZerrenda().hasierakoErasoaKokatu(f, 'b', x, y, jokalaria);
@@ -165,7 +166,7 @@ public class ItsasontziakKokatuUI extends JPanel{
 					} catch (EzinKokatu e) {}
 					break;
 	
-				case "KORAZATUA":
+				case 1:
 					Korazatua k = new Korazatua();
 					try {
 						JokalariZerrenda.getJokalariZerrenda().hasierakoErasoaKokatu(k, 'b', x, y, jokalaria);
@@ -175,7 +176,7 @@ public class ItsasontziakKokatuUI extends JPanel{
 					} catch (EzinKokatu e) {}
 					break;
 	
-				case "HEGAZKIN GARRAIOLARIA":
+				case 2:
 					HegazkinGarraiolaria h = new HegazkinGarraiolaria();
 					try {
 						JokalariZerrenda.getJokalariZerrenda().hasierakoErasoaKokatu(h, 'b', x, y, jokalaria);
@@ -188,8 +189,8 @@ public class ItsasontziakKokatuUI extends JPanel{
 			}
 		}
 		else if(horiz.isSelected()){
-			switch ((String) comBox.getSelectedItem()) {
-			case "FRAGATA": 
+			switch (comBox.getSelectedIndex()) {
+			case 0: 
 				Fragata f = new Fragata();
 				try {
 					JokalariZerrenda.getJokalariZerrenda().hasierakoErasoaKokatu(f, 'h', x, y, jokalaria);
@@ -198,7 +199,7 @@ public class ItsasontziakKokatuUI extends JPanel{
 				} catch (EzinKokatu e) {}
 				break;
 
-			case "KORAZATUA":
+			case 1:
 				Korazatua k = new Korazatua();
 				try {
 					JokalariZerrenda.getJokalariZerrenda().hasierakoErasoaKokatu(k, 'h', x, y, jokalaria);
@@ -208,7 +209,7 @@ public class ItsasontziakKokatuUI extends JPanel{
 				} catch (EzinKokatu e) {}
 				break;
 				
-			case "HEGAZKIN GARRAIOLARIA":
+			case 2:
 				HegazkinGarraiolaria h = new HegazkinGarraiolaria();
 				try {
 					JokalariZerrenda.getJokalariZerrenda().hasierakoErasoaKokatu(h, 'h', x, y, jokalaria);

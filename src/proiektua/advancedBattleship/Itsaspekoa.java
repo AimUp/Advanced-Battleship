@@ -1,11 +1,12 @@
 package proiektua.advancedBattleship;
 
+import proiektua.advanncedBattleship.baliabideak.Textua;
 import proiektua.salbuespenak.Hondoratua;
 
 public class Itsaspekoa extends ItsasoIbilgailua{
 	
 	public Itsaspekoa(){
-		super("Itsaspekoa",15, 1);
+		super(Textua.itsaspekoa,15, 1);
 	}
 
 	@Override

@@ -1,11 +1,12 @@
 package proiektua.advancedBattleship;
 
+import proiektua.advanncedBattleship.baliabideak.Textua;
 import proiektua.salbuespenak.Hondoratua;
 
 public class HegazkinGarraiolaria extends ItsasoIbilgailua {
 	
 	public HegazkinGarraiolaria(){
-		super("Hegazkin Garraiolaria",8, 4);
+		super(Textua.HegazkinGarraiolaria,8, 4);
 	}
 
 	@Override
