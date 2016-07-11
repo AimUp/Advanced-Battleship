@@ -1,6 +1,7 @@
 package proiektua.advanncedBattleship.baliabideak;
 
 import javax.swing.ImageIcon;
+import java.awt.Image;
 
 public class Irudiak {
 	
@@ -8,6 +9,7 @@ public class Irudiak {
 	public static ImageIcon itsaspekoa;
 	public static ImageIcon radarBarkuak;
 	public static ImageIcon kasilaGorria;
+	public static Image ikonoa;
 	public static ImageIcon[] itsasontziak = new ImageIcon[10];
 	public static ImageIcon[] tiroak = new ImageIcon[2];
 	public static ImageIcon[] target = new ImageIcon[10];
@@ -22,6 +24,7 @@ public class Irudiak {
 		targetaKargatu();
 		korazatuaTargetKargatu();
 		kargatuRadarra();
+		ikonoaKargatu();
 	}
 	
 	private static void itsasontziakKargatu(){
@@ -121,4 +124,8 @@ public class Irudiak {
 		radarBarkuak = new ImageIcon(Irudiak.class.getResource("radarBarkua.png")); 
 	}
 	
+	private static void ikonoaKargatu(){
+		ImageIcon image = new ImageIcon(Irudiak.class.getResource("icon.png"));	
+		ikonoa = image.getImage(); 
+	}	
 }

@@ -24,3 +24,9 @@ public abstract class Main {
 		Leihoa.getLeihoa().panelaAldatu(new IzenakPanelaUI());
 	}
 }
+
+	//hizkuntza aldatu
+	//partida bukatzean partida berria
+	//partida bukatu eta berria hasi
+	//instrukzioak
+	//

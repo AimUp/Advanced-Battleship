@@ -24,6 +24,7 @@ public class Leihoa extends JFrame implements Observer{
 		Irudiak.kargatu();
 		Textua.kargatu();
 		setTitle("ADVANCED BATTLESHIP");
+		setIconImage(Irudiak.ikonoa);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	}
 
