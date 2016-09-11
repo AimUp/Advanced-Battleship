@@ -27,9 +27,13 @@ public class ErasoErosketaUI extends JPanel{
 
 	public ErasoErosketaUI(int i){
 		ListaErasoMota lem = Denda.getDenda().getKatalogoa();
+		setOpaque(true);
+		setBackground(new Color(245, 245, 245));
 		
 		setLayout(new BorderLayout());
 		JPanel motak = new JPanel(new BorderLayout());
+		motak.setOpaque(true);
+		motak.setBackground(new Color(245, 245, 245));
 		izena = new JLabel((i+1) + "- " + lem.posiziokoErasoaLortu(i).getIzena(), SwingConstants.CENTER);
 		JLabel l2 = new JLabel(lem.posiziokoErasoaLortu(i).informazioaInprimatu());
 		JLabel l3 = new JLabel(Textua.prezioa + String.valueOf(lem.posiziokoErasoaLortu(i).getPrezioa()), SwingConstants.CENTER);

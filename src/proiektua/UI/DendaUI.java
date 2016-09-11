@@ -1,6 +1,7 @@
 package proiektua.UI;
 
 import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -24,17 +25,14 @@ public class DendaUI extends JPanel{
 	public DendaUI(){
 		setLayout(new BorderLayout());
 		
-		JButton itzuli = new JButton(Textua.atzera);
-		itzuli.addActionListener(new ActionListener() {
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				String i = JokalariZerrenda.getJokalariZerrenda().getJokalariarenIzena(AdvancedBattleship.getAdvancedBattleship().unekoTxanda());
-				TableroenPanelaUI.getTableroenPanelaUI().aukerakAldatu(new AukerakPanelaUI(i));
-			}
-		});
-		add(itzuli, BorderLayout.NORTH);
+
+		int dirua = AdvancedBattleship.getAdvancedBattleship().unekoDirua();
+		JLabel diruKop = new JLabel(Textua.diruKop + dirua, SwingConstants.CENTER);
+		add(diruKop, BorderLayout.NORTH);
 		
 		JPanel erasoak = new JPanel(new GridLayout(7, 1,0,10));
+		erasoak.setOpaque(true);
+		erasoak.setBackground(new Color(245, 245, 245));
 		
 		JScrollPane scrollPane = new JScrollPane(erasoak, JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED, JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
 		scrollPane.setBorder(null);
@@ -47,8 +45,14 @@ public class DendaUI extends JPanel{
 	
 		add(scrollPane, BorderLayout.CENTER);
 		
-		int dirua = AdvancedBattleship.getAdvancedBattleship().unekoDirua();
-		JLabel diruKop = new JLabel(Textua.diruKop + dirua, SwingConstants.CENTER);
-		add(diruKop, BorderLayout.SOUTH);
+		JButton itzuli = new JButton(Textua.atzera);
+		itzuli.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				String i = JokalariZerrenda.getJokalariZerrenda().getJokalariarenIzena(AdvancedBattleship.getAdvancedBattleship().unekoTxanda());
+				TableroenPanelaUI.getTableroenPanelaUI().aukerakAldatu(new AukerakPanelaUI(i));
+			}
+		});
+		add(itzuli, BorderLayout.SOUTH);
 	}
 }

@@ -34,7 +34,7 @@ public class TableroenPanelaUI extends JPanel{
 		JokalariZerrenda.getJokalariZerrenda().tableroetanObservablea(0,tableroa1);
 		JokalariZerrenda.getJokalariZerrenda().tableroetanObservablea(1,tableroa2);
 		
-		Leihoa.getLeihoa().setSize(854, 322);
+		Leihoa.getLeihoa().setSize(854, 317);
 		setLayout(new BorderLayout());
 		
 		JPanel j = new JPanel();

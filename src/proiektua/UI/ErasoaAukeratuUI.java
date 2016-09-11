@@ -20,7 +20,7 @@ import proiektua.advancedBattleship.JokalariZerrenda;
 import proiektua.advancedBattleship.ListaErasoMota;
 import proiektua.advanncedBattleship.baliabideak.Textua;
 
-public class ErasoaAukeratuUI extends JPanel{
+public class ErasoaAukeratuUI extends JPanel implements ActionListener{
 
 	private static final long serialVersionUID = 1L;
 	private ListaErasoMota lem;
@@ -30,6 +30,16 @@ public class ErasoaAukeratuUI extends JPanel{
 		lem = JokalariZerrenda.getJokalariZerrenda().jokalariarenErasoMotak(AdvancedBattleship.getAdvancedBattleship().unekoTxanda());
 		
 		setLayout(new BorderLayout(0,10));
+		
+		JButton itzuli = new JButton(Textua.atzera);
+		itzuli.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				String i = JokalariZerrenda.getJokalariZerrenda().getJokalariarenIzena(AdvancedBattleship.getAdvancedBattleship().unekoTxanda());
+				TableroenPanelaUI.getTableroenPanelaUI().aukerakAldatu(new AukerakPanelaUI(i));
+			}
+		});
+		
 		JLabel erasoa = new JLabel(Textua.erasoAuk, SwingConstants.CENTER);
 		
 		JPanel aukerak = new JPanel(new GridLayout(lem.tamaina(),1,0,5));
@@ -37,24 +47,14 @@ public class ErasoaAukeratuUI extends JPanel{
 		for(int i=0; i<lem.tamaina();i++){
 			ErasoMota em = lem.posiziokoErasoaLortu(i);
 			JRadioButton bot = new JRadioButton((i+1)+"- "+em.getIzena());
+			bot.addActionListener(this);
 			botoiTaldea.add(bot);
 			aukerak.add(bot);
 		}
 		
-		JButton erasoBot = new JButton(Textua.erasoEgin);
-		erasoBot.addActionListener(new ActionListener() {
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				String izena = getSelectedButtonText(botoiTaldea);
-				if(izena!=null){
-					TableroenPanelaUI.getTableroenPanelaUI().erasoEgitekoPrest(biltauErasoMota(izena));
-				}
-			}
-		});
-		
 		add(erasoa, BorderLayout.NORTH);
 		add(aukerak, BorderLayout.CENTER);
-		add(erasoBot, BorderLayout.SOUTH);
+		add(itzuli, BorderLayout.SOUTH);
 	}
 	
 	public String getSelectedButtonText(ButtonGroup buttonGroup) {
@@ -70,5 +70,13 @@ public class ErasoaAukeratuUI extends JPanel{
 	private ErasoMota biltauErasoMota(String b){
 		int pos = Integer.parseInt(b.split("-")[0])-1;
 		return lem.posiziokoErasoaLortu(pos);
+	}
+
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		String izena = getSelectedButtonText(botoiTaldea);
+		if(izena!=null){
+			TableroenPanelaUI.getTableroenPanelaUI().erasoEgitekoPrest(biltauErasoMota(izena));
+		}
 	}
 }

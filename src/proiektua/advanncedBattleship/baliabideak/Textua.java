@@ -50,7 +50,7 @@ public class Textua {
 		eraso = "ERASO";
 		denda = "DENDA";
 		atzera = "ATZERA ITZULI";
-		diruKop = "Zure diru kopurua: ";
+		diruKop = "ZURE DIRU KOPURUA: ";
 		erasoAuk = "ERASOA AUKERATU";
 		erasoEgin = "ERASO EGIN";
 		prezioa = "PREZIOA: ";
@@ -82,7 +82,7 @@ public class Textua {
 		eraso = "ATAQUE";
 		denda = "TIENDA";
 		atzera = "VOLVER";
-		diruKop = "Tu cantidad de dinero: ";
+		diruKop = "TU DINERO: ";
 		erasoAuk = "SELECCIONA UN ATAQUE";
 		erasoEgin = "REALIZAR ATAQUE";
 		prezioa = "PRECIO: ";
@@ -114,7 +114,7 @@ public class Textua {
 		eraso = "ATACK";
 		denda = "SHOP";
 		atzera = "RETURN";
-		diruKop = "Your money: ";
+		diruKop = "YOUR MONEY: ";
 		erasoAuk = "CHOOSE YOUR ATACK";
 		erasoEgin = "ENGAGE ATACK";
 		prezioa = "PRICE: ";

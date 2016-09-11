@@ -21,6 +21,7 @@ public class Leihoa extends JFrame implements Observer{
 	private Leihoa() {
 		JokalariZerrenda.getJokalariZerrenda().addObserver(this);
 		AdvancedBattleship.getAdvancedBattleship().addObserver(this);
+		setResizable(false);
 		Irudiak.kargatu();
 		Textua.kargatu();
 		setTitle("ADVANCED BATTLESHIP");
