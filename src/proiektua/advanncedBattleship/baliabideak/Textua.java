@@ -33,6 +33,14 @@ public class Textua {
 	public static String izenakEzberdinak;
 	public static String izenaSartuBehar;
 	
+	public static String jokoa;
+	public static String laguntza;
+	public static String hizkuntza;
+	
+	public static String euskera;
+	public static String gaztelania;
+	public static String ingelesa;
+	
 	public static void kargatu(){
 		if(System.getProperty("user.language").equals("eu")){
 			euskeraKargatu();
@@ -76,6 +84,14 @@ public class Textua {
 		bigarrenJok = "BIGARREN JOKALARIA";
 		izenakEzberdinak = "IZENAK EZBERDINAK IZAN BEHAR DIRA";
 		izenaSartuBehar = "JOKALARIEN IZENAK SARTU BEHAR DIRA";
+		
+		jokoa = "Jokoa";
+		laguntza = "Laguntza";
+		hizkuntza = "Hizkuntza aldatu";
+		
+		euskera = "Euskera";
+		gaztelania = "Gaztelania";
+		ingelesa = "Ingelesa";
 	}
 	
 	public static void gaztelaniaKargatu(){ 
@@ -108,6 +124,14 @@ public class Textua {
 		bigarrenJok = "SEGUNDO JUGADOR";
 		izenakEzberdinak = "LOS NOMBRES DEBEN SER DISTINTOS";
 		izenaSartuBehar = "LOS NOMBRES NO PUEDEN ESTAR VACÍOS";	
+		
+		jokoa = "Juego";
+		laguntza = "Ayuda";
+		hizkuntza = "Cambiar de idioma";
+		
+		euskera = "Euskera";
+		gaztelania = "Castellano";
+		ingelesa = "Ingles";
 	}
 	
 	public static void ingelesaKargatu(){ 
@@ -140,5 +164,13 @@ public class Textua {
 		bigarrenJok = "SECOND PLAYER";
 		izenakEzberdinak = "THE NAMES MUST BE DIFFERENT";
 		izenaSartuBehar = "THE PLAYERS MUST HAVE A NAME";
+		
+		jokoa = "Game";
+		laguntza = "Help";
+		hizkuntza = "Swich language";
+		
+		euskera = "Basque";
+		gaztelania = "Spanish";
+		ingelesa = "English";
 	}
 }

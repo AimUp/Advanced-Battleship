@@ -34,7 +34,7 @@ public class ItsasontziakKokatuUI extends JPanel{
 		jokalaria=jokPos;
 		Leihoa.getLeihoa().setSize(284, 405);
 		setLayout(new BorderLayout());
-		Leihoa.getLeihoa().setJMenuBar(MenuaUI.getMenuaUI());
+		Leihoa.getLeihoa().setJMenuBar(new MenuaUI());
 		
 		JPanel TextuPanela = new JPanel();
 		TextuPanela.setLayout(new GridLayout(3, 1));

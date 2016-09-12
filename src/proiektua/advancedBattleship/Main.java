@@ -25,8 +25,6 @@ public abstract class Main {
 	}
 }
 
-	//hizkuntza aldatu
-	//partida bukatzean partida berria
-	//partida bukatu eta berria hasi
+	//hizkuntza aldatzean mezua eta berriz hasi.
+	//partida bukatzean partida berria hasi.
 	//instrukzioak
-	//

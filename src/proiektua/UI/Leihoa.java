@@ -47,6 +47,12 @@ public class Leihoa extends JFrame implements Observer{
 	public JPanel getUnekoPanela(){
 		return unekoPanela;
 	}
+	
+	public void menuaHasieratu(){
+		setJMenuBar(null);
+		setJMenuBar(new MenuaUI());
+		setVisible(true);
+	}
 
 	@Override
 	public void update(Observable o, Object arg) {
